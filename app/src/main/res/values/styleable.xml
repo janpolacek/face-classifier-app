@@ -1,0 +1,8 @@
+<resources>
+
+    <declare-styleable name="DetectionsView">
+        <attr name="rectanglesColor" format="color"/>
+        <attr name="rectanglesStrokeWidth" format="dimension"/>
+    </declare-styleable>
+
+</resources>

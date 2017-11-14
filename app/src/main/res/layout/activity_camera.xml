@@ -1,0 +1,40 @@
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <jp.faceclass.CameraOverlayLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <io.fotoapparat.view.CameraView
+            android:id="@+id/camera_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp"
+            tools:visibility="visible"/>
+
+        <jp.faceclass.DetectionsView
+            android:id="@+id/rectanglesView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rectanglesColor="@color/colorPrimaryDark"
+            app:rectanglesStrokeWidth="2dp"/>
+
+    </jp.faceclass.CameraOverlayLayout>
+
+    <TextView
+        android:id="@+id/no_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:text="No Camera permission granted."
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+</FrameLayout>
