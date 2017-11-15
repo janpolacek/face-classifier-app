@@ -13,6 +13,10 @@ public class TensorflowFaceDetector {
         System.loadLibrary("face_detect");
     }
 
+
+    public TensorflowFaceDetector() {
+    }
+
     public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees) {
         Detection detection = getDetectionWithArgs(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
         ArrayList<Detection> detections = new ArrayList<>();

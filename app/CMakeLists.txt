@@ -6,13 +6,15 @@
 cmake_minimum_required(VERSION 3.4.1)
 
 set(OPENCV_DIR ../thirdparty/opencv-3.3.1-android-sdk)
-include_directories(${OPENCV_DIR}/sdk/native/jni/include)
-
 add_library( lib_opencv SHARED IMPORTED )
 set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
 
 set(DLIB_DIR ../thirdparty/dlib-19.7)
 include(${DLIB_DIR}/dlib/cmake)
+
+include_directories(${OPENCV_DIR}/sdk/native/jni/include ${DLIB_DIR})
+
+
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -21,7 +23,9 @@ include(${DLIB_DIR}/dlib/cmake)
 
 
 
-add_library(face_detect SHARED src/main/cpp/face_detect.cpp )
+add_library(
+                face_detect SHARED src/main/cpp/face_detect.cpp
+)
 
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -43,6 +47,7 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
                      face_detect
+                     android
                      dlib
                      lib_opencv
                      jnigraphics
