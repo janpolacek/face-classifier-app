@@ -30,7 +30,7 @@ public class CameraOverlayLayout extends FrameLayout {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         final CameraView cameraView = findCameraView();
         final View textureView = findTextureView(cameraView);
-//        TODO: TOTO POZICIOVANIE JE DIVNE, nepouzit radsej cameraView?
+
         final int childrenCount = getChildCount();
 
         for (int i = 0; i < childrenCount; i++) {

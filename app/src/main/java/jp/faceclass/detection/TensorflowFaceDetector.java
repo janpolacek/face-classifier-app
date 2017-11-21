@@ -19,8 +19,9 @@ public class TensorflowFaceDetector {
 
     public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees) {
         Detection detection = getDetectionWithArgs(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
-        ArrayList<Detection> detections = new ArrayList<>();
 
+        ArrayList<Detection> detections = new ArrayList<>();
+        System.out.println(detection.getLeft());
         if(detection != null){
             detections.add(detection);
         }
