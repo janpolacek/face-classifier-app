@@ -14,24 +14,24 @@
 
 class FaceDetector{
 private:
-    const float THRESHOLD = .7;
-    std::string mLandMarkModel;
+//    std::string mLandMarkModel;
     dlib::frontal_face_detector mFaceDetector;
-    dlib::shape_predictor mShapePredictor;
+//    dlib::shape_predictor mShapePredictor;
     std::vector<dlib::rectangle> mDetections;
 
-    bool hasLandMarkModel = false;
+//    bool hasLandMarkModel = false;
     bool hasFaceDetector = false;
 
     void initDetector();
-    void loadLandMarkModel();
+//    void loadLandMarkModel();
     void rotateMatrix(cv::Mat &matImage, int rotFlag);
-    bool checkFileExists(const char *fileName);
+//    bool checkFileExists(const char *fileName);
 
 public:
     FaceDetector();
-    FaceDetector(std::string landMarkModel);
+//    FaceDetector(std::string landMarkModel);
     bool isInitialized();
+    int scaleValue = 2;
     int detectFaces(const cv::Mat& image);
     cv::Mat processN21Image(
         jbyte *nv21Image,

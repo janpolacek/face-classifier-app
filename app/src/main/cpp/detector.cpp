@@ -10,22 +10,16 @@
 
 
 FaceDetector::FaceDetector() {
-
-}
-
-FaceDetector::FaceDetector(std::string landMarkModel) {
     if(isInitialized()){
         return;
     }
-
-    mLandMarkModel = landMarkModel;
-    loadLandMarkModel();
     initDetector();
 }
 
 
+
 bool FaceDetector::isInitialized() {
-    return hasFaceDetector && hasLandMarkModel;
+    return hasFaceDetector;
 }
 
 int FaceDetector::detectFaces(const cv::Mat &image) {
@@ -37,22 +31,22 @@ int FaceDetector::detectFaces(const cv::Mat &image) {
         return 0;
     }
 
+
     dlib::cv_image<dlib::bgr_pixel> img(image);
-//    TODO: DOWNSCALE IMAGE
-//    mDetections = mFaceDetector(img, THRESHOLD);
-//    return (int) mDetections.size();
+
+    mDetections = mFaceDetector(img, -1);
+
+    return (int) mDetections.size();
 }
 
 cv::Mat FaceDetector::processN21Image(jbyte *nv21Image,
                                      jint frameWidth,
                                      jint frameHeight,
                                      jint frameRotationDegrees) {
-//    cv::Mat yuvMat = cv::Mat(frameHeight+frameHeight/2, frameWidth, CV_8UC1, (unsigned char*)nv21Image);
-//    cv::Mat bgrMat = cv::Mat(frameHeight, frameWidth, CV_8UC3);
-////        cvtColor(yuvMat, bgrMat, CV_YUV2BGRA_NV21);
-//    cv::cvtColor(yuvMat, bgrMat, CV_YUV2GRAY_NV21);
-//
-    cv::Mat yuvMat = cv::Mat(frameHeight+frameHeight/2, frameWidth, CV_8UC1, (unsigned char*)nv21Image);
+
+    cv::Mat frameMat = cv::Mat(frameHeight, frameWidth, CV_8UC1, (unsigned char*)nv21Image);
+    cv::Mat yuvMat = cv::Mat();
+    cv::pyrDown(frameMat, yuvMat);
 
     cv::Mat imgMat = cv::Mat(frameHeight, frameWidth, CV_8UC1);
     cv::cvtColor(yuvMat, imgMat, CV_YUV2BGR_I420);
@@ -81,22 +75,6 @@ void FaceDetector::initDetector() {
     hasFaceDetector = true;
 }
 
-void FaceDetector::loadLandMarkModel() {
-    if(hasLandMarkModel){
-        return;
-    }
-
-    if(mLandMarkModel.empty()){
-       return;
-    }
-
-    if(!checkFileExists(mLandMarkModel.c_str())){
-        return;
-    }
-
-    dlib::deserialize(mLandMarkModel) >> mShapePredictor;
-    hasLandMarkModel = true;
-}
 
 void FaceDetector::rotateMatrix(cv::Mat &matImage, int rotFlag) {
     //1=ClockWise
@@ -113,10 +91,6 @@ void FaceDetector::rotateMatrix(cv::Mat &matImage, int rotFlag) {
     }
 }
 
-bool FaceDetector::checkFileExists(const char *fileName) {
-    std::ifstream infile(fileName);
-    return infile.good();
-}
 
 std::vector<dlib::rectangle> FaceDetector::getDetections() {
     return mDetections;

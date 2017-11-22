@@ -9,7 +9,8 @@
 #include <dlib/opencv/cv_image.h>
 #include "detector.h"
 
-static FaceDetector faceDetector = FaceDetector("/sdcard/fcd/shape_predictor_68_face_landmarks.dat");;
+//static FaceDetector faceDetector = FaceDetector("/sdcard/fcd/shape_predictor_68_face_landmarks.dat");;
+static FaceDetector faceDetector = FaceDetector();
 
 extern "C"
 JNIEXPORT jobject JNICALL
@@ -28,6 +29,10 @@ Java_jp_faceclass_detection_TensorflowFaceDetector_getDetectionWithArgs(JNIEnv *
             frameRotationDegrees
     );
 
+    if(numberOfDetections == 0){
+        return NULL;
+    }
+
 
     jclass detectionClass = env->FindClass("jp/faceclass/detection/Detection");
 
@@ -40,7 +45,13 @@ Java_jp_faceclass_detection_TensorflowFaceDetector_getDetectionWithArgs(JNIEnv *
         return NULL;
     }
 
-    jobject detectionObject = env->NewObject(detectionClass, detectionClassConstructor, numberOfDetections, numberOfDetections, numberOfDetections, numberOfDetections);
+    dlib::rectangle detection = faceDetector.getDetections()[0];
+    jobject detectionObject = env->NewObject(detectionClass, detectionClassConstructor,
+                                             detection.left()*faceDetector.scaleValue,
+                                             detection.top()*faceDetector.scaleValue,
+                                             detection.width()*faceDetector.scaleValue,
+                                             detection.height()*faceDetector.scaleValue
+    );
 
     if(detectionObject == NULL){
         return NULL;
