@@ -19,6 +19,7 @@ private:
 //    dlib::shape_predictor mShapePredictor;
     std::vector<dlib::rectangle> mDetections;
 
+
 //    bool hasLandMarkModel = false;
     bool hasFaceDetector = false;
 
@@ -31,8 +32,12 @@ public:
     FaceDetector();
 //    FaceDetector(std::string landMarkModel);
     bool isInitialized();
-    int scaleValue = 2;
+    int scaleValue = 6;
+    int frameCount = 0;
     int detectFaces(const cv::Mat& image);
+    bool saveToFile(cv::Mat mat, int frameCount, int step);
+    bool saveToFile(dlib:: cv_image<unsigned char> img, int frameCount, int step);
+
     cv::Mat processN21Image(
         jbyte *nv21Image,
         jint frameWidth,

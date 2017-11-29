@@ -12,52 +12,104 @@
 //static FaceDetector faceDetector = FaceDetector("/sdcard/fcd/shape_predictor_68_face_landmarks.dat");;
 static FaceDetector faceDetector = FaceDetector();
 
+typedef struct _JNI_POSREC {
+    jclass cls;
+    jmethodID constructortorID;
+    jfieldID leftID;
+    jfieldID topID;
+    jfieldID rightID;
+    jfieldID bottomID;
+} JNI_POSREC;
+
+JNI_POSREC * jniPosRec = NULL;
+
+struct Detection {
+    int left;
+    int top;
+    int right;
+    int bottom;
+};
+
+void LoadJniDetectionClass(JNIEnv * env) {
+
+    if (jniPosRec != NULL)
+        return;
+
+    jniPosRec = new JNI_POSREC;
+
+    jniPosRec->cls = env->FindClass("jp/faceclass/detection/Detection");
+
+    if(jniPosRec->cls != NULL)
+        printf("sucessfully created class");
+
+    jniPosRec->constructortorID = env->GetMethodID(jniPosRec->cls, "<init>", "()V");
+    if(jniPosRec->constructortorID != NULL){
+        printf("sucessfully created ctorID");
+    }
+
+    jniPosRec->leftID = env->GetFieldID(jniPosRec->cls, "left", "I");
+    jniPosRec->topID = env->GetFieldID(jniPosRec->cls, "top", "I");
+    jniPosRec->rightID = env->GetFieldID(jniPosRec->cls, "right", "I");
+    jniPosRec->bottomID = env->GetFieldID(jniPosRec->cls, "bottom", "I");
+}
+
+
+void FillDetectionValuesToJni(JNIEnv * env, jobject jPosRec, Detection* pDetection) {
+    jint left = (jint) pDetection->left;
+    env->SetIntField(jPosRec, jniPosRec->leftID, left);
+
+    jint top = (jint) pDetection->top;
+    env->SetIntField(jPosRec, jniPosRec->topID, top);
+
+    jint right = (jint) pDetection->right;
+    env->SetIntField(jPosRec, jniPosRec->rightID, right);
+
+    jint bottom = (jint) pDetection->bottom;
+    env->SetIntField(jPosRec, jniPosRec->bottomID, bottom);
+}
+
 extern "C"
-JNIEXPORT jobject JNICALL
-Java_jp_faceclass_detection_TensorflowFaceDetector_getDetectionWithArgs(JNIEnv *env,
-                                                                        jobject instance,
-                                                                        jbyteArray nv21Image_,
-                                                                        jint frameWidth,
-                                                                        jint frameHeight,
-                                                                        jint frameRotationDegrees) {
+JNIEXPORT jobjectArray JNICALL
+Java_jp_faceclass_detection_TensorflowFaceDetector_getDetections(JNIEnv *env, jobject instance,
+                                                                 jbyteArray nv21Image_,
+                                                                 jint frameWidth, jint frameHeight,
+                                                                 jint frameRotationDegrees) {
     jbyte *nv21Image = env->GetByteArrayElements(nv21Image_, NULL);
 
-    int numberOfDetections = faceDetector.detectFromUnprocessed(
+    jniPosRec = NULL;
+    LoadJniDetectionClass(env);
+
+    faceDetector.detectFromUnprocessed(
             nv21Image,
             frameWidth,
             frameHeight,
             frameRotationDegrees
     );
 
-    if(numberOfDetections == 0){
-        return NULL;
+    std::vector<dlib::rectangle> detections = faceDetector.getDetections();
+    jobjectArray jDetArray = env->NewObjectArray((jint)detections.size(), jniPosRec->cls, NULL);
+
+    if(!detections.size() > 0){
+
+        return jDetArray;
     }
 
+    for (size_t i = 0; i < detections.size(); i++) {
+        jobject jPosRec = env->NewObject(jniPosRec->cls, jniPosRec->constructortorID);
 
-    jclass detectionClass = env->FindClass("jp/faceclass/detection/Detection");
+        Detection *cDet = new Detection();
+        cDet->left = (int) detections[i].left() * faceDetector.scaleValue;
+        cDet->top = (int) detections[i].top() * faceDetector.scaleValue;
+        cDet->right = (int) detections[i].right() * faceDetector.scaleValue;
+        cDet->bottom = (int) detections[i].bottom() * faceDetector.scaleValue;
 
-    if(detectionClass == NULL){
-        return NULL;
-    }
-    jmethodID detectionClassConstructor = env->GetMethodID(detectionClass, "<init>", "(IIII)V");
-
-    if(detectionClassConstructor == NULL){
-        return NULL;
-    }
-
-    dlib::rectangle detection = faceDetector.getDetections()[0];
-    jobject detectionObject = env->NewObject(detectionClass, detectionClassConstructor,
-                                             detection.left()*faceDetector.scaleValue,
-                                             detection.top()*faceDetector.scaleValue,
-                                             detection.width()*faceDetector.scaleValue,
-                                             detection.height()*faceDetector.scaleValue
-    );
-
-    if(detectionObject == NULL){
-        return NULL;
+        FillDetectionValuesToJni(env, jPosRec, cDet);
+        env->SetObjectArrayElement(jDetArray, i, jPosRec);
     }
 
+    // TODO
 
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);
-    return detectionObject;
+
+    return jDetArray;
 }

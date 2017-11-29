@@ -4,10 +4,14 @@
 # Sets the minimum version of CMake required to build the native library.
 
 cmake_minimum_required(VERSION 3.4.1)
+add_definitions(-DOS_ANDROID)
 
 set(OPENCV_DIR ../thirdparty/opencv-3.3.1-android-sdk)
 add_library( lib_opencv SHARED IMPORTED )
 set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
+
+include(${OPENCV_DIR}/sdk/native/jni/OpenCVConfig.cmake)
+
 
 set(DLIB_DIR ../thirdparty/dlib-19.7)
 include(${DLIB_DIR}/dlib/cmake)
@@ -25,6 +29,11 @@ include_directories(${OPENCV_DIR}/sdk/native/jni/include ${DLIB_DIR})
 add_library(
                 face_detect SHARED src/main/cpp/face_detect.cpp
                 src/main/cpp/detector.cpp
+                ${DLIB_DIR}//dlib/threads/threads_kernel_shared.cpp
+                ${DLIB_DIR}/dlib/entropy_decoder/entropy_decoder_kernel_2.cpp
+                ${DLIB_DIR}/dlib/base64/base64_kernel_1.cpp
+                ${DLIB_DIR}/dlib/threads/threads_kernel_1.cpp
+                ${DLIB_DIR}/dlib/threads/threads_kernel_2.cpp
 )
 
 
@@ -48,9 +57,10 @@ find_library( # Sets the name of the path variable.
 target_link_libraries( # Specifies the target library.
                      face_detect
                      android
-                     dlib
+                     dlib::dlib
                      lib_opencv
                      jnigraphics
                      # Links the target library to the log library
                      # included in the NDK.
-                     ${log-lib} )
+                     ${log-lib}
+)

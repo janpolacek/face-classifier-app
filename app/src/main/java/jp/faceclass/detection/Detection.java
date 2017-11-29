@@ -8,17 +8,15 @@ public class Detection {
     private int top;
     private int right;
     private int bottom;
-    private RectF rectangle;
 
     public Detection() {
     }
 
-    public Detection(int x, int y, int width, int height) {
+    public Detection(int x, int y, int r, int b) {
         left = x;
         top = y;
-        right = left + width;
-        bottom = top + height;
-        rectangle = new RectF(left, top, right, bottom);
+        right = r;
+        bottom = b;
     }
 
     public int getLeft() {
@@ -54,6 +52,6 @@ public class Detection {
     }
 
     public RectF getRectangle() {
-        return rectangle;
+        return new RectF(left, top, right, bottom);
     }
 }

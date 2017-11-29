@@ -7,7 +7,9 @@
 #include <opencv2/imgproc/types_c.h>
 #include <opencv2/imgproc.hpp>
 #include "detector.h"
-
+#include <opencv2/opencv.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <dlib/image_saver/save_png.h>
 
 FaceDetector::FaceDetector() {
     if(isInitialized()){
@@ -31,10 +33,18 @@ int FaceDetector::detectFaces(const cv::Mat &image) {
         return 0;
     }
 
+    dlib::cv_image<unsigned char> img(image);
 
-    dlib::cv_image<dlib::bgr_pixel> img(image);
+    mDetections = mFaceDetector(img, 0);
 
-    mDetections = mFaceDetector(img, -1);
+    for(int i=0; i < mDetections.size(); i++){
+        dlib::draw_rectangle(img, mDetections[i], dlib::rgb_pixel(255, 0, 0), 1);
+    }
+
+    if(mDetections.size() > 0){
+        saveToFile(img, frameCount, 6);
+    }
+
 
     return (int) mDetections.size();
 }
@@ -44,25 +54,28 @@ cv::Mat FaceDetector::processN21Image(jbyte *nv21Image,
                                      jint frameHeight,
                                      jint frameRotationDegrees) {
 
-    cv::Mat frameMat = cv::Mat(frameHeight, frameWidth, CV_8UC1, (unsigned char*)nv21Image);
-    cv::Mat yuvMat = cv::Mat();
-    cv::pyrDown(frameMat, yuvMat);
+    cv::Mat yuvMat = cv::Mat(frameHeight + frameHeight/2, frameWidth, CV_8UC1, (unsigned char*)nv21Image);
+    cv::Mat bgrMat = cv::Mat(frameHeight, frameWidth, CV_8UC1);
 
-    cv::Mat imgMat = cv::Mat(frameHeight, frameWidth, CV_8UC1);
-    cv::cvtColor(yuvMat, imgMat, CV_YUV2BGR_I420);
+    cv::cvtColor(yuvMat, bgrMat, CV_YUV2GRAY_NV21);
+    saveToFile(bgrMat, frameCount, 3);
 
-//    cv::Mat imgMat = cv::Mat(frameHeight, frameWidth, CV_8UC3);
-//    cv::cvtColor(yuvMat, imgMat, CV_YUV2BGR_I420);
+    cv::Mat scaledMat = cv::Mat();
+    cv::resize(bgrMat, scaledMat, cv::Size(bgrMat.cols/scaleValue, bgrMat.rows/scaleValue));
+    saveToFile(scaledMat, frameCount, 4);
+
 
     if(frameRotationDegrees == 90) {
-        rotateMatrix(imgMat, 1);
+        rotateMatrix(scaledMat, 2);
     } else if(frameRotationDegrees == 180) {
-        rotateMatrix(imgMat, 3);
+        rotateMatrix(scaledMat, 3);
     } else if(frameRotationDegrees == 270 || frameRotationDegrees == -90) {
-        rotateMatrix(imgMat, 2);
+        rotateMatrix(scaledMat, 1);
     }
 
-    return imgMat;
+    saveToFile(scaledMat, frameCount, 5);
+
+    return scaledMat;
 }
 
 
@@ -103,9 +116,27 @@ int FaceDetector::detectFromUnprocessed(jbyte *nv21Image, jint frameWidth, jint 
         return 0;
     }
 
+    frameCount++;
+
     cv::Mat processed = processN21Image(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
     return detectFaces(processed);
 }
 
+bool FaceDetector::saveToFile(cv::Mat mat, int frameCount, int step) {
+    std::stringstream ss;
+    ss.clear();
+    ss << "/sdcard/detections/" << frameCount << "-" << step <<  ".png";
+    dlib::cv_image<unsigned char> img(mat);
+    dlib::save_png(img, ss.str());
+    return false;
+}
+
+bool FaceDetector::saveToFile(dlib::cv_image<unsigned char> img, int frameCount, int step) {
+    std::stringstream ss;
+    ss.clear();
+    ss << "/sdcard/detections/" << frameCount << "-" << step <<  ".png";
+    dlib::save_png(img, ss.str());
+    return false;
+}
 
 

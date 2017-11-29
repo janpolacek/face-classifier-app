@@ -4,31 +4,37 @@ import android.content.res.AssetManager;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
 public class TensorflowFaceDetector {
 
+    public static boolean isProcessing = false;
+
     static {
         System.loadLibrary("face_detect");
     }
 
+    public static String TAG = "TensorflowFaceDetector";
 
     public TensorflowFaceDetector() {
     }
 
     public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees) {
-        Detection detection = getDetectionWithArgs(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
+        isProcessing = true;
+        long startTime = System.currentTimeMillis();
 
-        ArrayList<Detection> detections = new ArrayList<>();
-        System.out.println(detection.getLeft());
-        if(detection != null){
-            detections.add(detection);
-        }
+        Detection[] detectionsArray = getDetections(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
+        List<Detection> detections = Arrays.asList(detectionsArray);
 
+        long estimatedTime = System.currentTimeMillis() - startTime;
+
+        Log.d(TAG, "detections:" + detections.size() + ", processing:" + isProcessing + ",time:" + estimatedTime);
+        isProcessing = false;
         return detections;
     }
 
-
-    public native Detection getDetectionWithArgs(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees);
+    public native Detection[] getDetections(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees);
 }

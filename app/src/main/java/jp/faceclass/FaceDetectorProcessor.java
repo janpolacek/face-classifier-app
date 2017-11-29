@@ -32,6 +32,10 @@ public class FaceDetectorProcessor implements FrameProcessor {
 
     @Override
     public void processFrame(Frame frame) {
+        if(TensorflowFaceDetector.isProcessing){
+           return;
+        }
+
         final List<Detection> faces = tensorflowFaceDetector.detectFaces(
                 frame.image,
                 frame.size.width,

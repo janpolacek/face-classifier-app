@@ -89,7 +89,7 @@ public class CameraActivity extends AppCompatActivity {
                 .with(this)
                 .cameraProvider(CameraProviders.v1()) // change this to v2 to test Camera2 API
                 .into(cameraView)
-                .previewScaleType(ScaleType.CENTER_CROP)
+                .previewScaleType(ScaleType.CENTER_INSIDE)
                 .photoSize(standardRatio(biggestSize()))
                 .lensPosition(lensPosition(position))
                 .focusMode(firstAvailable(
@@ -97,8 +97,8 @@ public class CameraActivity extends AppCompatActivity {
                         autoFocus(),
                         fixed()
                 ))
-                .previewFpsRange(rangeWithHighestFps())
-                .sensorSensitivity(highestSensorSensitivity())
+//                .previewFpsRange(rangeWithHighestFps())
+//                .sensorSensitivity(highestSensorSensitivity())
                 .frameProcessor(FaceDetectorProcessor.with(this)
                         .listener(new FaceDetectorProcessor.OnFacesDetectedListener() {
                             @Override
