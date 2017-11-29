@@ -29,7 +29,7 @@ include_directories(${OPENCV_DIR}/sdk/native/jni/include ${DLIB_DIR})
 add_library(
                 face_detect SHARED src/main/cpp/face_detect.cpp
                 src/main/cpp/detector.cpp
-                ${DLIB_DIR}//dlib/threads/threads_kernel_shared.cpp
+                ${DLIB_DIR}/dlib/threads/threads_kernel_shared.cpp
                 ${DLIB_DIR}/dlib/entropy_decoder/entropy_decoder_kernel_2.cpp
                 ${DLIB_DIR}/dlib/base64/base64_kernel_1.cpp
                 ${DLIB_DIR}/dlib/threads/threads_kernel_1.cpp

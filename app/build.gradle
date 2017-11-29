@@ -21,18 +21,23 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -Wall -Werror -fexceptions -std=c++11 -03 -mfpu=neon -fprofile-use"
+                cppFlags "-frtti -Wall -Werror -fexceptions -std=c++11 -O3 -Ofast -mavx -msse2 -mfpu=neon -fprofile-use -fno-exceptions "
                 arguments "-DANDROID_STL=c++_shared",
                         "-DCMAKE_CXX_FLAGS=-std=c++11",
                         "-DCMAKE_ANDROID_STL_TYPE=gnustl_static",
                         "-DUSE_SSE4_INSTRUCTIONS=ON",
-                        "-DUSE_AVX_INSTRUCTIONS=ON"
+                        "-DUSE_AVX_INSTRUCTIONS=ON",
+                        "-DDLIB_USE_BLAS=ON",
+                        "-DDLIB_USE_LAPACK=ON",
+                        "-DNDEBUG=ON",
+                        "-DDLIB_DISABLE_ASSERT=ON"
                 abiFilters 'x86', 'armeabi-v7a', 'arm64-v8a'
             }
         }
     }
     buildTypes {
         release {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
