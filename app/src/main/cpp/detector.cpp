@@ -123,6 +123,7 @@ int FaceDetector::detectFromUnprocessed(jbyte *nv21Image, jint frameWidth, jint 
 }
 
 bool FaceDetector::saveToFile(cv::Mat mat, int frameCount, int step) {
+    return false;
     std::stringstream ss;
     ss.clear();
     ss << "/sdcard/detections/" << frameCount << "-" << step <<  ".png";
@@ -132,6 +133,7 @@ bool FaceDetector::saveToFile(cv::Mat mat, int frameCount, int step) {
 }
 
 bool FaceDetector::saveToFile(dlib::cv_image<unsigned char> img, int frameCount, int step) {
+    return false;
     std::stringstream ss;
     ss.clear();
     ss << "/sdcard/detections/" << frameCount << "-" << step <<  ".png";
