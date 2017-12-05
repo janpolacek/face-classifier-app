@@ -15,7 +15,6 @@
 #include <vector>
 #include <unordered_map>
 
-int frameCount = 0;
 
 class DLibHOGFaceDetector {
 private:
@@ -25,6 +24,7 @@ private:
     dlib::shape_predictor msp;
     std::unordered_map<int, dlib::full_object_detection> mFaceShapeMap;
     dlib::frontal_face_detector mFaceDetector;
+    int frameCount = 0;
 
     inline void init() {
         mFaceDetector = dlib::get_frontal_face_detector();
@@ -64,11 +64,10 @@ public:
         if (scale != 1.0) {
             cv::Mat outputMat;
             cv::resize(src_img, outputMat,
-                       cv::Size(img_width * scale, img_height * scale));
+                       cv::Size((int) (img_width * scale), (int) (img_height * scale)));
             src_img = outputMat;
         }
 
-        // cv::resize(src_img, src_img, cv::Size(320, 240));
         dlib::cv_image<unsigned char> cimg(src_img);
 
         double thresh = 0.5;
@@ -84,8 +83,62 @@ public:
         return (int) mRets.size();
     }
 
+    void rotateMatrix(cv::Mat &matImage, int rotFlag) {
+        //1=ClockWise
+        //2=CounterClockWise
+        //3=180degree
+        if (rotFlag == 1) {
+            cv::transpose(matImage, matImage);
+            cv::flip(matImage, matImage, 1);
+        } else if (rotFlag == 2) {
+            transpose(matImage, matImage);
+            cv::flip(matImage, matImage, 0);
+        } else if (rotFlag == 3) {
+            cv::flip(matImage, matImage, -1);
+        }
+    }
+
+    bool saveToFile(cv::Mat mat, int frameCount, int step) {
+        return false;
+        std::stringstream ss;
+        ss.clear();
+        ss << "/sdcard/detections/" << frameCount << "-" << step << ".png";
+        dlib::cv_image<unsigned char> img(mat);
+        dlib::save_png(img, ss.str());
+        return false;
+    }
+
+    cv::Mat processFrame(jbyte *nv21Image,
+                         jint frameWidth,
+                         jint frameHeight,
+                         jint frameRotationDegrees) {
+
+        cv::Mat yuvMat = cv::Mat(frameHeight + frameHeight / 2, frameWidth, CV_8UC1,
+                                 (unsigned char *) nv21Image);
+        cv::Mat bgrMat = cv::Mat(frameHeight, frameWidth, CV_8UC1);
+
+        cv::cvtColor(yuvMat, bgrMat, CV_YUV2GRAY_NV21);
+        saveToFile(bgrMat, frameCount, 3);
+
+        cv::Mat scaledMat = cv::Mat();
+        cv::resize(bgrMat, scaledMat, cv::Size(bgrMat.cols / scaleValue, bgrMat.rows / scaleValue));
+        saveToFile(scaledMat, frameCount, 4);
+
+
+        if (frameRotationDegrees == 90) {
+            rotateMatrix(scaledMat, 2);
+        } else if (frameRotationDegrees == 180) {
+            rotateMatrix(scaledMat, 3);
+        } else if (frameRotationDegrees == 270 || frameRotationDegrees == -90) {
+            rotateMatrix(scaledMat, 1);
+        }
+
+        saveToFile(scaledMat, frameCount, 5);
+
+        return scaledMat;
+    }
+
     virtual inline int det(dlib::cv_image<unsigned char> image) {
-        frameCount++;
         mRets = mFaceDetector(image, 0);
         mFaceShapeMap.clear();
         // Process shape
@@ -102,10 +155,11 @@ public:
         return mFaceShapeMap;
     }
 
-    inline std::vector<dlib::rectangle> getResult() { return mRets; }
+    virtual inline std::vector<dlib::rectangle> getResult() { return mRets; }
 
     virtual ~DLibHOGFaceDetector() {}
 
+    int scaleValue = 6;
 protected:
     std::vector<dlib::rectangle> mRets;
     std::string mModelPath;
@@ -122,17 +176,6 @@ bool dirExists(const char *name) {
 }
 
 
-bool saveToFile(cv::Mat mat, int frameCount, int step) {
-    return false;
-    std::stringstream ss;
-    ss.clear();
-    ss << "/sdcard/detections/" << frameCount << "-" << step << ".png";
-    dlib::cv_image<unsigned char> img(mat);
-    dlib::save_png(img, ss.str());
-    return false;
-}
-
-
 bool saveToFile(dlib::cv_image<unsigned char> img, int frameCount, int step) {
     return false;
     std::stringstream ss;
@@ -142,47 +185,3 @@ bool saveToFile(dlib::cv_image<unsigned char> img, int frameCount, int step) {
     return false;
 }
 
-void rotateMatrix(cv::Mat &matImage, int rotFlag) {
-    //1=ClockWise
-    //2=CounterClockWise
-    //3=180degree
-    if (rotFlag == 1) {
-        cv::transpose(matImage, matImage);
-        cv::flip(matImage, matImage, 1);
-    } else if (rotFlag == 2) {
-        transpose(matImage, matImage);
-        cv::flip(matImage, matImage, 0);
-    } else if (rotFlag == 3) {
-        cv::flip(matImage, matImage, -1);
-    }
-}
-
-cv::Mat processFrame(jbyte *nv21Image,
-                        jint frameWidth,
-                        jint frameHeight,
-                        jint frameRotationDegrees) {
-
-    cv::Mat yuvMat = cv::Mat(frameHeight + frameHeight / 2, frameWidth, CV_8UC1,
-                             (unsigned char *) nv21Image);
-    cv::Mat bgrMat = cv::Mat(frameHeight, frameWidth, CV_8UC1);
-
-    cv::cvtColor(yuvMat, bgrMat, CV_YUV2GRAY_NV21);
-    saveToFile(bgrMat, frameCount, 3);
-
-    cv::Mat scaledMat = cv::Mat();
-    cv::resize(bgrMat, scaledMat, cv::Size(bgrMat.cols / 6, bgrMat.rows / 6));
-    saveToFile(scaledMat, frameCount, 4);
-
-
-    if (frameRotationDegrees == 90) {
-        rotateMatrix(scaledMat, 2);
-    } else if (frameRotationDegrees == 180) {
-        rotateMatrix(scaledMat, 3);
-    } else if (frameRotationDegrees == 270 || frameRotationDegrees == -90) {
-        rotateMatrix(scaledMat, 1);
-    }
-
-    saveToFile(scaledMat, frameCount, 5);
-
-    return scaledMat;
-}

@@ -82,10 +82,9 @@ Java_jp_faceclass_detection_TensorflowFaceDetector_getDetections(JNIEnv *env, jo
     jniPosRec = NULL;
     LoadJniDetectionClass(env);
 
-    cv:: Mat processed = processFrame(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
+    cv:: Mat processed = detPtr->processFrame(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
     dlib::cv_image<unsigned char> img(processed);
-    detPtr->det(processed);
-
+    detPtr->det(img);
     std::vector<dlib::rectangle> detections = detPtr->getResult();
 
     jobjectArray jDetArray = env->NewObjectArray((jint)detections.size(), jniPosRec->cls, NULL);
@@ -98,10 +97,10 @@ Java_jp_faceclass_detection_TensorflowFaceDetector_getDetections(JNIEnv *env, jo
         jobject jPosRec = env->NewObject(jniPosRec->cls, jniPosRec->constructortorID);
 
         Detection *cDet = new Detection();
-        cDet->left = (int) detections[i].left() * 6;
-        cDet->top = (int) detections[i].top() * 6;
-        cDet->right = (int) detections[i].right() * 6;
-        cDet->bottom = (int) detections[i].bottom() * 6;
+        cDet->left = (int) detections[i].left() * detPtr->scaleValue;
+        cDet->top = (int) detections[i].top() * detPtr->scaleValue;
+        cDet->right = (int) detections[i].right() * detPtr->scaleValue;
+        cDet->bottom = (int) detections[i].bottom() * detPtr->scaleValue;
 
         FillDetectionValuesToJni(env, jPosRec, cDet);
         env->SetObjectArrayElement(jDetArray, i, jPosRec);
