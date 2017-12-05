@@ -10,6 +10,7 @@
 #include <dlib/image_saver/save_png.h>
 #include "detector.h"
 
+
 typedef struct _JNI_POSREC {
     jclass cls;
     jmethodID constructortorID;
