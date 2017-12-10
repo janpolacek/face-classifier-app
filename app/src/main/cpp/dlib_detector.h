@@ -62,13 +62,17 @@ public:
         mRets = mFaceDetector(image, 0);
         mFaceShapeMap.clear();
         // Process shape
-        if (mRets.size() != 0 && !mLandMarkModel.empty()) {
-            for (unsigned long j = 0; j < mRets.size(); ++j) {
-                dlib::full_object_detection shape = msp(image, mRets[j]);
-                mFaceShapeMap[j] = shape;
-            }
-        }
+//        if (mRets.size() != 0 && !mLandMarkModel.empty()) {
+//            for (unsigned long j = 0; j < mRets.size(); ++j) {
+//                dlib::full_object_detection shape = msp(image, mRets[j]);
+//                mFaceShapeMap[j] = shape;
+//            }
+//        }
         return (int) mRets.size();
+    }
+
+    inline int extractChipsFromOriginal(int scale){
+
     }
 
     std::unordered_map<int, dlib::full_object_detection> &getFaceShapeMap() {

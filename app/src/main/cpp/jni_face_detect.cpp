@@ -107,19 +107,21 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
     }
 
 
+//
+//    std::unordered_map<int, dlib::full_object_detection>& faceShapeMap =
+//            detPtr->getFaceShapeMap();
 
-    std::unordered_map<int, dlib::full_object_detection>& faceShapeMap =
-            detPtr->getFaceShapeMap();
+//    dlib::array<dlib::array2d<unsigned char>> face_chips;
 
-    for (int i = 0; i < detections.size(); i++) {
-        if(faceShapeMap.find(i) != faceShapeMap.end()){
-            dlib::full_object_detection shape = faceShapeMap[i];
-            for (int j = 0; j < shape.num_parts(); j++) {
-                int x = (int) shape.part(j).x();
-                int y = (int) shape.part(j).y();
-            }
-        }
-    }
+//    for (int i = 0; i < detections.size(); i++) {
+//        if(faceShapeMap.find(i) != faceShapeMap.end()){
+//            dlib::full_object_detection shape = faceShapeMap[i];
+//            for (int j = 0; j < shape.num_parts(); j++) {
+//                int x = (int) shape.part(j).x();
+//                int y = (int) shape.part(j).y();
+//            }
+//        }
+//    }
 
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);
 
