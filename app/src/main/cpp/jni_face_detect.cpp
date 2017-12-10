@@ -78,10 +78,10 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
                                                                  jint frameWidth, jint frameHeight,
                                                                  jint frameRotationDegrees) {
     jbyte *nv21Image = env->GetByteArrayElements(nv21Image_, NULL);
-
     jniPosRec = NULL;
     LoadJniDetectionClass(env);
 
+    //detection
     cv:: Mat processed = detPtr->processFrame(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
     dlib::cv_image<unsigned char> img(processed);
     detPtr->det(img);
@@ -93,7 +93,7 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
         return jDetArray;
     }
 
-    for (size_t i = 0; i < detections.size(); i++) {
+    for (int i = 0; i < detections.size(); i++) {
         jobject jPosRec = env->NewObject(jniPosRec->cls, jniPosRec->constructortorID);
 
         Detection *cDet = new Detection();
@@ -104,6 +104,21 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
 
         FillDetectionValuesToJni(env, jPosRec, cDet);
         env->SetObjectArrayElement(jDetArray, i, jPosRec);
+    }
+
+
+
+    std::unordered_map<int, dlib::full_object_detection>& faceShapeMap =
+            detPtr->getFaceShapeMap();
+
+    for (int i = 0; i < detections.size(); i++) {
+        if(faceShapeMap.find(i) != faceShapeMap.end()){
+            dlib::full_object_detection shape = faceShapeMap[i];
+            for (int j = 0; j < shape.num_parts(); j++) {
+                int x = (int) shape.part(j).x();
+                int y = (int) shape.part(j).y();
+            }
+        }
     }
 
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);

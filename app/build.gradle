@@ -5,8 +5,6 @@ android {
         config {
             storeFile file('/home/jan/android.jks')
             keyAlias 'android'
-            keyPassword 'Polacek4#'
-            storePassword 'Polacek4#'
         }
     }
     compileSdkVersion 26
