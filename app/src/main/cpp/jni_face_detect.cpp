@@ -73,7 +73,7 @@ void FillDetectionValuesToJni(JNIEnv * env, jobject jPosRec, Detection* pDetecti
 
 extern "C"
 JNIEXPORT jobjectArray JNICALL
-Java_jp_faceclass_detection_TensorflowFaceDetector_getDetections(JNIEnv *env, jobject instance,
+Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject instance,
                                                                  jbyteArray nv21Image_,
                                                                  jint frameWidth, jint frameHeight,
                                                                  jint frameRotationDegrees) {

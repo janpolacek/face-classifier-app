@@ -4,6 +4,9 @@ android {
     signingConfigs {
         config {
             storeFile file('/home/jan/android.jks')
+            keyAlias 'android'
+            keyPassword 'Polacek4#'
+            storePassword 'Polacek4#'
         }
     }
     compileSdkVersion 26
@@ -21,10 +24,18 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -Wall -Werror -fexceptions -std=c++11 -O3 -Ofast -mavx -msse2 -mfpu=neon -fprofile-use -fno-exceptions "
+                cppFlags "-frtti -Wall" +
+                        " -Werror -fexceptions" +
+                        " -std=c++11 -O2 -Ofast" +
+                        " -mavx -msse2" +
+                        "-j4"
+                        " -mfloat-abi=softfp -mfpu=neon" +
+                        " -fprofile-use -fno-exceptions "
+
                 arguments "-DANDROID_STL=c++_shared",
                         "-DCMAKE_CXX_FLAGS=-std=c++11",
                         "-DCMAKE_ANDROID_STL_TYPE=gnustl_static",
+                        "-DUSE_SSE2_INSTRUCTIONS=ON",
                         "-DUSE_SSE4_INSTRUCTIONS=ON",
                         "-DUSE_AVX_INSTRUCTIONS=ON",
                         "-DDLIB_USE_BLAS=ON",

@@ -19,16 +19,10 @@ include(${DLIB_DIR}/dlib/cmake)
 include_directories(${OPENCV_DIR}/sdk/native/jni/include ${DLIB_DIR})
 
 
-# Creates and names a library, sets it as either STATIC
-# or SHARED, and provides the relative paths to its source code.
-# You can define multiple libraries, and CMake builds them for you.
-# Gradle automatically packages shared libraries with your APK.
-
-
-
 add_library(
                 face_detect SHARED src/main/cpp/jni_face_detect.cpp
                 src/main/cpp/detector.h
+                src/main/cpp/utils.cpp
 )
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 import io.fotoapparat.preview.Frame;
 import io.fotoapparat.preview.FrameProcessor;
 import jp.faceclass.detection.Detection;
-import jp.faceclass.detection.TensorflowFaceDetector;
+import jp.faceclass.detection.DlibFaceDetecor;
 
 
 public class FaceDetectorProcessor implements FrameProcessor {
@@ -17,11 +17,11 @@ public class FaceDetectorProcessor implements FrameProcessor {
     private static Handler MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper());
 
 //    private final TensorflowFaceClassifier tensorflowFaceClassifier;
-    private final TensorflowFaceDetector tensorflowFaceDetector;
+    private final DlibFaceDetecor dlibFaceDetecor;
     private final OnFacesDetectedListener listener;
 
     private FaceDetectorProcessor(Builder builder) {
-        tensorflowFaceDetector = new TensorflowFaceDetector();
+        dlibFaceDetecor = new DlibFaceDetecor();
 
         listener = builder.listener;
     }
@@ -32,11 +32,11 @@ public class FaceDetectorProcessor implements FrameProcessor {
 
     @Override
     public void processFrame(Frame frame) {
-        if(TensorflowFaceDetector.isProcessing){
+        if(DlibFaceDetecor.isProcessing){
            return;
         }
 
-        final List<Detection> faces = tensorflowFaceDetector.detectFaces(
+        final List<Detection> faces = dlibFaceDetecor.detectFaces(
                 frame.image,
                 frame.size.width,
                 frame.size.height,

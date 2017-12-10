@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class TensorflowFaceDetector {
+public class DlibFaceDetecor {
 
     public static boolean isProcessing = false;
 
@@ -17,9 +17,9 @@ public class TensorflowFaceDetector {
         System.loadLibrary("face_detect");
     }
 
-    public static String TAG = "TensorflowFaceDetector";
+    public static String TAG = "DlibFaceDetecor";
 
-    public TensorflowFaceDetector() {
+    public DlibFaceDetecor() {
     }
 
     public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees) {
