@@ -2,10 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        config {
-            storeFile file('/home/jan/android.jks')
-            keyAlias 'android'
-        }
     }
     compileSdkVersion 26
     defaultConfig {
@@ -48,7 +44,6 @@ android {
             debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
         }
     }
     externalNativeBuild {
