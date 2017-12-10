@@ -8,7 +8,7 @@
 #include <dlib/image_processing.h>
 #include <dlib/opencv/cv_image.h>
 #include <dlib/image_saver/save_png.h>
-#include "detector.h"
+#include "dlib_detector.h"
 
 
 typedef struct _JNI_POSREC {

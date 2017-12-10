@@ -21,7 +21,7 @@ include_directories(${OPENCV_DIR}/sdk/native/jni/include ${DLIB_DIR})
 
 add_library(
                 face_detect SHARED src/main/cpp/jni_face_detect.cpp
-                src/main/cpp/detector.h
+                src/main/cpp/dlib_detector.h
                 src/main/cpp/utils.cpp
 )
 
