@@ -20,7 +20,7 @@ android {
             cmake {
                 cppFlags "-frtti -Wall" +
                         " -Werror -fexceptions" +
-                        " -std=c++11 -O2 -Ofast" +
+                        " -std=c++11 -Ofast" +
                         " -mavx -msse2" +
                         "-j4"
                         " -mfloat-abi=softfp -mfpu=neon" +

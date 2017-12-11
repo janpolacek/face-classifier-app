@@ -8,6 +8,11 @@
 #include <dlib/image_processing.h>
 #include <dlib/opencv/cv_image.h>
 #include <dlib/image_saver/save_png.h>
+#include <unordered_map>
+#include <sstream>
+#include <string>
+#include <dlib/opencv.h>
+
 #include "dlib_detector.h"
 
 
@@ -83,8 +88,8 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
 
     //detection
     cv:: Mat processed = detPtr->processFrame(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
-    dlib::cv_image<unsigned char> img(processed);
-    detPtr->det(img);
+    dlib::cv_image<unsigned char> processed_img(processed);
+    detPtr->det(processed_img);
     std::vector<dlib::rectangle> detections = detPtr->getResult();
 
     jobjectArray jDetArray = env->NewObjectArray((jint)detections.size(), jniPosRec->cls, NULL);
@@ -106,22 +111,40 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
         env->SetObjectArrayElement(jDetArray, i, jPosRec);
     }
 
+    std::vector<dlib::full_object_detection> shapes = detPtr->getShapesFromOriginal();
 
-//
-//    std::unordered_map<int, dlib::full_object_detection>& faceShapeMap =
-//            detPtr->getFaceShapeMap();
+    dlib::array<dlib::array2d<unsigned char>> face_chips;
+    dlib::cv_image<unsigned char> original_image(detPtr->originalImage);
 
-//    dlib::array<dlib::array2d<unsigned char>> face_chips;
+    extract_image_chips(
+            original_image,
+            dlib::get_face_chip_details(shapes),
+            face_chips
+    );
 
-//    for (int i = 0; i < detections.size(); i++) {
-//        if(faceShapeMap.find(i) != faceShapeMap.end()){
-//            dlib::full_object_detection shape = faceShapeMap[i];
-//            for (int j = 0; j < shape.num_parts(); j++) {
-//                int x = (int) shape.part(j).x();
-//                int y = (int) shape.part(j).y();
-//            }
-//        }
-//    }
+    for(int i=0; i<face_chips.size(); i++){
+        dlib::cv_image<unsigned char> aligned_chip(dlib::toMat(face_chips[i]));
+
+        dlib::full_object_detection shape = shapes[i];
+        for(int j = 0; j < shape.num_parts(); j++){
+            dlib::draw_solid_circle(original_image, shape.part(j), 5, 0);
+        }
+
+        std::stringstream ss_chip;
+        std::stringstream ss_original;
+        ss_chip.clear();
+        ss_chip << "/sdcard/detections/" << i << "_chip" << ".png";
+
+        ss_original.clear();
+        ss_original << "/sdcard/detections/" << i << "_original" << ".png";
+
+        dlib::save_png(aligned_chip, ss_chip.str());
+        dlib::save_png(original_image, ss_original.str());
+    }
+
+
+
+
 
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);
 
