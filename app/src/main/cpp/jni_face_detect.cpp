@@ -111,6 +111,8 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
         env->SetObjectArrayElement(jDetArray, i, jPosRec);
     }
 
+
+    //alignment
     std::vector<dlib::full_object_detection> shapes = detPtr->getShapesFromOriginal();
 
     dlib::array<dlib::array2d<unsigned char>> face_chips;
@@ -122,28 +124,16 @@ Java_jp_faceclass_detection_DlibFaceDetecor_getDetections(JNIEnv *env, jobject i
             face_chips
     );
 
+
     for(int i=0; i<face_chips.size(); i++){
         dlib::cv_image<unsigned char> aligned_chip(dlib::toMat(face_chips[i]));
-
-        dlib::full_object_detection shape = shapes[i];
-        for(int j = 0; j < shape.num_parts(); j++){
-            dlib::draw_solid_circle(original_image, shape.part(j), 5, 0);
-        }
-
         std::stringstream ss_chip;
-        std::stringstream ss_original;
         ss_chip.clear();
         ss_chip << "/sdcard/detections/" << i << "_chip" << ".png";
-
-        ss_original.clear();
-        ss_original << "/sdcard/detections/" << i << "_original" << ".png";
-
         dlib::save_png(aligned_chip, ss_chip.str());
-        dlib::save_png(original_image, ss_original.str());
     }
 
-
-
+    //
 
 
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);
