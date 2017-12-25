@@ -13,7 +13,7 @@ set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SO
 include(${OPENCV_DIR}/sdk/native/jni/OpenCVConfig.cmake)
 
 
-set(DLIB_DIR ../thirdparty/dlib-19.7)
+set(DLIB_DIR ../thirdparty/dlib-19.8)
 include(${DLIB_DIR}/dlib/cmake)
 
 include_directories(${OPENCV_DIR}/sdk/native/jni/include ${DLIB_DIR})

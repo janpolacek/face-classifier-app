@@ -21,6 +21,7 @@ android {
                 cppFlags "-frtti -Wall" +
                         " -Werror -fexceptions" +
                         " -std=c++11 -Ofast" +
+                        "-O3 and -ffast-math" +
                         " -mavx -msse2" +
                         "-j4"
                         " -mfloat-abi=softfp -mfpu=neon" +
