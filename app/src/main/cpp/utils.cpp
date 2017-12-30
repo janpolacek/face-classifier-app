@@ -1,9 +1,6 @@
-#pragma once
-
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <dlib/opencv/cv_image.h>
-
 
 inline void rotateMatrix(cv::Mat &matImage, int rotation) {
 
