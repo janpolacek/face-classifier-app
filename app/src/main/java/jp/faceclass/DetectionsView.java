@@ -14,7 +14,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.faceclass.detection.Detection;
+import jp.faceclass.nn.Detection;
 
 
 public class DetectionsView extends View {

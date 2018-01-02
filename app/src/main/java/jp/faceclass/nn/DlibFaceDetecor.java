@@ -1,11 +1,8 @@
-package jp.faceclass.detection;
+package jp.faceclass.nn;
 
-import android.content.res.AssetManager;
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 

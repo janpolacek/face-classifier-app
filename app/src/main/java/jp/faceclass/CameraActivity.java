@@ -17,7 +17,7 @@ import io.fotoapparat.hardware.provider.CameraProviders;
 import io.fotoapparat.parameter.LensPosition;
 import io.fotoapparat.parameter.ScaleType;
 import io.fotoapparat.view.CameraView;
-import jp.faceclass.detection.Detection;
+import jp.faceclass.nn.Detection;
 
 
 import static io.fotoapparat.log.Loggers.fileLogger;
@@ -28,9 +28,7 @@ import static io.fotoapparat.parameter.selector.FocusModeSelectors.autoFocus;
 import static io.fotoapparat.parameter.selector.FocusModeSelectors.continuousFocus;
 import static io.fotoapparat.parameter.selector.FocusModeSelectors.fixed;
 import static io.fotoapparat.parameter.selector.LensPositionSelectors.lensPosition;
-import static io.fotoapparat.parameter.selector.PreviewFpsRangeSelectors.rangeWithHighestFps;
 import static io.fotoapparat.parameter.selector.Selectors.firstAvailable;
-import static io.fotoapparat.parameter.selector.SensorSensitivitySelectors.highestSensorSensitivity;
 import static io.fotoapparat.parameter.selector.SizeSelectors.biggestSize;
 
 public class CameraActivity extends AppCompatActivity {

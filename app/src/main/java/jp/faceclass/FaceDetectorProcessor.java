@@ -8,8 +8,8 @@ import java.util.List;
 
 import io.fotoapparat.preview.Frame;
 import io.fotoapparat.preview.FrameProcessor;
-import jp.faceclass.detection.Detection;
-import jp.faceclass.detection.DlibFaceDetecor;
+import jp.faceclass.nn.Detection;
+import jp.faceclass.nn.DlibFaceDetecor;
 
 
 public class FaceDetectorProcessor implements FrameProcessor {
