@@ -1,28 +1,28 @@
 package jp.faceclass;
 
 import android.content.Context;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 
 import java.util.List;
 
 import io.fotoapparat.preview.Frame;
-import io.fotoapparat.preview.FrameProcessor;
 import jp.faceclass.nn.Detection;
 import jp.faceclass.nn.DlibFaceDetecor;
 
 
-public class FaceDetectorProcessor implements FrameProcessor {
+public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
     private static Handler MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper());
 
-//    private final TensorflowFaceClassifier tensorflowFaceClassifier;
     private final DlibFaceDetecor dlibFaceDetecor;
+//    private final TensorflowFaceClassifier tfFaceClassifier;
     private final OnFacesDetectedListener listener;
 
-    private FaceDetectorProcessor(Builder builder) {
-        dlibFaceDetecor = new DlibFaceDetecor();
-
+    private FrameProcessor(Builder builder) {
+        dlibFaceDetecor = DlibFaceDetecor.create(Environment.getExternalStorageDirectory().getPath() + "/jp.faceclassifier/shape_predictor_5_face_landmarks.dat");
+//        tfFaceClassifier = TensorflowFaceClassifier.create(builder.context.getAssets(), null, null, 0, null, null);
         listener = builder.listener;
     }
 
@@ -76,7 +76,7 @@ public class FaceDetectorProcessor implements FrameProcessor {
     }
 
     /**
-     * Builder for {@link FaceDetectorProcessor}.
+     * Builder for {@link FrameProcessor}.
      */
     public static class Builder {
 
@@ -96,8 +96,8 @@ public class FaceDetectorProcessor implements FrameProcessor {
             return this;
         }
 
-        public FaceDetectorProcessor build() {
-            return new FaceDetectorProcessor(this);
+        public FrameProcessor build() {
+            return new FrameProcessor(this);
         }
 
     }

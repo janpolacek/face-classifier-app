@@ -97,8 +97,8 @@ public class CameraActivity extends AppCompatActivity {
                 ))
 //                .previewFpsRange(rangeWithHighestFps())
 //                .sensorSensitivity(highestSensorSensitivity())
-                .frameProcessor(FaceDetectorProcessor.with(this)
-                        .listener(new FaceDetectorProcessor.OnFacesDetectedListener() {
+                .frameProcessor(FrameProcessor.with(this)
+                        .listener(new FrameProcessor.OnFacesDetectedListener() {
                             @Override
                             public void onFacesDetected(List<Detection> detections) {
                                 Log.d("TAG", "Detected faces: " + detections.size());

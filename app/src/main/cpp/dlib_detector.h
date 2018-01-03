@@ -105,7 +105,7 @@ public:
 
     virtual ~DLibHOGFaceDetector() {}
 
-    int scaleValue = 6;
+    int scaleValue = 5;
     cv::Mat originalImage;
 
 };

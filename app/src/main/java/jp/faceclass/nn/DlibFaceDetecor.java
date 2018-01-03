@@ -1,5 +1,6 @@
 package jp.faceclass.nn;
 
+import android.os.Environment;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -9,21 +10,23 @@ import java.util.List;
 public class DlibFaceDetecor {
 
     public static boolean isProcessing = false;
-
-    static {
-        System.loadLibrary("face_detect");
-    }
-
     public static String TAG = "DlibFaceDetecor";
 
     public DlibFaceDetecor() {
+    }
+
+    public static DlibFaceDetecor create(String modelPath){
+        DlibFaceDetecor d = new DlibFaceDetecor();
+        System.loadLibrary("face_detect");
+        initDetector(modelPath);
+        return d;
     }
 
     public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees) {
         isProcessing = true;
         long startTime = System.currentTimeMillis();
 
-        Detection[] detectionsArray = getDetections(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
+        Detection[] detectionsArray = findFaces(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
         List<Detection> detections = Arrays.asList(detectionsArray);
 
         long estimatedTime = System.currentTimeMillis() - startTime;
@@ -33,5 +36,6 @@ public class DlibFaceDetecor {
         return detections;
     }
 
-    public native Detection[] getDetections(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees);
+    public static native void initDetector(String modelPath);
+    public native Detection[] findFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees);
 }

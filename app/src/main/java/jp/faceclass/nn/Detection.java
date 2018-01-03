@@ -11,8 +11,8 @@ public class Detection {
     private int right = 0;
     private int bottom = 0;
 
-    private int width = 200;
-    private int height = 200;
+    private int width = 160;
+    private int height = 160;
 
 
     private byte[] image = null;

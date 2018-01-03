@@ -18,7 +18,12 @@
 #define FACE_DETECTION_METHOD(METHOD_NAME) \
   Java_jp_faceclass_nn_DlibFaceDetecor_##METHOD_NAME  // NOLINT
 
-typedef struct _JNI_POSREC {
+
+using DetectorPtr = DLibHOGFaceDetector*;
+DetectorPtr detPtr = NULL;
+
+//trieda
+typedef struct JNI_Detection_Cls {
     jclass cls;
     jmethodID constructortorID;
     jmethodID setLeftId;
@@ -26,9 +31,10 @@ typedef struct _JNI_POSREC {
     jmethodID setRightId;
     jmethodID setBottomId;
     jmethodID setImageId;
-} JNI_POSREC;
+} JNI_Detection_Cls;
 
-JNI_POSREC * jniPosRec = NULL;
+//instancia
+JNI_Detection_Cls * jniDetClsDef = NULL;
 
 struct Detection {
     int left;
@@ -38,35 +44,30 @@ struct Detection {
     cv::Mat image;
 };
 
-using DetectorPtr = DLibHOGFaceDetector*;
-DetectorPtr detPtr = new DLibHOGFaceDetector("/sdcard/fcd/shape_predictor_68_face_landmarks.dat");
 
-void LoadJniDetectionClass(JNIEnv * env) {
-    if (jniPosRec != NULL)
+void LoadJNIDetectionClass(JNIEnv * env) {
+    if (jniDetClsDef != NULL)
         return;
+    jniDetClsDef = new JNI_Detection_Cls;
 
-    jniPosRec = new JNI_POSREC;
+    jniDetClsDef->cls = env->FindClass("jp/faceclass/nn/Detection");
 
-    jniPosRec->cls = env->FindClass("jp/faceclass/nn/Detection");
-
-    if(jniPosRec->cls != NULL)
+    if(jniDetClsDef->cls != NULL)
         printf("sucessfully created class");
 
-    jniPosRec->constructortorID = env->GetMethodID(jniPosRec->cls, "<init>", "()V");
+    jniDetClsDef->constructortorID = env->GetMethodID(jniDetClsDef->cls, "<init>", "()V");
 
-    if(jniPosRec->constructortorID != NULL){
-        printf("sucessfully created ctorID");
+    if(jniDetClsDef->constructortorID != NULL){
+        printf("sucessfully created constructor");
     }
 
-    jniPosRec->setLeftId = env->GetMethodID(jniPosRec->cls, "setLeft", "(I)V");
-    jniPosRec->setTopId = env->GetMethodID(jniPosRec->cls, "setTop", "(I)V");
-    jniPosRec->setRightId = env->GetMethodID(jniPosRec->cls, "setRight", "(I)V");
-    jniPosRec->setBottomId = env->GetMethodID(jniPosRec->cls, "setBottom", "(I)V");
-    jniPosRec->setImageId = env->GetMethodID(jniPosRec->cls, "setImage", "([B)V");
+    jniDetClsDef->setLeftId = env->GetMethodID(jniDetClsDef->cls, "setLeft", "(I)V");
+    jniDetClsDef->setTopId = env->GetMethodID(jniDetClsDef->cls, "setTop", "(I)V");
+    jniDetClsDef->setRightId = env->GetMethodID(jniDetClsDef->cls, "setRight", "(I)V");
+    jniDetClsDef->setBottomId = env->GetMethodID(jniDetClsDef->cls, "setBottom", "(I)V");
+    jniDetClsDef->setImageId = env->GetMethodID(jniDetClsDef->cls, "setImage", "([B)V");
 }
-
-
-void fillDetectionImageToJNI(JNIEnv * env, jobject jPosRec, Detection* pDetection){
+void FillJNIDetectionImage(JNIEnv * env, jobject jPosRec, Detection* pDetection){
     size_t data_size = pDetection->image.total() * pDetection->image.elemSize();
     char * data = (char *) pDetection->image.data;
 
@@ -75,27 +76,42 @@ void fillDetectionImageToJNI(JNIEnv * env, jobject jPosRec, Detection* pDetectio
     memcpy(dataAlloc, data, data_size);
     env->ReleasePrimitiveArrayCritical(mJByteArray, dataAlloc, 0);
 
-    env->CallVoidMethod(jPosRec, jniPosRec->setImageId, mJByteArray);
+    env->CallVoidMethod(jPosRec, jniDetClsDef->setImageId, mJByteArray);
 }
 
-void FillDetectionValuesToJni(JNIEnv * env, jobject jPosRec, Detection* pDetection) {
-    env->CallVoidMethod(jPosRec, jniPosRec->setLeftId, pDetection->left);
-    env->CallVoidMethod(jPosRec, jniPosRec->setTopId,  pDetection->top);
-    env->CallVoidMethod(jPosRec, jniPosRec->setRightId, pDetection->right);
-    env->CallVoidMethod(jPosRec, jniPosRec->setBottomId, pDetection->bottom);
-    fillDetectionImageToJNI(env, jPosRec, pDetection);
+void FillJNIDetectionValues(JNIEnv * env, jobject jPosRec, Detection* pDetection) {
+    env->CallVoidMethod(jPosRec, jniDetClsDef->setLeftId, pDetection->left);
+    env->CallVoidMethod(jPosRec, jniDetClsDef->setTopId,  pDetection->top);
+    env->CallVoidMethod(jPosRec, jniDetClsDef->setRightId, pDetection->right);
+    env->CallVoidMethod(jPosRec, jniDetClsDef->setBottomId, pDetection->bottom);
+    FillJNIDetectionImage(env, jPosRec, pDetection);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+FACE_DETECTION_METHOD(initDetector)(JNIEnv *env, jclass type, jstring modelPath_) {
+    const char *modelPath = env->GetStringUTFChars(modelPath_, 0);
+    const std::string path(modelPath);
+    if(detPtr == NULL) {
+        detPtr = new DLibHOGFaceDetector(path);
+    }
+
+    env->ReleaseStringUTFChars(modelPath_, modelPath);
 }
 
 
 extern "C"
 JNIEXPORT jobjectArray JNICALL
-FACE_DETECTION_METHOD(getDetections)(JNIEnv *env, jobject instance,
-                                                                 jbyteArray nv21Image_,
-                                                                 jint frameWidth, jint frameHeight,
-                                                                 jint frameRotationDegrees) {
+FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
+                                 jobject instance,
+                                 jbyteArray nv21Image_,
+                                 jint frameWidth, jint frameHeight,
+                                 jint frameRotationDegrees) {
+
+    jniDetClsDef = NULL;
+    LoadJNIDetectionClass(env);
+
     jbyte *nv21Image = env->GetByteArrayElements(nv21Image_, NULL);
-    jniPosRec = NULL;
-    LoadJniDetectionClass(env);
 
     //detection
     cv:: Mat processed = detPtr->processFrame(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
@@ -103,7 +119,7 @@ FACE_DETECTION_METHOD(getDetections)(JNIEnv *env, jobject instance,
     detPtr->det(processed_img);
     std::vector<dlib::rectangle> detections = detPtr->getResult();
 
-    jobjectArray jDetArray = env->NewObjectArray((jint)detections.size(), jniPosRec->cls, NULL);
+    jobjectArray jDetArray = env->NewObjectArray((jint)detections.size(), jniDetClsDef->cls, NULL);
 
     if(detections.size() <= 0){
         return jDetArray;
@@ -117,37 +133,23 @@ FACE_DETECTION_METHOD(getDetections)(JNIEnv *env, jobject instance,
 
     extract_image_chips(
             original_image,
-            dlib::get_face_chip_details(shapes),
+            dlib::get_face_chip_details(shapes, 160, 0.2),
             face_chips
     );
-
+    
     for (int i = 0; i < face_chips.size(); i++) {
-        jobject jPosRec = env->NewObject(jniPosRec->cls, jniPosRec->constructortorID);
+        jobject jniDetClsInst = env->NewObject(jniDetClsDef->cls, jniDetClsDef->constructortorID);
+        Detection *detection = new Detection();
+        detection->left = (int) detections[i].left() * detPtr->scaleValue;
+        detection->top = (int) detections[i].top() * detPtr->scaleValue;
+        detection->right = (int) detections[i].right() * detPtr->scaleValue;
+        detection->bottom = (int) detections[i].bottom() * detPtr->scaleValue;
+        detection->image = dlib::toMat(face_chips[i]);
 
-
-        Detection *cDet = new Detection();
-        cDet->left = (int) detections[i].left() * detPtr->scaleValue;
-        cDet->top = (int) detections[i].top() * detPtr->scaleValue;
-        cDet->right = (int) detections[i].right() * detPtr->scaleValue;
-        cDet->bottom = (int) detections[i].bottom() * detPtr->scaleValue;
-        cDet->image = dlib::toMat(face_chips[i]);
-
-        FillDetectionValuesToJni(env, jPosRec, cDet);
-        env->SetObjectArrayElement(jDetArray, i, jPosRec);
+        FillJNIDetectionValues(env, jniDetClsInst, detection);
+        env->SetObjectArrayElement(jDetArray, i, jniDetClsInst);
     }
 
-//    for(int i=0; i<face_chips.size(); i++){
-//        dlib::cv_image<unsigned char> aligned_chip(dlib::toMat(face_chips[i]));
-//        std::stringstream ss_chip;
-//        ss_chip.clear();
-//        ss_chip << "/sdcard/detections/" << i << "_chip" << ".png";
-//        dlib::save_png(aligned_chip, ss_chip.str());
-//    }
-
-    //
-
-
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);
-
     return jDetArray;
 }
