@@ -43,7 +43,7 @@ public class Detection {
             ret[i] = (image[i] & 0xff) * 0x00010101;
         }
 
-        new CheckPhotoTask().execute(ret, null, null);
+//        new CheckPhotoTask().execute(ret, null, null);
     }
 
 

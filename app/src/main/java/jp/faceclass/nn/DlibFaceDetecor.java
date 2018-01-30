@@ -22,11 +22,11 @@ public class DlibFaceDetecor {
         return d;
     }
 
-    public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees) {
+    public List<Detection> detectFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees, int outputSize) {
         isProcessing = true;
         long startTime = System.currentTimeMillis();
 
-        Detection[] detectionsArray = findFaces(nv21Image, frameWidth, frameHeight, frameRotationDegrees);
+        Detection[] detectionsArray = findFaces(nv21Image, frameWidth, frameHeight, frameRotationDegrees, outputSize);
         List<Detection> detections = Arrays.asList(detectionsArray);
 
         long estimatedTime = System.currentTimeMillis() - startTime;
@@ -37,5 +37,5 @@ public class DlibFaceDetecor {
     }
 
     public static native void initDetector(String modelPath);
-    public native Detection[] findFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees);
+    public native Detection[] findFaces(byte[] nv21Image, int frameWidth, int frameHeight, int frameRotationDegrees, int outputSize);
 }

@@ -106,7 +106,9 @@ FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
                                  jobject instance,
                                  jbyteArray nv21Image_,
                                  jint frameWidth, jint frameHeight,
-                                 jint frameRotationDegrees) {
+                                 jint frameRotationDegrees,
+                                 jint outputSize
+) {
 
     jniDetClsDef = NULL;
     LoadJNIDetectionClass(env);
@@ -133,7 +135,7 @@ FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
 
     extract_image_chips(
             original_image,
-            dlib::get_face_chip_details(shapes, 160, 0.2),
+            dlib::get_face_chip_details(shapes, outputSize, 0.2),
             face_chips
     );
     

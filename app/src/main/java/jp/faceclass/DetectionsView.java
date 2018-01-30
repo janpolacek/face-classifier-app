@@ -61,7 +61,6 @@ public class DetectionsView extends View {
      */
     public void setRectangles(@NonNull List<Detection> detections) {
         ensureMainThread();
-
         this.detections.clear();
         this.detections.addAll(detections);
         invalidate();
