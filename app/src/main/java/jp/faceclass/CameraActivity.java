@@ -5,31 +5,23 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.List;
 
 import io.fotoapparat.Fotoapparat;
-import io.fotoapparat.FotoapparatSwitcher;
-import io.fotoapparat.error.CameraErrorCallback;
-import io.fotoapparat.hardware.CameraException;
-import io.fotoapparat.hardware.provider.CameraProviders;
-import io.fotoapparat.parameter.LensPosition;
 import io.fotoapparat.parameter.ScaleType;
+import io.fotoapparat.selector.ResolutionSelectorsKt;
 import io.fotoapparat.view.CameraView;
 import jp.faceclass.nn.Detection;
 
-
-import static io.fotoapparat.log.Loggers.fileLogger;
-import static io.fotoapparat.log.Loggers.logcat;
-import static io.fotoapparat.log.Loggers.loggers;
-import static io.fotoapparat.parameter.selector.AspectRatioSelectors.standardRatio;
-import static io.fotoapparat.parameter.selector.FocusModeSelectors.autoFocus;
-import static io.fotoapparat.parameter.selector.FocusModeSelectors.continuousFocus;
-import static io.fotoapparat.parameter.selector.FocusModeSelectors.fixed;
-import static io.fotoapparat.parameter.selector.LensPositionSelectors.lensPosition;
-import static io.fotoapparat.parameter.selector.Selectors.firstAvailable;
-import static io.fotoapparat.parameter.selector.SizeSelectors.biggestSize;
+import static io.fotoapparat.log.LoggersKt.fileLogger;
+import static io.fotoapparat.log.LoggersKt.logcat;
+import static io.fotoapparat.log.LoggersKt.loggers;
+import static io.fotoapparat.selector.FocusModeSelectorsKt.autoFocus;
+import static io.fotoapparat.selector.FocusModeSelectorsKt.fixed;
+import static io.fotoapparat.selector.LensPositionSelectorsKt.back;
+import static io.fotoapparat.selector.ResolutionSelectorsKt.highestResolution;
+import static io.fotoapparat.selector.SelectorsKt.firstAvailable;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -38,7 +30,6 @@ public class CameraActivity extends AppCompatActivity {
     private CameraView cameraView;
     private DetectionsView detectionsView;
 
-    private FotoapparatSwitcher fotoapparatSwitcher;
     private Fotoapparat backFotoapparat;
 
     private String TAG = "CameraActivity";
@@ -66,32 +57,27 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     public void setupFotoapparat() {
-        backFotoapparat = createFotoapparat(LensPosition.BACK);
-        fotoapparatSwitcher = FotoapparatSwitcher.withDefault(backFotoapparat);
+        backFotoapparat = createFotoapparat();
     }
 
     public void focusOnLongClick() {
         cameraView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                fotoapparatSwitcher.getCurrentFotoapparat().autoFocus();
-
                 return true;
             }
         });
     }
 
 
-    private Fotoapparat createFotoapparat(LensPosition position) {
+    private Fotoapparat createFotoapparat() {
         return Fotoapparat
                 .with(this)
-                .cameraProvider(CameraProviders.v1()) // change this to v2 to test Camera2 API
                 .into(cameraView)
-                .previewScaleType(ScaleType.CENTER_INSIDE)
-                .photoSize(standardRatio(biggestSize()))
-                .lensPosition(lensPosition(position))
+                .previewScaleType(ScaleType.CenterInside)
+                .photoResolution(highestResolution())
+                .lensPosition(back())
                 .focusMode(firstAvailable(
-                        continuousFocus(),
                         autoFocus(),
                         fixed()
                 ))
@@ -110,12 +96,6 @@ public class CameraActivity extends AppCompatActivity {
                         logcat(),
                         fileLogger(this)
                 ))
-                .cameraErrorCallback(new CameraErrorCallback() {
-                    @Override
-                    public void onError(CameraException e) {
-                        Toast.makeText(CameraActivity.this, e.toString(), Toast.LENGTH_LONG).show();
-                    }
-                })
                 .build();
     }
 
@@ -124,7 +104,7 @@ public class CameraActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (hasCameraPermission) {
-            fotoapparatSwitcher.start();
+            backFotoapparat.start();
         }
     }
 
@@ -132,7 +112,7 @@ public class CameraActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         if (hasCameraPermission) {
-            fotoapparatSwitcher.stop();
+            backFotoapparat.stop();
         }
     }
 
@@ -142,7 +122,7 @@ public class CameraActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (permissionsDelegate.resultGranted(requestCode, permissions, grantResults)) {
-            fotoapparatSwitcher.start();
+            backFotoapparat.start();
             cameraView.setVisibility(View.VISIBLE);
         }
     }

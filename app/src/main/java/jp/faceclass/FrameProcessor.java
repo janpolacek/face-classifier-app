@@ -60,18 +60,50 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
     public static Builder with(Context context) {
         return new Builder(context);
     }
+//
+//    @Override
+//    public void processFrame(Frame frame) {
+//        if(DlibFaceDetecor.isProcessing){
+//           return;
+//        }
+//
+//        final List<Detection> faces = dlibFaceDetecor.detectFaces(
+//                frame.image,
+//                frame.size.width,
+//                frame.size.height,
+//                frame.rotation,
+//                FACE_INPUT_SIZE
+//        );
+//
+//        if(faces.size() > 0) {
+//            mainThreadHandler.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    listener.onFacesDetected(faces);
+//                }
+//            });
+//        }
+//        if(faces.size() > 0) {
+//            classifyHandler.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    tfFaceClassifier.classiyImage(faces.get(0).getImage());
+//                }
+//            });
+//        }
+//    }
 
     @Override
-    public void processFrame(Frame frame) {
+    public void process(Frame frame) {
         if(DlibFaceDetecor.isProcessing){
-           return;
+            return;
         }
 
         final List<Detection> faces = dlibFaceDetecor.detectFaces(
-                frame.image,
-                frame.size.width,
-                frame.size.height,
-                frame.rotation,
+                frame.getImage(),
+                frame.getSize().width,
+                frame.getSize().height,
+                frame.getRotation(),
                 FACE_INPUT_SIZE
         );
 
@@ -92,7 +124,6 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
             });
         }
     }
-
 
 
     /**
