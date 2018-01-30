@@ -33,13 +33,10 @@ public class TensorflowFaceClassifier {
     private String inputName;
     private String outputName;
     private int inputSize;
-    private int imageMean;
-    private float imageStd;
 
     // Pre-allocated buffers.
     private Vector<String> labels = new Vector<String>();
-    private float[] floatValues;
-    private float[] outputs;
+    private float[] embeddings;
     private String[] outputNames;
 
     private boolean logStats = false;
@@ -54,8 +51,6 @@ public class TensorflowFaceClassifier {
      * @param modelFilename The filepath of the model GraphDef protocol buffer.
      * @param labelFilename The filepath of label file for classes.
      * @param inputSize The input size. A square image of inputSize x inputSize is assumed.
-     * @param imageMean The assumed mean of the image values.
-     * @param imageStd The assumed std of the image values.
      * @param inputName The label of the image input node.
      * @param outputName The label of the output node.
      * @throws IOException
@@ -64,8 +59,6 @@ public class TensorflowFaceClassifier {
             String modelFilename,
             String labelFilename,
             int inputSize,
-            int imageMean,
-            float imageStd,
             String inputName,
             String outputName) {
         TensorflowFaceClassifier c = new TensorflowFaceClassifier();
@@ -107,33 +100,30 @@ public class TensorflowFaceClassifier {
 
         c.inferenceInterface = new TensorFlowInferenceInterface(modelInputStream);
         final Operation operation = c.inferenceInterface.graphOperation(outputName);
-        final int numClasses = (int) operation.output(0).shape().size(1);
-
+        final int numOfFeatures = (int) operation.output(0).shape().size(1);
 
         c.inputSize = inputSize;
-        c.imageMean = imageMean;
-        c.imageStd = imageStd;
 
         // Pre-allocate buffers.
         c.outputNames = new String[] {outputName};
-        c.outputs = new float[numClasses];
+        c.embeddings = new float[numOfFeatures];
 
         return c;
     }
 
-    public List<Recognition> classiyImage(final byte[] pixels) {
+    public void classiyImage(final byte[] pixels) {
         // Log this method so that it can be analyzed with systrace.
         Trace.beginSection("recognizeImage");
 
         Trace.beginSection("preprocessBitmap");
 
-        this.floatValues = new float[pixels.length * 3];
+        float[] floatValues = new float[pixels.length * 3];
 
         for (int i = 0; i < pixels.length-1; i++) {
             final int val = pixels[i];
-            floatValues[i * 3 + 0] = (((val >> 16) & 0xFF) - imageMean) / imageStd;
-            floatValues[i * 3 + 1] = (((val >> 8) & 0xFF) - imageMean) / imageStd;
-            floatValues[i * 3 + 2] = ((val & 0xFF) - imageMean) / imageStd;
+            floatValues[i * 3 + 0] = (val >> 16) & 0xFF;
+            floatValues[i * 3 + 1] = (val >> 8) & 0xFF;
+            floatValues[i * 3 + 2] = (val) & 0xFF;
         }
 
         Trace.endSection();
@@ -152,33 +142,8 @@ public class TensorflowFaceClassifier {
 
         // Copy the output Tensor back into the output array.
         Trace.beginSection("fetch");
-        inferenceInterface.fetch(outputName, outputs);
+        inferenceInterface.fetch(outputName, embeddings);
         Trace.endSection();
-
-        PriorityQueue<Recognition> pq =
-                new PriorityQueue<Recognition>(
-                        3,
-                        new Comparator<Recognition>() {
-                            @Override
-                            public int compare(Recognition lhs, Recognition rhs) {
-                                // Intentionally reversed to put high confidence at the head of the queue.
-                                return Float.compare(rhs.getConfidence(), lhs.getConfidence());
-                            }
-                        });
-        for (int i = 0; i < outputs.length; ++i) {
-            if (outputs[i] > THRESHOLD) {
-                pq.add(
-                        new Recognition("" + i, labels.size() > i ? labels.get(i) : "unknown", outputs[i]));
-            }
-        }
-        final ArrayList<Recognition> recognitions = new ArrayList<Recognition>();
-        int recognitionsSize = Math.min(pq.size(), MAX_RESULTS);
-        for (int i = 0; i < recognitionsSize; ++i) {
-            recognitions.add(pq.poll());
-        }
-
-        Log.i(TAG, "Recognitions " + recognitions);
-        return recognitions;
     }
 
     public void close() {

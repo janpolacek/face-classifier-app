@@ -45,14 +45,15 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
     private FrameProcessor(Builder builder) {
 
-//
-//        classifyHandlerThread = new HandlerThread("tf");
-//        classifyHandlerThread.start();
-//        classifyHandler = new Handler(classifyHandlerThread.getLooper());
+
+        classifyHandlerThread = new HandlerThread("tf");
+        classifyHandlerThread.start();
+        classifyHandler = new Handler(classifyHandlerThread.getLooper());
 
         dlibFaceDetecor = DlibFaceDetecor.create(esd + "/jp.faceclassifier/shape_predictor_5_face_landmarks.dat");
 //        tfImageClassifier = TensorflowImageClassifier.create(IMAGE_MODEL_FILE, IMAGE_LABEL_FILE, IMAGE_INPUT_SIZE, IMAGE_IMAGE_MEAN, IMAGE_IMAGE_STD, IMAGE_INPUT_NAME, IMAGE_OUTPUT_NAME);
-        tfFaceClassifier = TensorflowFaceClassifier.create(FACE_MODEL_FILE, FACE_LABEL_FILE, FACE_INPUT_SIZE, FACE_IMAGE_MEAN, FACE_IMAGE_STD, FACE_INPUT_NAME, FACE_OUTPUT_NAME);
+
+        tfFaceClassifier = TensorflowFaceClassifier.create(FACE_MODEL_FILE, FACE_LABEL_FILE, FACE_INPUT_SIZE, FACE_INPUT_NAME, FACE_OUTPUT_NAME);
         listener = builder.listener;
     }
 
@@ -82,14 +83,14 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
                 }
             });
         }
-//        if(faces.size() > 0) {
-//            classifyHandler.post(new Runnable() {
-//                @Override
-//                public void run() {
-//                    tfFaceClassifier.classiyImage(faces.get(0).getImage());
-//                }
-//            });
-//        }
+        if(faces.size() > 0) {
+            classifyHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    tfFaceClassifier.classiyImage(faces.get(0).getImage());
+                }
+            });
+        }
     }
 
 
