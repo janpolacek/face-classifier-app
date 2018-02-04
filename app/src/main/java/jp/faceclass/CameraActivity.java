@@ -18,6 +18,7 @@ import static io.fotoapparat.log.LoggersKt.fileLogger;
 import static io.fotoapparat.log.LoggersKt.logcat;
 import static io.fotoapparat.log.LoggersKt.loggers;
 import static io.fotoapparat.selector.FocusModeSelectorsKt.autoFocus;
+import static io.fotoapparat.selector.FocusModeSelectorsKt.continuousFocusPicture;
 import static io.fotoapparat.selector.FocusModeSelectorsKt.fixed;
 import static io.fotoapparat.selector.LensPositionSelectorsKt.back;
 import static io.fotoapparat.selector.ResolutionSelectorsKt.highestResolution;
@@ -78,6 +79,7 @@ public class CameraActivity extends AppCompatActivity {
                 .photoResolution(highestResolution())
                 .lensPosition(back())
                 .focusMode(firstAvailable(
+                        continuousFocusPicture(),
                         autoFocus(),
                         fixed()
                 ))

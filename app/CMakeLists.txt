@@ -6,8 +6,8 @@ add_definitions(-DOS_ANDROID)
 
 set(THIRDPARTY ${CMAKE_SOURCE_DIR}/../thirdparty)
 set(OPENCV_DIR ${THIRDPARTY}/opencv-3.3.1-android-sdk)
-set(DLIB_DIR ${THIRDPARTY}/dlib-19.8)
-set(TF_DIR ${THIRDPARTY}/tensorflow-1.4.1)
+set(DLIB_DIR ${THIRDPARTY}/dlib)
+set(TF_DIR ${THIRDPARTY}/tensorflow)
 
 set(CMAKE_ANDROID_STL_TYPE gnustl_static)
 set(USE_SSE2_INSTRUCTIONS ON)

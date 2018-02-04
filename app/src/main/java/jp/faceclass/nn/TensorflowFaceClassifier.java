@@ -112,6 +112,8 @@ public class TensorflowFaceClassifier {
     }
 
     public void classiyImage(final byte[] pixels) {
+        long startTime = System.currentTimeMillis();
+
         // Log this method so that it can be analyzed with systrace.
         Trace.beginSection("recognizeImage");
 
@@ -144,6 +146,10 @@ public class TensorflowFaceClassifier {
         Trace.beginSection("fetch");
         inferenceInterface.fetch(outputName, embeddings);
         Trace.endSection();
+
+
+        long estimatedTime = System.currentTimeMillis() - startTime;
+        Log.d(TAG, "feature extraction time:" + estimatedTime);
     }
 
     public void close() {

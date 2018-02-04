@@ -116,6 +116,9 @@ public class TensorflowImageClassifier {
 
     public List<Recognition> classiyImage(final byte[] pixels) {
         // Log this method so that it can be analyzed with systrace.
+
+        long startTime = System.currentTimeMillis();
+
         Trace.beginSection("recognizeImage");
 
         Trace.beginSection("preprocessBitmap");
@@ -169,6 +172,10 @@ public class TensorflowImageClassifier {
         }
 
         Log.i(TAG, "Recognitions " + recognitions);
+
+
+        long estimatedTime = System.currentTimeMillis() - startTime;
+        Log.d(TAG, "feature extraction time:" + estimatedTime);
         return recognitions;
     }
 

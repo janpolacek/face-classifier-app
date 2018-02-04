@@ -1,0 +1,14 @@
+[submodule "thirdparty/dlib"]
+	path = thirdparty/dlib
+	url = https://github.com/davisking/dlib.git
+	branch = master
+
+[submodule "thirdparty/facenet"]
+	path = thirdparty/facenet
+	url = https://github.com/davidsandberg/facenet.git
+	branch = master
+
+[submodule "thirdparty/tensorflow"]
+	path = thirdparty/tensorflow
+	url = https://github.com/tensorflow/tensorflow.git
+	branch = master
