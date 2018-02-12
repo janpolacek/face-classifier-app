@@ -24,13 +24,13 @@
       <option name="SHOW_OPTIMIZED_WARNING" value="true" />
       <startup_commands startup_commands_attr="" />
     </Auto>
-    <BlazeAuto>
+    <Bazel>
       <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
       <option name="SHOW_STATIC_VARS" value="true" />
       <option name="WORKING_DIR" value="" />
       <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
       <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-    </BlazeAuto>
+    </Bazel>
     <Hybrid>
       <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
       <option name="SHOW_STATIC_VARS" value="true" />
@@ -52,8 +52,7 @@
     <option name="DEEP_LINK" value="" />
     <option name="ACTIVITY_CLASS" value="" />
     <method>
-      <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517769700585" />
+      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1518474866921" />
     </method>
   </configuration>
 </component>

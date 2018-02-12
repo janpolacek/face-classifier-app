@@ -36,9 +36,13 @@ jp.faceclassifier/model/20170512-110547.pb
 ja som otvoril examples/android a zbuildoval cez android studio, a skopirovat libtensorflow do main/jniLibs
 
 
-#Priprava modelu
+#Priprava modelu tensorflow
 ##Alignment obrazkov
-Align: for N in {1..4}; do python src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/lfw_mtcnnpy_160 --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.1 & done
-##Natrenovanie classifikatora: TODO
+for N in {1..4}; do python src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/lfw_mtcnnpy_160 --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.1 & done
+##Natrenovanie classifikatora:  - TODO- parametre
+python src/classifier.py TRAIN ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facenet/20170512-110547.pb  ~/models/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 5 --nrof_train_images_per_class 4 --use_split_dataset
+
+##Testovanie classifikatora
+python src/classifier.py CLASSIFY ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facenet/20170512-110547.pb  ~/models/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 5 --nrof_train_images_per_class 4 --use_split_dataset
 
 #Zmensenie modelu : TODO
