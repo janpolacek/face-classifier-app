@@ -10,7 +10,6 @@ import java.util.List;
 
 import io.fotoapparat.Fotoapparat;
 import io.fotoapparat.parameter.ScaleType;
-import io.fotoapparat.selector.ResolutionSelectorsKt;
 import io.fotoapparat.view.CameraView;
 import jp.faceclass.nn.Detection;
 
@@ -28,6 +27,7 @@ public class CameraActivity extends AppCompatActivity {
 
     private final PermissionsDelegate permissionsDelegate = new PermissionsDelegate(this);
     private boolean hasCameraPermission;
+    private boolean hasStoragePermission;
     private CameraView cameraView;
     private DetectionsView detectionsView;
 
@@ -46,11 +46,12 @@ public class CameraActivity extends AppCompatActivity {
         detectionsView = (DetectionsView) findViewById(R.id.rectanglesView);
 
         hasCameraPermission = permissionsDelegate.hasCameraPermission();
+        hasStoragePermission = permissionsDelegate.hasStoragePermission();
 
-        if (hasCameraPermission) {
+        if (hasCameraPermission && hasStoragePermission) {
             cameraView.setVisibility(View.VISIBLE);
         } else {
-            permissionsDelegate.requestCameraPermission();
+            permissionsDelegate.requestAppPermissions();
         }
 
         setupFotoapparat();

@@ -1,4 +1,5 @@
 #Postup pre App:
+Klonovat aj so submodulmi
 
 ##Skopirovat priecinok libs z OPENCV_DIR/sdk/native/libs do src/main/jniLibs
 
@@ -33,7 +34,7 @@ jp.faceclassifier/model/20170512-110547.pb
     
     
 ##Zbuildovat kniznicu pre tensorflow 
-ja som otvoril examples/android a zbuildoval cez android studio, a skopirovat libtensorflow do main/jniLibs
+ja som otvoril examples/android a zbuildoval cez android studio, a skopirovat libtensorflow z tensorflow/contrib/android/jni do main/jniLibs
 
 
 #Priprava modelu tensorflow
@@ -46,3 +47,8 @@ python src/classifier.py TRAIN ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facenet/2
 python src/classifier.py CLASSIFY ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facenet/20170512-110547.pb  ~/models/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 5 --nrof_train_images_per_class 4 --use_split_dataset
 
 #Zmensenie modelu : TODO
+
+
+#TODO OSTATNE:
+Povolenia na zapis do externeho
+Stiahnutie do telefonu automaticky

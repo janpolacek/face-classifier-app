@@ -14,13 +14,13 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
-            abiFilters 'armeabi-v7a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
 
         externalNativeBuild {
             cmake {
                 arguments "-DANDROID_STL=c++_shared"
-                abiFilters 'armeabi-v7a'
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
             }
         }
     }
@@ -51,6 +51,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation 'io.fotoapparat.fotoapparat:library:+'
-    implementation 'org.tensorflow:tensorflow-android:+'
+    implementation 'io.fotoapparat.fotoapparat:library:2.2.0'
+    implementation 'org.tensorflow:tensorflow-android:1.5.0'
 }

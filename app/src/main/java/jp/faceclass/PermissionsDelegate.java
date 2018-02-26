@@ -23,10 +23,19 @@ class PermissionsDelegate {
         return permissionCheckResult == PackageManager.PERMISSION_GRANTED;
     }
 
-    void requestCameraPermission() {
+    boolean hasStoragePermission() {
+        int readPermissionChceckResult = ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
+        int writePermissionChceckResult = ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        return readPermissionChceckResult == PackageManager.PERMISSION_GRANTED &&
+                writePermissionChceckResult == PackageManager.PERMISSION_GRANTED;
+    }
+
+
+    void requestAppPermissions() {
         ActivityCompat.requestPermissions(
                 activity,
-                new String[]{Manifest.permission.CAMERA},
+                new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 REQUEST_CODE
         );
     }
@@ -53,7 +62,7 @@ class PermissionsDelegate {
             return true;
         }
 
-        requestCameraPermission();
+        requestAppPermissions();
         noPermissionView.setVisibility(View.VISIBLE);
         return false;
     }
