@@ -9,51 +9,33 @@ import android.os.Looper;
 import java.util.List;
 
 import io.fotoapparat.preview.Frame;
+import jp.faceclass.nn.Classifier;
 import jp.faceclass.nn.Detection;
 import jp.faceclass.nn.DlibFaceDetecor;
-import jp.faceclass.nn.TensorflowFaceClassifier;
-import jp.faceclass.nn.TensorflowImageClassifier;
+import jp.faceclass.nn.EmbeddingsExtractor;
 
 public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
     private static Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
     private Handler classifyHandler;
-    private HandlerThread classifyHandlerThread;
 
     private final DlibFaceDetecor dlibFaceDetecor;
-    private TensorflowImageClassifier tfImageClassifier = null;
-    private TensorflowFaceClassifier tfFaceClassifier = null;
+    private EmbeddingsExtractor embeddingsExtractor;
+    private Classifier classifier;
     private final OnFacesDetectedListener listener;
-
-    private String esd = Environment.getExternalStorageDirectory().getPath();
-    private final String IMAGE_MODEL_FILE =esd + "/jp.faceclassifier/model/tensorflow_inception_graph.pb";
-    private final String IMAGE_LABEL_FILE =esd + "/jp.faceclassifier/model/imagenet_comp_graph_label_strings.txt";
-    private final int IMAGE_INPUT_SIZE = 224;
-    private final int IMAGE_IMAGE_MEAN = 117;
-    private final float IMAGE_IMAGE_STD = 1;
-    private final String IMAGE_INPUT_NAME = "input";
-    private final String IMAGE_OUTPUT_NAME = "output";
-
-    private final String FACE_MODEL_FILE =esd + "/jp.faceclassifier/model/20170512-110547.pb";
-    private final String FACE_LABEL_FILE = null;
-    private final int FACE_INPUT_SIZE = 160;
-    private final int FACE_IMAGE_MEAN = 117;
-    private final float FACE_IMAGE_STD = 1;
-    private final String FACE_INPUT_NAME = "input:0";
-    private final String FACE_OUTPUT_NAME = "embeddings";
 
     private FrameProcessor(Builder builder) {
 
-
-        classifyHandlerThread = new HandlerThread("tf");
+        HandlerThread classifyHandlerThread = new HandlerThread("tf");
         classifyHandlerThread.start();
         classifyHandler = new Handler(classifyHandlerThread.getLooper());
 
-        dlibFaceDetecor = DlibFaceDetecor.create(esd + "/jp.faceclassifier/shape_predictor_5_face_landmarks.dat");
-//        tfImageClassifier = TensorflowImageClassifier.create(IMAGE_MODEL_FILE, IMAGE_LABEL_FILE, IMAGE_INPUT_SIZE, IMAGE_IMAGE_MEAN, IMAGE_IMAGE_STD, IMAGE_INPUT_NAME, IMAGE_OUTPUT_NAME);
+        String envDirectory = Environment.getExternalStorageDirectory().getPath();
+        dlibFaceDetecor = DlibFaceDetecor.create(envDirectory + "/jp.faceclassifier/shape_predictor_5_face_landmarks.dat");
+        embeddingsExtractor = EmbeddingsExtractor.create(envDirectory + "/jp.faceclassifier/model/20170512-110547.pb");
+//        classifier = Classifier.create(envDirectory + "/jp.faceclassifier/1519740686");
 
-        tfFaceClassifier = TensorflowFaceClassifier.create(FACE_MODEL_FILE, FACE_LABEL_FILE, FACE_INPUT_SIZE, FACE_INPUT_NAME, FACE_OUTPUT_NAME);
         listener = builder.listener;
     }
 
@@ -73,7 +55,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
                 frame.getSize().width,
                 frame.getSize().height,
                 frame.getRotation(),
-                FACE_INPUT_SIZE
+                EmbeddingsExtractor.getInputSize()
         );
 
         if(faces.size() > 0) {
@@ -88,8 +70,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
             classifyHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    tfFaceClassifier.classiyImage(faces.get(0).getImage());
-//                    tfImageClassifier.classiyImage(faces.get(0).getImage());
+                    embeddingsExtractor.runModel(faces.get(0).getImage());
                 }
             });
         }

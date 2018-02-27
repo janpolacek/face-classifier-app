@@ -90,7 +90,6 @@ public class CameraActivity extends AppCompatActivity {
                         .listener(new FrameProcessor.OnFacesDetectedListener() {
                             @Override
                             public void onFacesDetected(List<Detection> detections) {
-                                Log.d("TAG", "Detected faces: " + detections.size());
                                 detectionsView.setRectangles(detections);
                             }
                         })
