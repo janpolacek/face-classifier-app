@@ -24,13 +24,6 @@
       <option name="SHOW_OPTIMIZED_WARNING" value="true" />
       <startup_commands startup_commands_attr="" />
     </Auto>
-    <Bazel>
-      <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-      <option name="SHOW_STATIC_VARS" value="true" />
-      <option name="WORKING_DIR" value="" />
-      <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-    </Bazel>
     <Hybrid>
       <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
       <option name="SHOW_STATIC_VARS" value="true" />
@@ -53,7 +46,7 @@
     <option name="ACTIVITY_CLASS" value="" />
     <method>
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519752749006" />
+      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519771340315" />
     </method>
   </configuration>
 </component>
