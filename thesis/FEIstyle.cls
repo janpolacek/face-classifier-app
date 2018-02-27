@@ -52,9 +52,9 @@
 \LoadClass[\myset]{\parentclass}
 
 \ifnum\FEIenglish=0
-    \usepackage[slovak, english]{babel}
+    \usepackage[slovak,english]{babel}
 \else
-    \usepackage[english, slovak]{babel}
+    \usepackage[english,slovak]{babel}
 \fi
 
 \usepackage[utf8]{inputenc}
