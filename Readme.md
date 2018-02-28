@@ -65,8 +65,17 @@ python src/classifier.py CLASSIFY ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facene
 Dalsie kroky:
 1, Natrenovanie dlib svc a ulozenie modelu cez python
 2, Nacitanie modelu cez dlib v androide
+3, FORK Facenet a zmena submodules aby bolo mozne don zapisovat
 3, Oprava povoleni na citanie/zapis z externeho storage
 4, Optimalizacia facenet modelu (podla navodu na tensorflow stranke)
 5, Automaticke stiahnutie modelov
 6, ...
+
+
+Poznatky zlych alebo zdlhavych krokov:
+Nepouzitie kniznice na spracovanie obrazu kamery: S kniznicou Fotoapparat to bolo za chvilu so vsetkym
+Snaha o nativny build tensorflow a jeho pouzivanie bez Javy: Vsetky priklady ukazuju na pouzivanie AAR tensorflow a automaticke JNI prevolavanie
+Nastavanie OpenCV bolo tiez zdlhave - dnes by som asi opat skusil AAR, ale momentalne to mam rozbehane cez kopirovanie nativnych kniznich a CMAKE
+Vytvorenie SVM modelu cez Tensorflow Estimator: Podarilo sa natrenovat aj ulozit, android nepodporuje nacitanie takehoto modelu
+LibSVM - Api pre android nie je velmi pekne - funguje na zaklade vyskladavanie strinu commandovat a prepinacov a jednym z argumentov je subor ktory ma spracovat
 
