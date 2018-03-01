@@ -35,9 +35,13 @@ V mojom pripade to bolo
      api_level=14)
 
 Pre buildovanie Tensorflow bolo tiez nainstalovat NDK vo verzii 14, s novsou to neslo
+
 ###Zbuildovanie kniznic tensorflow pre Android
 Otvorit tensorflow examples/android v android studiu a zbuildovat
 Nasledne skopirovat libtensorflow.so z tensorflow/contrib/android/jni do src/main/jniLibs
+
+###Zda sa, ze namiesto celeho procesu buildovania, je mozne pouzit ich skompilovane kniznice ktore maju na jenkinse
+https://ci.tensorflow.org/view/Nightly/job/nightly-android/lastSuccessfulBuild/artifact/out/native/
 
 #Kopirovanie modelov
 Momentalne nie je spojazdnene automaticke stahovanie modelov, a je potrebne ich rucne na zariadenie skopirovat
