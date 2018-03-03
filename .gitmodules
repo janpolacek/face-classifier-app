@@ -5,7 +5,7 @@
 
 [submodule "thirdparty/facenet"]
 	path = thirdparty/facenet
-	url = https://github.com/davidsandberg/facenet.git
+	url = https://github.com/janpolacek/facenet.git
 	branch = master
 
 [submodule "thirdparty/tensorflow"]
