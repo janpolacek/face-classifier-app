@@ -58,13 +58,13 @@ Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah
 Nasledne pokracuje podla prilozenej dokumentacie facenetu s pripadnymi obmenami cesty k datam
 
 ###Predspracovanie obrazkov
-for N in {1..4}; do python src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/lfw_mtcnnpy_160 --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.1 & done
+for N in {1..4}; do python3 src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/alligned --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done
 
 ###Natrenovanie classifikatora:
-python src/classifier.py TRAIN ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facenet/20170512-110547.pb  ~/models/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 5 --nrof_train_images_per_class 4 --use_split_dataset
+python3 src/classifier.py TRAIN ~/datasets/lfw/alligned ~/models/facenet/20170512-110547/20170512-110547.pb  ~/models/facenet/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset
 
 ###Testovanie classifikatora
-python src/classifier.py CLASSIFY ~/datasets/lfw/lfw_mtcnnpy_160 ~/models/facenet/20170512-110547.pb  ~/models/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 5 --nrof_train_images_per_class 4 --use_split_dataset
+python3 src/classifier.py CLASSIFY ~/datasets/lfw/alligned ~/models/facenet/20170512-110547/20170512-110547.pb  ~/models/facenet/lfw_classifier.pkl --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 36 --use_split_dataset
 
 Dalsie kroky:
 1, Natrenovanie dlib svc a ulozenie modelu cez python
