@@ -9,8 +9,8 @@ Nastavit cestu na novy priecinok v CMakeList cez premenu OPENCV_DIR
 Skopirovat priecinok obsah z OPENCV_DIR/sdk/native/libs do src/main/jniLibs
 
 File -> New -> Import Module a vybrat OPENCV_DIR/sdk/java  -> Finish
-Pridat do dependencies v gradle, pricom 'OpenCV_3.4.0' je nazov modulu
-compile project(':OpenCV_3.4.0')
+Pridat do dependencies v gradle, pricom 'openCVLibrary340' je nazov modulu
+compile project(':openCVLibrary340')
 
 
 ##Dlib
