@@ -3,5 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/dlib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/facenet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thirdparty/tensorflow" vcs="Git" />
   </component>
 </project>

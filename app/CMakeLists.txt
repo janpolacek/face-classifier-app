@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.4.1)
 add_definitions(-DOS_ANDROID)
 
 set(THIRDPARTY ${CMAKE_SOURCE_DIR}/../thirdparty)
-set(OPENCV_DIR ${THIRDPARTY}/opencv-3.3.1-android-sdk)
+set(OPENCV_DIR ${THIRDPARTY}/opencv-3.4.0-android-sdk)
 set(DLIB_DIR ${THIRDPARTY}/dlib)
 set(TF_DIR ${THIRDPARTY}/tensorflow)
 
