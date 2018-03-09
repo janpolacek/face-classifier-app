@@ -11,8 +11,8 @@ import java.util.List;
 import io.fotoapparat.preview.Frame;
 import jp.faceclass.nn.Classifier;
 import jp.faceclass.nn.Detection;
-import jp.faceclass.nn.DlibFaceDetecor;
-import jp.faceclass.nn.EmbeddingsExtractor;
+import jp.faceclass.nn.Detector;
+import jp.faceclass.nn.Extractor;
 
 public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
@@ -20,21 +20,22 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
     private Handler classifyHandler;
 
-    private final DlibFaceDetecor dlibFaceDetecor;
-    private EmbeddingsExtractor embeddingsExtractor;
+    private final Detector detector;
+    private Extractor extractor;
     private Classifier classifier;
     private final OnFacesDetectedListener listener;
 
     private FrameProcessor(Builder builder) {
 
-        HandlerThread classifyHandlerThread = new HandlerThread("tf");
+        HandlerThread classifyHandlerThread = new HandlerThread("tensorflow");
         classifyHandlerThread.start();
         classifyHandler = new Handler(classifyHandlerThread.getLooper());
 
-        String envDirectory = Environment.getExternalStorageDirectory().getPath();
-        dlibFaceDetecor = DlibFaceDetecor.create(envDirectory + "/jp.faceclassifier/shape_predictor_5_face_landmarks.dat");
-        embeddingsExtractor = EmbeddingsExtractor.create(envDirectory + "/jp.faceclassifier/model/20170512-110547.pb");
-//        classifier = Classifier.create(envDirectory + "/jp.faceclassifier/1519740686");
+        String appPath = Environment.getExternalStorageDirectory().getPath() + "/classifier/";
+
+        detector = Detector.create(appPath + "dlib/shape_predictor_5_face_landmarks.dat");
+        extractor = Extractor.create(appPath + "facenet/20170512-110547.pb");
+        classifier = Classifier.create(appPath + "opencv/lfw_classifier_opencv.yml");
 
         listener = builder.listener;
     }
@@ -46,31 +47,35 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
     @Override
     public void process(Frame frame) {
-        if(DlibFaceDetecor.isProcessing){
+        if(detector.isProcessing()){
             return;
         }
 
-        final List<Detection> faces = dlibFaceDetecor.detectFaces(
+        final List<Detection> faces = detector.detectFaces(
                 frame.getImage(),
                 frame.getSize().width,
                 frame.getSize().height,
                 frame.getRotation(),
-                EmbeddingsExtractor.getInputSize()
+                Extractor.getInputSize()
         );
 
-        if(faces.size() > 0) {
-            mainThreadHandler.post(new Runnable() {
+        mainThreadHandler.post(new Runnable() {
                 @Override
                 public void run() {
                     listener.onFacesDetected(faces);
                 }
             });
-        }
+
         if(faces.size() > 0) {
+            if(extractor.isProcessing()) {
+                return;
+            }
+
             classifyHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    embeddingsExtractor.runModel(faces.get(0).getImage());
+                    float [] embeddings = extractor.extractEmbeddings(faces.get(0).getImage());
+                    classifier.classify(embeddings);
                 }
             });
         }

@@ -16,7 +16,7 @@
 #include "dlib_detector.h"
 
 #define FACE_DETECTION_METHOD(METHOD_NAME) \
-  Java_jp_faceclass_nn_DlibFaceDetecor_##METHOD_NAME  // NOLINT
+  Java_jp_faceclass_nn_Detector_##METHOD_NAME  // NOLINT
 
 
 using DetectorPtr = DLibHOGFaceDetector*;

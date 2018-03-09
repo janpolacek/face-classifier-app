@@ -11,10 +11,6 @@ public class Detection {
     private int right = 0;
     private int bottom = 0;
 
-    private int width = 160;
-    private int height = 160;
-
-
     private byte[] image = null;
 
     public Detection() {
@@ -42,8 +38,6 @@ public class Detection {
         for(int i=0; i<ret.length; i++){
             ret[i] = (image[i] & 0xff) * 0x00010101;
         }
-
-//        new CheckPhotoTask().execute(ret, null, null);
     }
 
 
@@ -81,15 +75,6 @@ public class Detection {
 
     public RectF getRectangle() {
         return new RectF(left, top, right, bottom);
-    }
-
-
-    class CheckPhotoTask extends AsyncTask<int[], Void, Void> {
-        @Override
-        protected Void doInBackground(int[]... image) {
-            Bitmap bmp = Bitmap.createBitmap(image[0], width, height, Bitmap.Config.RGB_565);
-            return(null);
-        }
     }
 
 }

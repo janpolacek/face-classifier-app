@@ -11,9 +11,10 @@ import java.io.FileNotFoundException;
 
 import tensorflow.TensorFlowInferenceInterface;
 
-public class EmbeddingsExtractor {
-    private static final String TAG = "EmbeddingsExtractor";
+public class Extractor {
+    private static final String TAG = "Extractor";
 
+    private boolean processing = false;
     private static final int inputSize = 160;
     private static final String inputName = "input:0";
     private static final String outputName = "embeddings";
@@ -27,12 +28,12 @@ public class EmbeddingsExtractor {
 
     private TensorFlowInferenceInterface inferenceInterface;
 
-    private EmbeddingsExtractor() {}
+    private Extractor() {}
 
 
-    public static EmbeddingsExtractor create(String modelFilename) {
+    public static Extractor create(String modelFilename) {
 
-        EmbeddingsExtractor c = new EmbeddingsExtractor();
+        Extractor c = new Extractor();
         FileInputStream modelInputStream = null;
 
         try {
@@ -53,7 +54,8 @@ public class EmbeddingsExtractor {
         return c;
     }
 
-    public float [] runModel(final byte[] pixels) {
+    public float [] extractEmbeddings(final byte[] pixels) {
+        setProcessing(true);
         long startTime = System.currentTimeMillis();
 
         float [] data = processData(pixels);
@@ -62,8 +64,9 @@ public class EmbeddingsExtractor {
         float [] result = fetchResult();
 
         long estimatedTime = System.currentTimeMillis() - startTime;
-        Log.d(TAG, "runModel time:" + estimatedTime);
+        Log.d(TAG, "classify time:" + estimatedTime);
 
+        setProcessing(false);
         return result;
     }
 
@@ -110,8 +113,15 @@ public class EmbeddingsExtractor {
     public void close() {
         inferenceInterface.close();
     }
-
     public static int getInputSize() {
         return inputSize;
+    }
+
+    public boolean isProcessing() {
+        return processing;
+    }
+
+    public void setProcessing(boolean processing) {
+        this.processing = processing;
     }
 }

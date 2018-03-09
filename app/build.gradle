@@ -53,5 +53,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'io.fotoapparat.fotoapparat:library:2.2.0'
     implementation 'org.tensorflow:tensorflow-android:1.5.0'
-    compile project(':openCVLibrary340')
+    compile project(':OpenCv')
 }

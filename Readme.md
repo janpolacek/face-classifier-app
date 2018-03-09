@@ -12,6 +12,9 @@ File -> New -> Import Module a vybrat OPENCV_DIR/sdk/java  -> Finish
 Pridat do dependencies v gradle, pricom 'openCVLibrary340' je nazov modulu
 compile project(':openCVLibrary340')
 
+Opencv moze vypisovat ze nepozna napr. android camera2 import. -> treba nastavit verziu android sdk v tomto module
+na vyssiu (idealne rovnake nastavenie ako v app)
+
 
 ##Dlib
 Staci pullnut najnovsie zmeny, pripadne vlozit novsiu kniznicu do thirdparty a nastavit premennu v CmakeLists
