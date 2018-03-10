@@ -1,17 +1,20 @@
-package jp.faceclass;
+package camera;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import java.util.List;
 
+import camera.DetectionsView;
+import camera.FrameProcessor;
+import camera.PermissionsDelegate;
 import io.fotoapparat.Fotoapparat;
 import io.fotoapparat.parameter.ScaleType;
 import io.fotoapparat.view.CameraView;
-import jp.faceclass.nn.Detection;
+import jp.faceclass.R;
+import classification.Detection;
 
 import static io.fotoapparat.log.LoggersKt.fileLogger;
 import static io.fotoapparat.log.LoggersKt.logcat;
@@ -33,7 +36,7 @@ public class CameraActivity extends AppCompatActivity {
 
     private Fotoapparat backFotoapparat;
 
-    private String TAG = "CameraActivity";
+    private String TAG = "camera.CameraActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +97,10 @@ public class CameraActivity extends AppCompatActivity {
                             }
                         })
                         .build())
-                .logger(loggers(
-                        logcat(),
-                        fileLogger(this)
-                ))
+//                .logger(loggers(
+//                        logcat(),
+//                        fileLogger(this)
+//                ))
                 .build();
     }
 

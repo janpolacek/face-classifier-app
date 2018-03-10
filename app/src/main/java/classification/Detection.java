@@ -1,8 +1,10 @@
-package jp.faceclass.nn;
+package classification;
 
 import android.graphics.Bitmap;
 import android.graphics.RectF;
-import android.os.AsyncTask;
+
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
 
 public class Detection {
 
@@ -11,35 +13,19 @@ public class Detection {
     private int right = 0;
     private int bottom = 0;
 
-    private byte[] image = null;
+    private Mat mat;
 
     public Detection() {
+        mat = new Mat();
     }
 
     public Detection(int x, int y, int r, int b) {
+        this();
         left = x;
         top = y;
         right = r;
         bottom = b;
     }
-    public Detection(int x, int y, int r, int b, byte[] img) {
-        this(x, y, r, b);
-        setImage(img);
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] img) {
-        image = img;
-
-        int [] ret = new int[image.length];
-        for(int i=0; i<ret.length; i++){
-            ret[i] = (image[i] & 0xff) * 0x00010101;
-        }
-    }
-
 
     public int getLeft() {
         return left;
@@ -77,6 +63,23 @@ public class Detection {
         return new RectF(left, top, right, bottom);
     }
 
+    public Mat getMat() {
+        return mat;
+    }
+
+    public void setMat(Mat mat) {
+        this.mat = mat;
+    }
+
+    public long getNativeObjAddr(){
+        return mat.getNativeObjAddr();
+    }
+
+    public void viewBitmap(){
+        Bitmap bmp;
+        bmp = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.RGB_565);
+        Utils.matToBitmap(mat, bmp);
+    }
 }
 
 

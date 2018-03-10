@@ -1,4 +1,4 @@
-package jp.faceclass;
+package camera;
 
 import android.content.Context;
 import android.os.Environment;
@@ -9,10 +9,10 @@ import android.os.Looper;
 import java.util.List;
 
 import io.fotoapparat.preview.Frame;
-import jp.faceclass.nn.Classifier;
-import jp.faceclass.nn.Detection;
-import jp.faceclass.nn.Detector;
-import jp.faceclass.nn.Extractor;
+import classification.Classifier;
+import classification.Detection;
+import classification.Detector;
+import classification.Extractor;
 
 public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
@@ -74,8 +74,8 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
             classifyHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    float [] embeddings = extractor.extractEmbeddings(faces.get(0).getImage());
-                    classifier.classify(embeddings);
+                    float [] embeddings = extractor.extractEmbeddings(faces.get(0).getMat());
+//                    classifier.classify(embeddings);
                 }
             });
         }

@@ -1,4 +1,4 @@
-package jp.faceclass;
+package camera;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,7 +14,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.faceclass.nn.Detection;
+import jp.faceclass.R;
+import classification.Detection;
 
 
 public class DetectionsView extends View {

@@ -1,6 +1,4 @@
-package jp.faceclass.nn;
-
-import android.graphics.RectF;
+package classification;
 
 public class Recognition {
     /**

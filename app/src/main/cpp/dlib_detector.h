@@ -36,12 +36,13 @@ public:
         }
     }
 
-    inline cv::Mat getGrayScaleImage(jbyte *nv21Image,
-                                   jint frameWidth,
-                                   jint frameHeight){
+    inline cv::Mat getRGBMat(jbyte *nv21Image,
+                             jint frameWidth,
+                             jint frameHeight){
         cv::Mat yuvMat = cv::Mat(frameHeight + frameHeight / 2, frameWidth, CV_8UC1, (unsigned char *) nv21Image);
-        cv::Mat grayMat = cv::Mat(frameHeight, frameWidth, CV_8UC1);
-        cv::cvtColor(yuvMat, grayMat, CV_YUV2GRAY_NV21);
+        cv::Mat grayMat = cv::Mat(frameHeight, frameWidth, CV_8UC3);
+
+        cv::cvtColor(yuvMat, grayMat, CV_YUV2RGB_NV21);
         return grayMat;
     }
 
@@ -65,10 +66,19 @@ public:
                          jint frameHeight,
                          jint frameRotationDegrees) {
 
-        cv::Mat grayMat = getGrayScaleImage(nv21Image, frameWidth, frameHeight);
-        cv::Mat rotatedMat = rotateImage(grayMat, frameRotationDegrees);
-        originalImage = rotatedMat.clone();
-        cv::Mat scaledMat = scaleImage(rotatedMat, scaleValue);
+
+        //prelozit frame do normalneho obrazka
+        cv::Mat rgbMat = getRGBMat(nv21Image, frameWidth, frameHeight);
+        //rotovat
+        cv::Mat rotated = rotateImage(rgbMat, frameRotationDegrees);
+        originalImage = rotated.clone();
+
+        //grayscale
+        cv::Mat grayMat(rotated.size(), CV_8UC1);
+        cv::cvtColor(rotated, grayMat, CV_RGB2GRAY);
+
+        //zmensit
+        cv::Mat scaledMat = scaleImage(grayMat, scaleValue);
 
         return scaledMat;
     }
@@ -82,7 +92,7 @@ public:
 
     std::vector<dlib::full_object_detection> getShapesFromOriginal(){
         std::vector<dlib::full_object_detection> faceShapeMap;
-        dlib::cv_image<unsigned char> img(originalImage);
+        dlib::cv_image<dlib::rgb_pixel> img(originalImage);
 
         if (mRets.size() != 0 && !mLandMarkModel.empty()) {
             for (unsigned long j = 0; j < mRets.size(); ++j) {
@@ -100,6 +110,7 @@ public:
 
         return faceShapeMap;
     }
+
 
     virtual inline std::vector<dlib::rectangle> getResult() { return mRets; }
 

@@ -1,4 +1,4 @@
-package jp.faceclass.nn;
+package classification;
 
 import android.util.Log;
 

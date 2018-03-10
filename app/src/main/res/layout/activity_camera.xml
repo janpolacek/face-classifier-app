@@ -6,7 +6,7 @@
     android:background="@android:color/black"
     >
 
-    <jp.faceclass.CameraOverlayLayout
+    <camera.CameraOverlayLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,14 +19,14 @@
             tools:layout_editor_absoluteY="8dp"
             tools:visibility="visible"/>
 
-        <jp.faceclass.DetectionsView
+        <camera.DetectionsView
             android:id="@+id/rectanglesView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:rectanglesColor="@color/colorPrimaryDark"
             app:rectanglesStrokeWidth="2dp"/>
 
-    </jp.faceclass.CameraOverlayLayout>
+    </camera.CameraOverlayLayout>
 
     <TextView
         android:id="@+id/no_permission"

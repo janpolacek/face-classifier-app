@@ -15,10 +15,10 @@
     <option name="PREFERRED_AVD" value="" />
     <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
     <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-    <option name="DEBUGGER_TYPE" value="Java" />
+    <option name="DEBUGGER_TYPE" value="Hybrid" />
     <Auto>
       <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-      <option name="SHOW_STATIC_VARS" value="true" />
+      <option name="SHOW_STATIC_VARS" value="false" />
       <option name="WORKING_DIR" value="" />
       <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
       <option name="SHOW_OPTIMIZED_WARNING" value="true" />
@@ -46,7 +46,7 @@
     <option name="ACTIVITY_CLASS" value="" />
     <method>
       <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520638810401" />
+      <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520718189529" />
     </method>
   </configuration>
 </component>

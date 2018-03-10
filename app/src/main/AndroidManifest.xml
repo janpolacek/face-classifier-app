@@ -18,7 +18,7 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CameraActivity"
+            android:name="camera.CameraActivity"
             android:screenOrientation="portrait"
             >
             <intent-filter>

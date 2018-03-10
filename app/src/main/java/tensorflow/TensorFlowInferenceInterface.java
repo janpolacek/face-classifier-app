@@ -37,6 +37,7 @@ import org.tensorflow.Session;
 import org.tensorflow.Tensor;
 import org.tensorflow.TensorFlow;
 import org.tensorflow.Tensors;
+import org.tensorflow.contrib.android.RunStats;
 import org.tensorflow.types.UInt8;
 
 /**

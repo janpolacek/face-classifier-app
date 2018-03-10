@@ -16,7 +16,7 @@
 #include "dlib_detector.h"
 
 #define FACE_DETECTION_METHOD(METHOD_NAME) \
-  Java_jp_faceclass_nn_Detector_##METHOD_NAME  // NOLINT
+  Java_classification_Detector_##METHOD_NAME  // NOLINT
 
 
 using DetectorPtr = DLibHOGFaceDetector*;
@@ -30,7 +30,7 @@ typedef struct JNI_Detection_Cls {
     jmethodID setTopId;
     jmethodID setRightId;
     jmethodID setBottomId;
-    jmethodID setImageId;
+    jmethodID getNativeObjAddrId;
 } JNI_Detection_Cls;
 
 //instancia
@@ -50,7 +50,7 @@ void LoadJNIDetectionClass(JNIEnv * env) {
         return;
     jniDetClsDef = new JNI_Detection_Cls;
 
-    jniDetClsDef->cls = env->FindClass("jp/faceclass/nn/Detection");
+    jniDetClsDef->cls = env->FindClass("classification/Detection");
 
     if(jniDetClsDef->cls != NULL)
         printf("sucessfully created class");
@@ -65,26 +65,17 @@ void LoadJNIDetectionClass(JNIEnv * env) {
     jniDetClsDef->setTopId = env->GetMethodID(jniDetClsDef->cls, "setTop", "(I)V");
     jniDetClsDef->setRightId = env->GetMethodID(jniDetClsDef->cls, "setRight", "(I)V");
     jniDetClsDef->setBottomId = env->GetMethodID(jniDetClsDef->cls, "setBottom", "(I)V");
-    jniDetClsDef->setImageId = env->GetMethodID(jniDetClsDef->cls, "setImage", "([B)V");
-}
-void FillJNIDetectionImage(JNIEnv * env, jobject jPosRec, Detection* pDetection){
-    size_t data_size = pDetection->image.total() * pDetection->image.elemSize();
-    char * data = (char *) pDetection->image.data;
-
-    jbyteArray mJByteArray = env->NewByteArray((jsize) data_size);
-    void *dataAlloc = env->GetPrimitiveArrayCritical((jarray)mJByteArray, 0);
-    memcpy(dataAlloc, data, data_size);
-    env->ReleasePrimitiveArrayCritical(mJByteArray, dataAlloc, 0);
-
-    env->CallVoidMethod(jPosRec, jniDetClsDef->setImageId, mJByteArray);
+    jniDetClsDef->getNativeObjAddrId = env->GetMethodID(jniDetClsDef->cls, "getNativeObjAddr", "()J");
 }
 
-void FillJNIDetectionValues(JNIEnv * env, jobject jPosRec, Detection* pDetection) {
+void FillJNIDetectionValues(JNIEnv * env, jobject jPosRec, Detection* pDetection, int outputSize) {
     env->CallVoidMethod(jPosRec, jniDetClsDef->setLeftId, pDetection->left);
     env->CallVoidMethod(jPosRec, jniDetClsDef->setTopId,  pDetection->top);
     env->CallVoidMethod(jPosRec, jniDetClsDef->setRightId, pDetection->right);
     env->CallVoidMethod(jPosRec, jniDetClsDef->setBottomId, pDetection->bottom);
-    FillJNIDetectionImage(env, jPosRec, pDetection);
+    cv::Mat* mat = (cv::Mat*) env->CallLongMethod(jPosRec, jniDetClsDef->getNativeObjAddrId, 0);
+    mat->create(outputSize, outputSize, CV_8UC3);
+    memcpy(mat->data, pDetection->image.data, mat->step * mat->rows);
 }
 
 extern "C"
@@ -130,12 +121,12 @@ FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
     //alignment
     std::vector<dlib::full_object_detection> shapes = detPtr->getShapesFromOriginal();
 
-    dlib::array<dlib::array2d<unsigned char>> face_chips;
-    dlib::cv_image<unsigned char> original_image(detPtr->originalImage);
+    dlib::array<dlib::array2d<dlib::rgb_pixel>> face_chips;
+    dlib::cv_image<dlib::rgb_pixel> original_image(detPtr->originalImage);
 
     extract_image_chips(
             original_image,
-            dlib::get_face_chip_details(shapes, outputSize, 0.2),
+            dlib::get_face_chip_details(shapes, outputSize, 0.3),
             face_chips
     );
     
@@ -148,9 +139,17 @@ FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
         detection->bottom = (int) detections[i].bottom() * detPtr->scaleValue;
         detection->image = dlib::toMat(face_chips[i]);
 
-        FillJNIDetectionValues(env, jniDetClsInst, detection);
+        FillJNIDetectionValues(env, jniDetClsInst, detection, outputSize);
         env->SetObjectArrayElement(jDetArray, i, jniDetClsInst);
     }
+
+//    for(int i=0; i<face_chips.size(); i++){
+//        dlib::cv_image<dlib::rgb_pixel> aligned_chip(dlib::toMat(face_chips[i]));
+//        dlib::save_png(aligned_chip, "/sdcard/classifier/detections/chip_" + std::to_string(i) + ".png");
+//    }
+//
+//    dlib::cv_image<dlib::rgb_pixel> aligned_chip(detPtr->originalImage);
+//    dlib::save_png(aligned_chip, "/sdcard/classifier/detections/original.png");
 
     env->ReleaseByteArrayElements(nv21Image_, nv21Image, 0);
     return jDetArray;

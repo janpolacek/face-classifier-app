@@ -1,4 +1,4 @@
-package jp.faceclass;
+package camera;
 
 import android.content.Context;
 import android.support.annotation.AttrRes;
