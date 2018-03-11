@@ -92,9 +92,11 @@ Dalsie kroky:
 - [ ] Automaticke stiahnutie modelov
 - [x] Vratenie RGB face chipu z jni - hotovo
 - [x] Pouzivanie OpenCV Mat objektov namiesto vracania bytovych poli z JNI
-- [x] Kontrola ci rovnake embeddings vracaju rovnake classy
 - [ ] Kontrola ci rovnaky image vrati rovnake embeddings
+- [ ] Kontrola ci rovnake embeddings vracaju rovnake classy
 - [x] Align tvare cez dlib aj vo facenete
+- [ ] Kontrola ci mame obrazok v Extractore v RGB ale BGR
+- [ ] Prewhiten
 
 
 Poznatky zlych alebo zdlhavych krokov:
@@ -104,3 +106,5 @@ Nastavanie OpenCV bolo tiez zdlhave - hned pouzit cez module a pouzivat java int
 Vytvorenie SVM modelu cez Tensorflow Estimator: Podarilo sa natrenovat aj ulozit, android nepodporuje nacitanie takehoto modelu - https://github.com/tensorflow/tensorflow/issues/13079
 LibSVM - Api pre android nie je velmi pekne - funguje na zaklade vyskladavanie strinu commandovat a prepinacov a jednym z argumentov je subor ktory ma spracovat
 Dlib classfikator v pythone pre multiclass - nenasli sme vhodny priklad
+Pri konverzii framu z YUV formatu sa objavili signed hodnoty v obrazku
+

@@ -143,10 +143,10 @@ FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
         env->SetObjectArrayElement(jDetArray, i, jniDetClsInst);
     }
 
-    for(int i=0; i<face_chips.size(); i++){
-        dlib::cv_image<dlib::rgb_pixel> aligned_chip(dlib::toMat(face_chips[i]));
-        dlib::save_png(aligned_chip, "/sdcard/classifier/detections/chip_" + std::to_string(i) + ".png");
-    }
+//    for(int i=0; i<face_chips.size(); i++){
+//        dlib::cv_image<dlib::rgb_pixel> aligned_chip(dlib::toMat(face_chips[i]));
+//        dlib::save_png(aligned_chip, "/sdcard/classifier/detections/chip_" + std::to_string(i) + ".png");
+//    }
 //
 //    dlib::cv_image<dlib::rgb_pixel> aligned_chip(detPtr->originalImage);
 //    dlib::save_png(aligned_chip, "/sdcard/classifier/detections/original.png");

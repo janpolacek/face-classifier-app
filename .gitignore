@@ -7,3 +7,9 @@
 /build
 /captures
 .externalNativeBuild
+
+
+/thirdparty/opencv-3.4.0-android-sdk/
+/thirdparty/dlib/
+/thirdparty/tensorflow/
+/.idea/
