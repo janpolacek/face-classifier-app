@@ -80,7 +80,7 @@ python3 src/classifier.py TRAIN ~/datasets/lfw/alligned_lite ~/models/facenet/20
 python3 src/classifier.py TRAIN ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset
 
 ###Testovanie classifikatora
-python3 src/classifier.py CLASSIFY ~/datasets/lfw/alligned ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 36 --use_split_dataset
+python3 src/classifier.py CLASSIFY ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 36 --use_split_dataset
 
 Dalsie kroky:
 
