@@ -4,7 +4,7 @@ git clone https://github.com/janpolacek/face-classifier-app --recurse-submodules
 
 ## Nastavenie kniznic
 ### OpenCV
-Ak chceme novsiu verziu Opencv, treba stiahnut sdk a skopirovat do thirdparty
+Ak chceme novsiu verziu Opencv, treba stiahnut sdk z (https://sourceforge.net/projects/opencvlibrary/files/opencv-android/) a skopirovat do thirdparty
 Nastavit cestu na novy priecinok v CMakeList cez premenu OPENCV_DIR
 Skopirovat priecinok obsah z OPENCV_DIR/sdk/native/libs do src/main/jniLibs
 
@@ -16,11 +16,12 @@ Opencv moze vypisovat ze nepozna napr. android camera2 import. -> treba nastavit
 na vyssiu (idealne rovnake nastavenie ako v app)
 
 ### Dlib
-Staci pullnut najnovsie zmeny, pripadne vlozit novsiu kniznicu do thirdparty a nastavit premennu v CmakeLists
+Staci pullnut najnovsie zmeny - je nastaveny ako submodule, pripadne vlozit novsiu kniznicu do thirdparty, pripadne zmenit premennu v Cmakelsits ak sa vola nova verzia inak.
+
 Kompilacia pre python: python setup.py install --yes USE_AVX_INSTRUCTIONS
 
 ## Tensorflow
-Tiez by malo stacit pullnut nove zmeny pripadne nahradit v thirdparty
+Staci pullnut najnovsie zmeny - je nastaveny ako submodule.
 V thirdparty/tensorflow nastavit podla navodu workspace
 V mojom pripade to bolo
  android_sdk_repository(
@@ -46,11 +47,16 @@ V mojom pripade to bolo
 Pre buildovanie Tensorflow bolo tiez potrebne nainstalovat NDK vo verzii 14, s novsou to neslo
 
 #### Zbuildovanie kniznic tensorflow pre Android
-Otvorit tensorflow examples/android v android studiu a zbuildovat
+Otvorit tensorflow examples/android v android studiu a zbuildovat. Tento projekt ma rozbehany build kniznic, tak som to vyuzil.
 Nasledne skopirovat libtensorflow.so z tensorflow/contrib/android/jni do src/main/jniLibs
 
 Zda sa, ze namiesto celeho procesu buildovania, je mozne pouzit ich skompilovane kniznice ktore maju na jenkinse
 https://ci.tensorflow.org/view/Nightly/job/nightly-android/lastSuccessfulBuild/artifact/out/native/
+
+
+### Facenet
+Je pridany ako submodule ale do mojho vlastneho forku - potreboval som vykonat male zmeny.
+Namiesto MTCNN pouzivame DLib rovnako ako na zariadeni. Nevyhodou je, ze Dlib ma problemy so zlym osvetlenim.
 
 ## Kopirovanie modelov na zariadenie
 Momentalne nie je spojazdnene automaticke stahovanie modelov, a je potrebne ich rucne na zariadenie skopirovat
@@ -67,13 +73,14 @@ Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to ma
 -----classifier_pairs.txt
 -----lfw_classifier_opencv.yml
 
-tie zakladne su pribalene v projekte v priecinku models (opat, je to len manualna aktualizacia)
+Tie zakladne su pribalene v projekte v priecinku models (opat, je to len manualna aktualizacia)
 
 ## Dataset
-Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah
-Dlib mal problem rozoznat velke tvare na velkych fotkach 
+Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah. 
 
 ## Predspracovanie obrazkov
+Dlib mal problem rozoznat velke tvare na velkych fotkach, preto som napisal kratky skript vo facenet/contribute/rename_files.py, argumentom je cesta do priecinka - premenuje subory a zmensi ich.
+
 ~~#### MTCNN~~
 ~~for N in {1..4}; do python3 src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/alligned --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done~~
 #### DLIB
