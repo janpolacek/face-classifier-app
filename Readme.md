@@ -62,8 +62,6 @@ Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to ma
 
 -----shape_predictor_5_face_landmarks.dat
 
------shape_predictor_68_face_landmarks.dat (netreba)
-
 ---facenet
 
 -----20170512-110547.pb
@@ -78,6 +76,7 @@ Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to ma
 
 -----lfw_classifier_opencv.yml
 
+tie zakladne su pribalene v projekte v priecinku models (opat, je to len manualna aktualizacia)
 
 ## Dataset
 Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah
