@@ -1,9 +1,9 @@
-##Git:
+## Git:
 Klonovanie repozitara so submodulmi 
 git clone https://github.com/janpolacek/face-classifier-app --recurse-submodules
 
-##Nastavenie kniznic
-###OpenCV
+## Nastavenie kniznic
+### OpenCV
 Ak chceme novsiu verziu Opencv, treba stiahnut sdk a skopirovat do thirdparty
 Nastavit cestu na novy priecinok v CMakeList cez premenu OPENCV_DIR
 Skopirovat priecinok obsah z OPENCV_DIR/sdk/native/libs do src/main/jniLibs
@@ -45,7 +45,7 @@ V mojom pripade to bolo
 
 Pre buildovanie Tensorflow bolo tiez potrebne nainstalovat NDK vo verzii 14, s novsou to neslo
 
-####Zbuildovanie kniznic tensorflow pre Android
+#### Zbuildovanie kniznic tensorflow pre Android
 Otvorit tensorflow examples/android v android studiu a zbuildovat
 Nasledne skopirovat libtensorflow.so z tensorflow/contrib/android/jni do src/main/jniLibs
 
@@ -57,23 +57,14 @@ Momentalne nie je spojazdnene automaticke stahovanie modelov, a je potrebne ich 
 Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to malo vyzerat na zariadeni takto:
 
 -classifier
-
 ---dlib
-
 -----shape_predictor_5_face_landmarks.dat
-
 ---facenet
-
 -----20170512-110547.pb
-
 -----20170512-110547-optimized.pb (skusam zlepsit model)
-
 -----...ostatne ktore sa stiahnu s facenet modelu (netreba ich)
-
 ---opencv
-
 -----classifier_pairs.txt
-
 -----lfw_classifier_opencv.yml
 
 tie zakladne su pribalene v projekte v priecinku models (opat, je to len manualna aktualizacia)
@@ -94,14 +85,14 @@ for N in {1..4}; do python3 tmp/align_dataset.py ~/datasets/lfw/raw ~/datasets/l
 ####DLIB
 python3 src/classifier.py TRAIN ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --labels_filename ~/models/opencv/classifier_pairs.txt --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset
 
-###Testovanie classifikatora
+### Testovanie classifikatora
 python3 src/classifier.py CLASSIFY ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 36 --use_split_dataset
 
 
-##Analyza a optimalizacia facenet modelu
+## Analyza a optimalizacia facenet modelu
 postup cca podla https://www.tensorflow.org/mobile/prepare_models
 
-####Benchmark model
+#### Benchmark model
 bazel build -c opt tensorflow/tools/benchmark:benchmark_model --jobs=1
 bazel-bin/tensorflow/tools/benchmark/benchmark_model \
  --graph=/home/jan/models/facenet/20170512-110547.pb \
@@ -115,17 +106,17 @@ bazel-bin/tensorflow/tools/benchmark/benchmark_model \
  --show_summary=true \
  --show_flops=true
 
-####Sumarizacia graphu (inputy, outputy)
+#### Sumarizacia graphu (inputy, outputy)
 bazel build tensorflow/tools/graph_transforms:summarize_graph
 bazel-bin/tensorflow/tools/graph_transforms/summarize_graph --in_graph=/home/jan/models/facenet/20170512-110547.pb
 
-####Stripnutie nepouzivanych nodov - velkost modelu je potom 4xmensia
+#### Stripnutie nepouzivanych nodov - velkost modelu je potom 4xmensia
 bazel build tensorflow/tools/graph_transforms:transform-graph
 bazel-bin/tensorflow/tools/graph_transforms/transform_graph --in_graph=/home/jan/models/facenet/20170512-110547.pb --out_graph=/home/jan/models/facenet/20170512-110547-optimized.pb --inputs='input:0,phase_train' --outputs='embeddings:0' --transforms='quantize_weights'
 
 
 
-Dalsie kroky:
+## Dalsie kroky:
 
 - [x] Natrenovanie classfikatora a ulozenie modelu cez pytho
 - [x] Nacitanie modelu classfikatora androide
@@ -149,13 +140,13 @@ Dalsie kroky:
 
 
 
-Poznatky zlych alebo zdlhavych krokov:
-Nepouzitie kniznice na spracovanie obrazu kamery: S kniznicou Fotoapparat to bolo za chvilu so vsetkym
-Snaha o nativny build tensorflow a jeho pouzivanie bez Javy: Vsetky priklady ukazuju na pouzivanie AAR tensorflow a automaticke JNI prevolavanie
-Nastavanie OpenCV bolo tiez zdlhave - hned pouzit cez module a pouzivat java interface kde sa da - namiesto pokusu o pouzitie v native
-Vytvorenie SVM modelu cez Tensorflow Estimator: Podarilo sa natrenovat aj ulozit, android nepodporuje nacitanie takehoto modelu - https://github.com/tensorflow/tensorflow/issues/13079
-LibSVM - Api pre android nie je velmi pekne - funguje na zaklade vyskladavanie strinu commandovat a prepinacov a jednym z argumentov je subor ktory ma spracovat
-Dlib classfikator v pythone pre multiclass - nenasli sme vhodny priklad
-Pri konverzii framu z YUV formatu sa objavili signed hodnoty v obrazku
-Neskontrolovali sme hned na zaciatku cast po casti ci davaju rovnake vysledky (napr. rovnake formaty obrazkov, vsetky vykonane operacie (prewhiten))
-Pri analyze modelu sme dostali chybupri stahovani nasm balicka - riesenie je tu https://github.com/tensorflow/tensorflow/issues/16862#issuecomment-368534763
+## Poznatky zlych alebo zdlhavych krokov:
+- Nepouzitie kniznice na spracovanie obrazu kamery: S kniznicou Fotoapparat to bolo za chvilu so vsetkym
+- Snaha o nativny build tensorflow a jeho pouzivanie bez Javy: Vsetky priklady ukazuju na pouzivanie AAR tensorflow a - automaticke JNI prevolavanie
+- Nastavanie OpenCV bolo tiez zdlhave - hned pouzit cez module a pouzivat java interface kde sa da - namiesto pokusu o pouzitie v native
+- Vytvorenie SVM modelu cez Tensorflow Estimator: Podarilo sa natrenovat aj ulozit, android nepodporuje nacitanie takehoto modelu - https://github.com/tensorflow/tensorflow/issues/13079
+- LibSVM - Api pre android nie je velmi pekne - funguje na zaklade vyskladavanie strinu commandovat a prepinacov a jednym z argumentov je subor ktory ma spracovat
+- Dlib classfikator v pythone pre multiclass - nenasli sme vhodny priklad
+- Pri konverzii framu z YUV formatu sa objavili signed hodnoty v obrazku
+- Neskontrolovali sme hned na zaciatku cast po casti ci davaju rovnake vysledky (napr. rovnake formaty obrazkov, vsetky vykonane operacie (prewhiten))
+- Pri analyze modelu sme dostali chybupri stahovani nasm balicka - riesenie je tu https://github.com/tensorflow/tensorflow/issues/16862#issuecomment-368534763
