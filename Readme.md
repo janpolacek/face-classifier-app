@@ -52,7 +52,7 @@ Nasledne skopirovat libtensorflow.so z tensorflow/contrib/android/jni do src/mai
 Zda sa, ze namiesto celeho procesu buildovania, je mozne pouzit ich skompilovane kniznice ktore maju na jenkinse
 https://ci.tensorflow.org/view/Nightly/job/nightly-android/lastSuccessfulBuild/artifact/out/native/
 
-#Kopirovanie modelov na zariadenie
+## Kopirovanie modelov na zariadenie
 Momentalne nie je spojazdnene automaticke stahovanie modelov, a je potrebne ich rucne na zariadenie skopirovat
 Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to malo vyzerat na zariadeni takto:
 
@@ -73,16 +73,16 @@ tie zakladne su pribalene v projekte v priecinku models (opat, je to len manualn
 Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah
 Dlib mal problem rozoznat velke tvare na velkych fotkach 
 
-###Predspracovanie obrazkov
-~~####MTCNN~~
+## Predspracovanie obrazkov
+~~#### MTCNN~~
 ~~for N in {1..4}; do python3 src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/alligned --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done~~
-####DLIB
+#### DLIB
 for N in {1..4}; do python3 tmp/align_dataset.py ~/datasets/lfw/raw ~/datasets/lfw/alligned_dlib --image_size 160 --margin 0.25 --dlib_face_predictor ~/models/dlib/shape_predictor_68_face_landmarks.dat & done
 
-###Natrenovanie classifikatora:
+## Natrenovanie classifikatora:
 ~~####MTCNN~~
 ~~python3 src/classifier.py TRAIN ~/datasets/lfw/alligned ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --labels_filename  --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset~~
-####DLIB
+#### DLIB
 python3 src/classifier.py TRAIN ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --labels_filename ~/models/opencv/classifier_pairs.txt --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset
 
 ### Testovanie classifikatora
