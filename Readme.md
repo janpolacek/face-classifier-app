@@ -1,10 +1,10 @@
-#Navod na vyvoj:
-##Instalacia Python, Tensorflow, Dlib, Android Studia
-##Klonovanie repozitara so submodulmi --recurse-submodules
+##Git:
+Klonovanie repozitara so submodulmi 
+git clone https://github.com/janpolacek/face-classifier-app --recurse-submodules
 
-#Navod pre pouzitie novsich verzii kniznic OpenCV, Dlib, Tensorflow
-##OpenCV
-Priecinok skopirovat do priecinka thirdparty
+##Nastavenie kniznic
+###OpenCV
+Ak chceme novsiu verziu Opencv, treba stiahnut sdk a skopirovat do thirdparty
 Nastavit cestu na novy priecinok v CMakeList cez premenu OPENCV_DIR
 Skopirovat priecinok obsah z OPENCV_DIR/sdk/native/libs do src/main/jniLibs
 
@@ -15,11 +15,12 @@ compile project(':openCVLibrary340')
 Opencv moze vypisovat ze nepozna napr. android camera2 import. -> treba nastavit verziu android sdk v tomto module
 na vyssiu (idealne rovnake nastavenie ako v app)
 
-
-##Dlib
+###Dlib
 Staci pullnut najnovsie zmeny, pripadne vlozit novsiu kniznicu do thirdparty a nastavit premennu v CmakeLists
+Kompilacia pre python: python setup.py install --yes USE_AVX_INSTRUCTIONS
 
 ##Tensorflow
+Tiez by malo stacit pullnut nove zmeny pripadne nahradit v thirdparty
 V thirdparty/tensorflow nastavit podla navodu workspace
 V mojom pripade to bolo
  android_sdk_repository(
@@ -42,28 +43,45 @@ V mojom pripade to bolo
      # Note that the NDK version is not the API level.
      api_level=14)
 
-Pre buildovanie Tensorflow bolo tiez nainstalovat NDK vo verzii 14, s novsou to neslo
+Pre buildovanie Tensorflow bolo tiez potrebne nainstalovat NDK vo verzii 14, s novsou to neslo
 
-###Zbuildovanie kniznic tensorflow pre Android
+####Zbuildovanie kniznic tensorflow pre Android
 Otvorit tensorflow examples/android v android studiu a zbuildovat
 Nasledne skopirovat libtensorflow.so z tensorflow/contrib/android/jni do src/main/jniLibs
 
-###Zda sa, ze namiesto celeho procesu buildovania, je mozne pouzit ich skompilovane kniznice ktore maju na jenkinse
+Zda sa, ze namiesto celeho procesu buildovania, je mozne pouzit ich skompilovane kniznice ktore maju na jenkinse
 https://ci.tensorflow.org/view/Nightly/job/nightly-android/lastSuccessfulBuild/artifact/out/native/
 
-#Kopirovanie modelov
+#Kopirovanie modelov na zariadenie
 Momentalne nie je spojazdnene automaticke stahovanie modelov, a je potrebne ich rucne na zariadenie skopirovat
-Modely sa kopiruju do priecinka na sdstorage/jp.faceclassifier/
-Defaultne ide o model dlibu - shape_predictor_5_face_landmarks.dat,
- facenet na extrakciuc embeddingov - model/20170512-110547.pb,
- svc klasifikatora - TODO
-Pripadne obmeny modelu je potrebne upravit aj v ceste aplikacie (TODO rovnaky nazov a verzionovanie napr. shape_predictor.v1.dat)
+Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to malo vyzerat na zariadeni takto:
+
+-classifier
+
+---dlib
+
+-----shape_predictor_5_face_landmarks.dat
+
+-----shape_predictor_68_face_landmarks.dat (netreba)
+
+---facenet
+
+-----20170512-110547.pb
+
+-----20170512-110547-optimized.pb (skusam zlepsit model)
+
+-----...ostatne ktore sa stiahnu s facenet modelu (netreba ich)
+
+---opencv
+
+-----classifier_pairs.txt
+
+-----lfw_classifier_opencv.yml
 
 
-#Priprava na trenovanie facenet
-## Trenovanie klasifikatora
+## Dataset
 Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah
-Nasledne pokracuje podla prilozenej dokumentacie facenetu s pripadnymi obmenami cesty k datam
+Dlib mal problem rozoznat velke tvare na velkych fotkach 
 
 ###Predspracovanie obrazkov
 ~~####MTCNN~~
@@ -79,6 +97,34 @@ python3 src/classifier.py TRAIN ~/datasets/lfw/alligned_dlib ~/models/facenet/20
 
 ###Testovanie classifikatora
 python3 src/classifier.py CLASSIFY ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 36 --use_split_dataset
+
+
+##Analyza a optimalizacia facenet modelu
+postup cca podla https://www.tensorflow.org/mobile/prepare_models
+
+####Benchmark model
+bazel build -c opt tensorflow/tools/benchmark:benchmark_model --jobs=1
+bazel-bin/tensorflow/tools/benchmark/benchmark_model \
+ --graph=/home/jan/models/facenet/20170512-110547.pb \
+ --input_layer="input:0,phase_train,batch_size" \
+ --input_layer_shape="1,160,160,3::1" \
+ --input_layer_type="float,bool,int32" \
+ --output_layer="embeddings:0" \
+ --show_run_order=false \
+ --show_time=false \
+ --show_memory=false \
+ --show_summary=true \
+ --show_flops=true
+
+####Sumarizacia graphu (inputy, outputy)
+bazel build tensorflow/tools/graph_transforms:summarize_graph
+bazel-bin/tensorflow/tools/graph_transforms/summarize_graph --in_graph=/home/jan/models/facenet/20170512-110547.pb
+
+####Stripnutie nepouzivanych nodov - velkost modelu je potom 4xmensia
+bazel build tensorflow/tools/graph_transforms:transform-graph
+bazel-bin/tensorflow/tools/graph_transforms/transform_graph --in_graph=/home/jan/models/facenet/20170512-110547.pb --out_graph=/home/jan/models/facenet/20170512-110547-optimized.pb --inputs='input:0,phase_train' --outputs='embeddings:0' --transforms='quantize_weights'
+
+
 
 Dalsie kroky:
 
@@ -96,7 +142,12 @@ Dalsie kroky:
 - [ ] Kontrola ci mame obrazok v Extractore v RGB ale BGR
 - [x] Prewhiten
 - [x] Ulozenie classnamov
-- [ ] Vypisanie rospoznanej triedy
+- [x] Vypisanie rospoznanej triedy
+- [ ] Pouzivat grayScale od detekcie az po extrakciu
+- [ ] Viac tvari naraz klasifikovat
+- [ ] Text pri stvorceku
+- [x] Zmensit model facenetu podla navodu na stranke tf
+
 
 
 Poznatky zlych alebo zdlhavych krokov:
@@ -108,4 +159,4 @@ LibSVM - Api pre android nie je velmi pekne - funguje na zaklade vyskladavanie s
 Dlib classfikator v pythone pre multiclass - nenasli sme vhodny priklad
 Pri konverzii framu z YUV formatu sa objavili signed hodnoty v obrazku
 Neskontrolovali sme hned na zaciatku cast po casti ci davaju rovnake vysledky (napr. rovnake formaty obrazkov, vsetky vykonane operacie (prewhiten))
-
+Pri analyze modelu sme dostali chybupri stahovani nasm balicka - riesenie je tu https://github.com/tensorflow/tensorflow/issues/16862#issuecomment-368534763

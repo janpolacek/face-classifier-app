@@ -34,7 +34,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
         String appPath = Environment.getExternalStorageDirectory().getPath() + "/classifier/";
 
         detector = Detector.create(appPath + "dlib/shape_predictor_5_face_landmarks.dat");
-        extractor = Extractor.create(appPath + "facenet/20170512-110547.pb");
+        extractor = Extractor.create(appPath + "facenet/20170512-110547-optimized.pb");
         classifier = Classifier.create(appPath + "opencv/lfw_classifier_opencv.yml", appPath + "opencv/classifier_pairs.txt");
 
         listener = builder.listener;
