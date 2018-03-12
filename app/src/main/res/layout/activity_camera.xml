@@ -6,6 +6,17 @@
     android:background="@android:color/black"
     >
 
+    <TextView
+        android:id="@+id/classified_name_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:visibility="visible" />
+
     <camera.CameraOverlayLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,7 +34,7 @@
             android:id="@+id/rectanglesView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:rectanglesColor="@color/colorPrimaryDark"
+            app:rectanglesColor="@color/colorAccent"
             app:rectanglesStrokeWidth="2dp"/>
 
     </camera.CameraOverlayLayout>

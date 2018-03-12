@@ -5,9 +5,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import android.util.Log;
-
-import org.opencv.core.Mat;
 
 import java.util.List;
 
@@ -26,7 +23,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
     private final Detector detector;
     private Extractor extractor;
     private Classifier classifier;
-    private final OnFacesDetectedListener listener;
+    private final OnFrameProcessedListener listener;
 
     private FrameProcessor(Builder builder) {
 
@@ -36,9 +33,9 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
 
         String appPath = Environment.getExternalStorageDirectory().getPath() + "/classifier/";
 
-        detector = Detector.create(appPath + "dlib/shape_predictor_68_face_landmarks.dat");
+        detector = Detector.create(appPath + "dlib/shape_predictor_5_face_landmarks.dat");
         extractor = Extractor.create(appPath + "facenet/20170512-110547.pb");
-        classifier = Classifier.create(appPath + "opencv/lfw_classifier_opencv.yml");
+        classifier = Classifier.create(appPath + "opencv/lfw_classifier_opencv.yml", appPath + "opencv/classifier_pairs.txt");
 
         listener = builder.listener;
     }
@@ -66,16 +63,26 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
                 @Override
                 public void run() {
                     listener.onFacesDetected(faces);
+                    if(faces.size() == 0){
+                        listener.onFacesClassified("");
+                    }
                 }
             });
 
         if(faces.size() == 0) return;
+        if(extractor.isProcessing()) return;
 
         classifyHandler.post(new Runnable() {
             @Override
             public void run() {
                 float [] embeddings = extractor.extractEmbeddings(faces.get(0).getMat());
-                classifier.classify(embeddings);
+                final String classified = classifier.classify(embeddings);
+                mainThreadHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        listener.onFacesClassified(classified);
+                    }
+                });
             }
         });
     }
@@ -84,24 +91,20 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
     /**
      * Notified when faces are detected.
      */
-    public interface OnFacesDetectedListener {
-
-        /**
-         * Null-object for {@link OnFacesDetectedListener}.
-         */
-        OnFacesDetectedListener NULL = new OnFacesDetectedListener() {
+    public interface OnFrameProcessedListener {
+        OnFrameProcessedListener NULL = new OnFrameProcessedListener() {
             @Override
-            public void onFacesDetected(List<Detection> detections) {
+            public void onFacesDetected(List<Detection> detections) {// Do nothing
+            }
+
+            @Override
+            public void onFacesClassified(String classifications) {
                 // Do nothing
             }
-        };
 
-        /**
-         * Called when faces are detected. Always called on the main thread.
-         *
-         * @param detections detected faces. If no faces were detected - an empty list.
-         */
+        };
         void onFacesDetected(List<Detection> detections);
+        void onFacesClassified(String classifications);
 
     }
 
@@ -111,7 +114,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
     public static class Builder {
 
         private final Context context;
-        private OnFacesDetectedListener listener = OnFacesDetectedListener.NULL;
+        private OnFrameProcessedListener listener = OnFrameProcessedListener.NULL;
 
         private Builder(Context context) {
             this.context = context;
@@ -120,9 +123,8 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
         /**
          * @param listener which will be notified when faces are detected.
          */
-        public Builder listener(OnFacesDetectedListener listener) {
-            this.listener = listener != null ? listener : OnFacesDetectedListener.NULL;
-
+        public Builder listener(OnFrameProcessedListener listener) {
+            this.listener = listener != null ? listener : OnFrameProcessedListener.NULL;
             return this;
         }
 

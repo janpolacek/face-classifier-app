@@ -119,7 +119,7 @@ FACE_DETECTION_METHOD(findFaces)(JNIEnv *env,
     }
 
     //alignment
-    std::vector<dlib::full_object_detection> shapes = detPtr->getShapesFromOriginal();
+    std::vector<dlib::full_object_detection> shapes = detPtr->getFaceShapes();
 
     dlib::array<dlib::array2d<dlib::rgb_pixel>> face_chips;
     dlib::cv_image<dlib::rgb_pixel> original_image(detPtr->originalImage);

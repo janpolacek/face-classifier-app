@@ -4,21 +4,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
-import camera.DetectionsView;
-import camera.FrameProcessor;
-import camera.PermissionsDelegate;
+import classification.Detection;
+import classification.R;
 import io.fotoapparat.Fotoapparat;
 import io.fotoapparat.parameter.ScaleType;
 import io.fotoapparat.view.CameraView;
-import jp.faceclass.R;
-import classification.Detection;
 
-import static io.fotoapparat.log.LoggersKt.fileLogger;
-import static io.fotoapparat.log.LoggersKt.logcat;
-import static io.fotoapparat.log.LoggersKt.loggers;
 import static io.fotoapparat.selector.FocusModeSelectorsKt.autoFocus;
 import static io.fotoapparat.selector.FocusModeSelectorsKt.continuousFocusPicture;
 import static io.fotoapparat.selector.FocusModeSelectorsKt.fixed;
@@ -33,6 +28,7 @@ public class CameraActivity extends AppCompatActivity {
     private boolean hasStoragePermission;
     private CameraView cameraView;
     private DetectionsView detectionsView;
+    private TextView classifiedView;
 
     private Fotoapparat backFotoapparat;
 
@@ -47,6 +43,7 @@ public class CameraActivity extends AppCompatActivity {
 
         cameraView = (CameraView) findViewById(R.id.camera_view);
         detectionsView = (DetectionsView) findViewById(R.id.rectanglesView);
+        classifiedView = (TextView) findViewById(R.id.classified_name_view);
 
         hasCameraPermission = permissionsDelegate.hasCameraPermission();
         hasStoragePermission = permissionsDelegate.hasStoragePermission();
@@ -90,10 +87,15 @@ public class CameraActivity extends AppCompatActivity {
 //                .previewFpsRange(rangeWithHighestFps())
 //                .sensorSensitivity(highestSensorSensitivity())
                 .frameProcessor(FrameProcessor.with(this)
-                        .listener(new FrameProcessor.OnFacesDetectedListener() {
+                        .listener(new FrameProcessor.OnFrameProcessedListener() {
                             @Override
                             public void onFacesDetected(List<Detection> detections) {
                                 detectionsView.setRectangles(detections);
+                            }
+
+                            @Override
+                            public void onFacesClassified(String classification) {
+                                classifiedView.setText(classification);
                             }
                         })
                         .build())

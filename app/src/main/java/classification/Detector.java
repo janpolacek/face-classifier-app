@@ -9,7 +9,7 @@ import java.util.List;
 public class Detector {
 
     private boolean processing = false;
-    public static String TAG = "Detector";
+    private static String TAG = "Detector";
 
     public Detector() {
     }

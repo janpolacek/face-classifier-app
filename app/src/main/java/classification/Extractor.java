@@ -1,6 +1,5 @@
 package classification;
 
-import android.os.Trace;
 import android.util.Log;
 
 import org.opencv.core.Mat;
@@ -9,18 +8,15 @@ import org.tensorflow.Operation;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 
 import tensorflow.TensorFlowInferenceInterface;
 
-import static org.opencv.imgcodecs.Imgcodecs.imread;
-
 public class Extractor {
     private static final String TAG = "Extractor";
-
     private static final int inputSize = 160;
     private static final String inputName = "input";
     private static final String outputName = "embeddings";
+    private boolean processing = false;
 
     // Pre-allocated buffers.
     private float[] output;
@@ -56,9 +52,9 @@ public class Extractor {
     }
 
     public float [] extractEmbeddings(Mat mat) {
-        Log.d(TAG, "fff");
+        setProcessing(true);
         long startTime = System.currentTimeMillis();
-        Mat m = imread("/sdcard/classifier/detections/chip_0.png");
+//        Mat m = imread("/sdcard/classifier/detections/chip_0.png");
         inferenceInterface.feed(inputName, processMat(mat), 1, inputSize, inputSize, 3);
         inferenceInterface.feed("phase_train", false);
         inferenceInterface.run(outputNames, false);
@@ -66,11 +62,11 @@ public class Extractor {
 
         long estimatedTime = System.currentTimeMillis() - startTime;
         Log.d(TAG, "extraction time:" + estimatedTime);
-        Log.d(TAG, Arrays.toString(output));
+        setProcessing(false);
         return output;
     }
 
-    private float [] processBytes(byte[] data){
+    private float [] convertBytesToFloat(byte[] data){
         float[] floatValues = new float[data.length];
         for (int i = 0; i < data.length-1; i++) {
             floatValues[i] = (data[i] & 0xff);
@@ -79,6 +75,40 @@ public class Extractor {
     }
 
 
+    private float [] substractAndMultiply(float [] floats, float substract, float multiply){
+        for(int i = 0; i<floats.length; i++){
+            floats[i] = (floats[i] - substract)*multiply;
+        }
+
+        return floats;
+    }
+
+    private float [] prewhiten(float [] data) {
+        Statistics statistics = new Statistics(data);
+        float mean =statistics.getMean();
+        float std = statistics.getStdDev();
+        float std_adj = (float) Math.max(std,  (1/Math.sqrt(data.length)));
+        data = substractAndMultiply(data, mean, (1/std_adj));
+        return data;
+    }
+
+
+    private float[] processMat(Mat m) {
+        int numChannels=m.channels();//is 3 for 8UC3 (e.g. RGB)
+        int frameSize=m.rows()*m.cols();
+        byte[] data= new byte[frameSize*numChannels];
+        m.get(0,0,data);
+        return prewhiten(convertBytesToFloat(data));
+    }
+
+    public boolean isProcessing() {
+        return processing;
+    }
+
+    public void setProcessing(boolean processing) {
+        this.processing = processing;
+    }
+
     public void close() {
         inferenceInterface.close();
     }
@@ -86,12 +116,4 @@ public class Extractor {
         return inputSize;
     }
 
-    public float[] processMat(Mat m) {
-        //first index is pixel, second index is channel
-        int numChannels=m.channels();//is 3 for 8UC3 (e.g. RGB)
-        int frameSize=m.rows()*m.cols();
-        byte[] data= new byte[frameSize*numChannels];
-        m.get(0,0,data);
-        return processBytes(data);
-    }
 }

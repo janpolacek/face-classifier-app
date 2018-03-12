@@ -22,6 +22,7 @@ private:
     std::unordered_map<int, dlib::full_object_detection> mFaceShapeMap;
     dlib::frontal_face_detector mFaceDetector;
     std::vector<dlib::rectangle> mRets;
+    std::vector<dlib::full_object_detection> faceShapeMap;
 
     inline void init() {
         mFaceDetector = dlib::get_frontal_face_detector();
@@ -36,28 +37,32 @@ public:
         }
     }
 
-    inline cv::Mat getRGBMat(jbyte *nv21Image,
+    inline cv::Mat transormToRGB(jbyte *nv21Image,
                              jint frameWidth,
                              jint frameHeight){
         cv::Mat yuvMat = cv::Mat(frameHeight + frameHeight / 2, frameWidth, CV_8UC1, (unsigned char *) nv21Image);
-        cv::Mat grayMat = cv::Mat(frameHeight, frameWidth, CV_8UC3);
+        cv::Mat rgbMat = cv::Mat(frameHeight, frameWidth, CV_8UC3);
 
-        cv::cvtColor(yuvMat, grayMat, CV_YUV2RGB_NV21);
-        return grayMat;
+        cv::cvtColor(yuvMat, rgbMat, CV_YUV2RGB_NV21);
+        return rgbMat;
     }
 
-    inline cv::Mat scaleImage(cv::Mat mat, int scale){
-        cv::Mat scaledMat = cv::Mat();
-        cv::resize(mat, scaledMat, cv::Size(mat.cols / scale, mat.rows / scale));
-        return scaledMat;
+    inline void scaleImage(cv::Mat &mat, int scale){
+        cv::resize(mat, mat, cv::Size(mat.cols / scale, mat.rows / scale));
     }
 
-    inline cv::Mat rotateImage(cv::Mat mat, int rotation){
-        if(rotation != 0){
-            rotateMatrix(mat, rotation);
+    inline void rotateImage(cv::Mat &mat, int rotation){
+        if(rotation == 0){
+            return;
+        }else if (rotation == 270 || rotation == -90) {
+            cv::transpose(mat, mat);
+            cv::flip(mat, mat, 1);
+        } else if (rotation == 90) {
+            cv::transpose(mat, mat);
+            cv::flip(mat, mat, 0);
+        } else if (rotation == 180) {
+            cv::flip(mat, mat, -1);
         }
-
-        return mat;
     }
 
 
@@ -68,31 +73,28 @@ public:
 
 
         //prelozit frame do normalneho obrazka
-        cv::Mat rgbMat = getRGBMat(nv21Image, frameWidth, frameHeight);
+        cv::Mat image = transormToRGB(nv21Image, frameWidth, frameHeight);
         //rotovat
-        cv::Mat rotated = rotateImage(rgbMat, frameRotationDegrees);
-        originalImage = rotated.clone();
+        rotateImage(image, frameRotationDegrees);
+        originalImage = image.clone();
 
         //grayscale
-        cv::Mat grayMat(rotated.size(), CV_8UC1);
-        cv::cvtColor(rotated, grayMat, CV_RGB2GRAY);
-
+        cv::cvtColor(image, image, CV_RGB2GRAY);
         //zmensit
-        cv::Mat scaledMat = scaleImage(grayMat, scaleValue);
-
-        return scaledMat;
+        scaleImage(image, scaleValue);
+        return image;
     }
 
     virtual inline int det(dlib::cv_image<unsigned char> image) {
-        mRets = mFaceDetector(image, 0);
+        mRets = mFaceDetector(image, 1);
         mFaceShapeMap.clear();
         return (int) mRets.size();
     }
 
 
-    std::vector<dlib::full_object_detection> getShapesFromOriginal(){
-        std::vector<dlib::full_object_detection> faceShapeMap;
+    std::vector<dlib::full_object_detection> getFaceShapes(){
         dlib::cv_image<dlib::rgb_pixel> img(originalImage);
+        faceShapeMap.clear();
 
         if (mRets.size() != 0 && !mLandMarkModel.empty()) {
             for (unsigned long j = 0; j < mRets.size(); ++j) {
@@ -116,7 +118,7 @@ public:
 
     virtual ~DLibHOGFaceDetector() {}
 
-    int scaleValue = 5;
+    int scaleValue = 4;
     cv::Mat originalImage;
 
 };

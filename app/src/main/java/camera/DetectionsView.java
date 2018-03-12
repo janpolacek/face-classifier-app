@@ -14,8 +14,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.faceclass.R;
 import classification.Detection;
+import classification.R;
 
 
 public class DetectionsView extends View {
