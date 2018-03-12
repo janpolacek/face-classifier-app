@@ -15,11 +15,11 @@ compile project(':openCVLibrary340')
 Opencv moze vypisovat ze nepozna napr. android camera2 import. -> treba nastavit verziu android sdk v tomto module
 na vyssiu (idealne rovnake nastavenie ako v app)
 
-###Dlib
+### Dlib
 Staci pullnut najnovsie zmeny, pripadne vlozit novsiu kniznicu do thirdparty a nastavit premennu v CmakeLists
 Kompilacia pre python: python setup.py install --yes USE_AVX_INSTRUCTIONS
 
-##Tensorflow
+## Tensorflow
 Tiez by malo stacit pullnut nove zmeny pripadne nahradit v thirdparty
 V thirdparty/tensorflow nastavit podla navodu workspace
 V mojom pripade to bolo
