@@ -114,8 +114,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
             }
 
             @Override
-            public void onFacesClassified(String classifications) {
-                // Do nothing
+            public void onFacesClassified(String classifications) {// Do nothing
             }
 
         };
