@@ -8,6 +8,7 @@ import org.tensorflow.Operation;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.List;
 
 import tensorflow.TensorFlowInferenceInterface;
 
@@ -47,7 +48,6 @@ public class Extractor {
         // Pre-allocate buffers.
         c.outputNames = new String[] {outputName};
         c.output = new float[c.outputSize];
-
         return c;
     }
 
@@ -60,6 +60,22 @@ public class Extractor {
         inferenceInterface.run(outputNames, false);
         inferenceInterface.fetch(outputName, output);
 
+        long estimatedTime = System.currentTimeMillis() - startTime;
+        Log.d(TAG, "extraction time:" + estimatedTime);
+        setProcessing(false);
+        return output;
+    }
+
+    public float [] extractMultipleEmbeddings(List<Detection> detections) {
+        setProcessing(true);
+        float [] output = new float[detections.size()*outputSize];
+        long startTime = System.currentTimeMillis();
+        float [] mats = processDetections(detections);
+        inferenceInterface.feed(inputName, mats, detections.size(), inputSize, inputSize, 3);
+        inferenceInterface.feed("phase_train", false);
+        inferenceInterface.run(outputNames, false);
+        inferenceInterface.fetch(outputName, output);
+//
         long estimatedTime = System.currentTimeMillis() - startTime;
         Log.d(TAG, "extraction time:" + estimatedTime);
         setProcessing(false);
@@ -101,6 +117,17 @@ public class Extractor {
         return prewhiten(convertBytesToFloat(data));
     }
 
+    private float[] processDetections(List<Detection> detections){
+        int sampleLenght = inputSize*inputSize*3;
+        float [] result = new float[detections.size()*sampleLenght];
+
+        for (int i=0; i<detections.size(); i++){
+          float [] tmp = processMat(detections.get(i).getMat());
+          System.arraycopy(tmp, 0, result, i*sampleLenght, sampleLenght);
+        }
+        return result;
+    }
+
     public boolean isProcessing() {
         return processing;
     }
@@ -114,6 +141,10 @@ public class Extractor {
     }
     public static int getInputSize() {
         return inputSize;
+    }
+
+    public int getOutputSize() {
+        return outputSize;
     }
 
 }

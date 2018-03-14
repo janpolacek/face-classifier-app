@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">FaceDetection</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name">Face classifier</string>
+    <string name="title_activity_main">CameraActivity</string>
 </resources>

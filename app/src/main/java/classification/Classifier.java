@@ -38,6 +38,18 @@ public class Classifier {
         return labels.get(predictedClass);
     }
 
+    public String [] classifyMultiple(final float [] embeddings){
+        int samplesCount = embeddings.length/inputSize;
+        String [] results = new String[samplesCount];
+        float [] sample = new float[inputSize];
+
+        for (int i=0; i<samplesCount; i++){
+            System.arraycopy(embeddings,i*inputSize, sample, 0, inputSize);
+            results[i] = classify(sample);
+        }
+        return results;
+    }
+
     private static ArrayList<String> loadLabels(String fileName){
         final File file = new File(fileName);
         ArrayList<String> labels = new ArrayList<>();
@@ -45,7 +57,6 @@ public class Classifier {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
-
             while ((line = br.readLine()) != null) {
                 labels.add(line);
             }

@@ -5,7 +5,11 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.util.Log;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import io.fotoapparat.preview.Frame;
@@ -64,6 +68,7 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
                 public void run() {
                     listener.onFacesDetected(faces);
                     if(faces.size() == 0){
+                        //vycistenie textu ak nemame tvare
                         listener.onFacesClassified("");
                     }
                 }
@@ -75,12 +80,23 @@ public class FrameProcessor implements io.fotoapparat.preview.FrameProcessor {
         classifyHandler.post(new Runnable() {
             @Override
             public void run() {
-                float [] embeddings = extractor.extractEmbeddings(faces.get(0).getMat());
-                final String classified = classifier.classify(embeddings);
+//                Kod pre clasifikaciu jednej tvare
+//                float [] embeddings = extractor.extractEmbeddings(faces.get(0).getMat());
+//                final String [] classified = classifier.classify(embeddings);
+//                mainThreadHandler.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        listener.onFacesClassified(classified);
+//                    }
+//                });
+
+//                Kod pre clasifikaciu viacerych tvari
+                float [] embeddings_list = extractor.extractMultipleEmbeddings(faces);
+                final String [] classified_list = classifier.classifyMultiple(embeddings_list);
                 mainThreadHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        listener.onFacesClassified(classified);
+                        listener.onFacesClassified(Arrays.toString(classified_list));
                     }
                 });
             }

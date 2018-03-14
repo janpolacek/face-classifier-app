@@ -63,14 +63,23 @@ Momentalne nie je spojazdnene automaticke stahovanie modelov, a je potrebne ich 
 Modely sa kopiruju do priecinka na sdstorage/classifier, takze nakoniec by to malo vyzerat na zariadeni takto:
 
 -classifier
+
 ---dlib
+
 -----shape_predictor_5_face_landmarks.dat
+
 ---facenet
+
 -----20170512-110547.pb
+
 -----20170512-110547-optimized.pb (skusam zlepsit model)
+
 -----...ostatne ktore sa stiahnu s facenet modelu (netreba ich)
+
 ---opencv
+
 -----classifier_pairs.txt
+
 -----lfw_classifier_opencv.yml
 
 Tie zakladne su pribalene v projekte v priecinku models (opat, je to len manualna aktualizacia)
@@ -81,15 +90,9 @@ Je potrebne stiahnut dataset - napr LFW a extrahovat jeho obsah.
 ## Predspracovanie obrazkov
 Dlib mal problem rozoznat velke tvare na velkych fotkach, preto som napisal kratky skript vo facenet/contribute/rename_files.py, argumentom je cesta do priecinka - premenuje subory a zmensi ich.
 
-~~#### MTCNN~~
-~~for N in {1..4}; do python3 src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/alligned --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done~~
-#### DLIB
 for N in {1..4}; do python3 tmp/align_dataset.py ~/datasets/lfw/raw ~/datasets/lfw/alligned_dlib --image_size 160 --margin 0.25 --dlib_face_predictor ~/models/dlib/shape_predictor_68_face_landmarks.dat & done
 
 ## Natrenovanie classifikatora:
-~~####MTCNN~~
-~~python3 src/classifier.py TRAIN ~/datasets/lfw/alligned ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --labels_filename  --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset~~
-#### DLIB
 python3 src/classifier.py TRAIN ~/datasets/lfw/alligned_dlib ~/models/facenet/20170512-110547.pb  ~/models/opencv/lfw_classifier_opencv.yml --labels_filename ~/models/opencv/classifier_pairs.txt --batch_size 100 --min_nrof_images_per_class 40 --nrof_train_images_per_class 35 --use_split_dataset
 
 ### Testovanie classifikatora
@@ -128,8 +131,7 @@ bazel-bin/tensorflow/tools/graph_transforms/transform_graph --in_graph=/home/jan
 - [x] Natrenovanie classfikatora a ulozenie modelu cez pytho
 - [x] Nacitanie modelu classfikatora androide
 - [x] FORK Facenet a zmena submodules aby bolo mozne don zapisovat
-- [ ] Oprava povoleni na citanie/zapis z externeho storage
-- [ ] Optimalizacia facenet modelu (podla navodu na tensorflow stranke)
+- [ ] Oprava povoleni na citanie/zapis z externeho storage na >= Android 6
 - [ ] Automaticke stiahnutie modelov
 - [x] Vratenie RGB face chipu z jni - hotovo
 - [x] Pouzivanie OpenCV Mat objektov namiesto vracania bytovych poli z JNI
@@ -144,6 +146,8 @@ bazel-bin/tensorflow/tools/graph_transforms/transform_graph --in_graph=/home/jan
 - [ ] Viac tvari naraz klasifikovat
 - [ ] Text pri stvorceku
 - [x] Zmensit model facenetu podla navodu na stranke tf
+- [ ] Nastavit cesty do properties suboru
+- [ ] Cryptovanie modelov?
 
 
 
