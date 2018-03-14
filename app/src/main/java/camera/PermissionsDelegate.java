@@ -6,7 +6,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 
-import jp.faceclass.R;
+import classification.R;
 
 class PermissionsDelegate {
 

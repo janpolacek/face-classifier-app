@@ -2,6 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
+        face_classifier {
+            keyAlias 'face_classifier'
+            keyPassword 'face_classifier'
+            storeFile file('/home/jan/face_classifier.jks')
+            storePassword 'face_classifier'
+        }
     }
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -26,9 +32,9 @@ android {
     }
     buildTypes {
         release {
-            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.face_classifier
         }
     }
     externalNativeBuild {
@@ -54,7 +60,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'io.fotoapparat.fotoapparat:library:2.2.0'
     implementation 'org.tensorflow:tensorflow-android:1.5.0'
-    compile 'org.apache.commons:commons-math3:3.6.1'
-
     compile project(':OpenCv')
 }
