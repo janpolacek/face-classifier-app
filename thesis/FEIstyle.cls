@@ -84,7 +84,6 @@
 \usepackage{lmodern}
 \usepackage{changepage}
 \usepackage{scrextend}
-\usepackage{xstring}
 \usepackage{url}
 \usepackage{enumitem}
 \usepackage{caption}

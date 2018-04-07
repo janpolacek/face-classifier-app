@@ -138,12 +138,12 @@ bazel-bin/tensorflow/tools/graph_transforms/transform_graph --in_graph=/home/jan
 - [x] Kontrola ci rovnaky image vrati rovnake embeddings
 - [x] Kontrola ci rovnake embeddings vracaju rovnake classy
 - [x] Align tvare cez dlib aj vo facenete
-- [ ] Kontrola ci mame obrazok v Extractore v RGB ale BGR
+- [x] Kontrola ci mame obrazok v Extractore v RGB ale BGR
 - [x] Prewhiten
 - [x] Ulozenie classnamov
 - [x] Vypisanie rospoznanej triedy
 - [ ] Pouzivat grayScale od detekcie az po extrakciu
-- [ ] Viac tvari naraz klasifikovat
+- [x] Viac tvari naraz klasifikovat
 - [ ] Text pri stvorceku
 - [x] Zmensit model facenetu podla navodu na stranke tf
 - [ ] Nastavit cesty do properties suboru
