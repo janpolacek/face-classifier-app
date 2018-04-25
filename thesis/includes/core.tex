@@ -10,7 +10,7 @@ je ich prirodnené a nerušivé používanie, ale najmä možnosť použitia na 
 je podľa The International Civil Aviation Organization(ICAO)\cite{icao} rozpoznávanie tváre primárnou metódou pri kontrole identity na letisku.\\
 \indent Prvým automatickým systémov na rozpoznávanie tvárí bol podľa\cite{handbookface}, systém navrhnutý Takeo Kanadem v jeho práci\cite{kanade1974} z roku 1974.
 Za ním nasledovalo obdobie bez výraznejšieho pokroku v automatickom rozpoznávaní tváre, až do roku 1990, kedy Sirovich a Kirby zverejnili článok\cite{kirby1990application},
-v ktorom popisujú využitie nizko dimenzionálnych reprezentácií tváre odvodenej z Karhunen-Loevovej transformácie alebo Principal Component Analysis(PCA).
+v ktorom popisujú využitie nizko dimenzionálnych reprezentácií tváre odvodenej z Karhunen-Loevovej transformácie alebo Principal Component Analysis \acrshort{pca}.
 Podľa Jaina v\cite{handbookface} bol ďalším veľkým míľnikom práca\cite{turk1991eigenfaces} od Turka a Pentlanda na vlastných vektorov tváre (eigenface),
 ktorá znovu naštartovala výskum v oblasti rozpoznávania tváre. Medzi ďalšie míľniky tiež Jain zaraďuje prácu na Fisherovej metódae\cite{belhumeur1997eigenfaces},
 ktorá aplikuje Linear Discriminant Analysis(LDA) po aplikovaní PCA k dosiahnutiu vyššej presnosti, výskum na lokálnych Gaborových filtroch\cite{wiskott1997face}
@@ -23,9 +23,10 @@ stále čelí mnohým výzvam, najmä problematike rozpoznávania tváre v neria
 
 \subsection{Rozdelenie}
 Ako aj ostatné biometrické systémy, aj rozpoznávanie tváre funguje v jednom alebo oboch z režimov:
+
 \begin{itemize}
-    \item Verifikácia (autentifikácia)
-    \item Identifikácia tváre
+	\item Verifikácia (autentifikácia)
+	\item Identifikácia tváre
 \end{itemize}
 
 Pri verifikácii tváre ide o porovnanie jedna k jednej, čo znamená, že jeden snímok tváre sa porovnáva len jedným záznamom identity v databáze, za ktorú sa prehlasuje.
@@ -35,11 +36,11 @@ V niektorých prípadoch využitia je postačujúce nájsť len najpodobnejšiu 
 V iných prípadoch, ako napríklad sledovanie podozrivých osôb,
 je okrem nájdenia najpodobnejšej tváre potrebné zaviesť aj prah spoľahlivosti, a tie tváre ktoré dosiahli mieru podobnosti väčšiu ako je prah, sú zaznamenané.\\
 \indent Úspešnosť systému na rozpoznávanie tváre závisí vo veľkej miere na množstve variabilných faktorov, ako je osvetlenie, poloha tváre, mimika, vek, make-up, účes,
-brada či pohyb tváre. Na základe týchto faktorov Jain rozdeľuje\cite{hanbookface} na 2 kategórie vzhľadom na miery spolupráce užívateľov:
+brada či pohyb tváre. Na základe týchto faktorov Jain rozdeľuje\cite{handbookface} na 2 kategórie vzhľadom na miery spolupráce užívateľov:
 
 \begin{itemize}
-    \item Scenár so spolupracujúcim užívateľom
-    \item Scenár s nespolupracujúcim užívateľom
+	\item Scenár so spolupracujúcim užívateľom
+	\item Scenár s nespolupracujúcim užívateľom
 \end{itemize}
 
 \indent Prípad spolupracujúceho užívateľa je využívaný napríklad pri prihlasovaní do počítača, riadenie fyzického prístupu, elektronické pasy (e-passport), teda prípady kedy má
@@ -57,18 +58,19 @@ Zatiaľ čo roznávanie tváre z dvojrozmerného snímku je dnes bežne použív
 sa využíva trojrozmerný snímok tváre,
 prípadne snímky tváre mimo bežne viditeľného spektra - napr. termografický snímok tváre.  Systém na rozpoznávanie tváre sa podľa Jaina\cite{handbookface} vo všeobecnosti skladá zo štyroch
 základných častí, ako je ukázané na obrázku\ref{fig:workflow}:
+
 \begin{itemize}
-    \item Detekcia tváre a lokalizácia bodov tváre
-    \item Normalizácia tváre
-    \item Extrakcia príznakov
-    \item Hľadanie zhody tváre
+	\item Detekcia tváre a lokalizácia bodov tváre
+	\item Normalizácia tváre
+	\item Extrakcia príznakov
+	\item Hľadanie zhody tváre
 \end{itemize}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{img/workflow}
-    \caption{Proces rozpoznávania tváre}
-    \label{fig:workflow}
+	\centering
+	\includegraphics[width=1\linewidth]{img/workflow}
+	\caption{Proces rozpoznávania tváre}
+	\label{fig:workflow}
 \end{figure}
 
 \indent  Pri detekcií tváre ide primárne o oddelenie oblasti tváre od pozadia snímku.
@@ -93,20 +95,21 @@ V súčastnosti je v tejto oblasti najväčšou výzvou nájsť spoľahlivé mer
 
 \subsection{Techniky rozpoznávania tvári}
 Zhao rozdeľuje\cite{zhao2003face} algoritmy rozponávania do dvoch základných kategórií, vzhľadom na spôsob extrakcie príznakov:
+
 \begin{itemize}
-    \item Metódy založené na príznakoch (feature-based)
-    \item Medódy založené na vzhľade (appearance-based)
+	\item Metódy založené na príznakoch (feature-based)
+	\item Medódy založené na vzhľade (appearance-based)
 \end{itemize}
 
 Metódy založené na príznakoch využívajú rôzne vlastnosti a geometrické atribúty na popis tváre, ako sú napríklad vzdialenosti či uhly medzi bodmi tváre.
 Na druhej strane, metódy založené na vhľade využívajú globálne vlastnosti tvárového vzoru.
 Typickou črtou algoritmov založených na vhľade je výpočet bázových vektorov, na ktoré je následne tvár premietnutá.
 Koeficienty takejto projekcie sú potom použité k efektívnej reprezentácii údajov tváre\cite{handbookbio}.
-Obľúbené algoritmy ako sú Principal Component Analysis (PCA), Linear Discriminant Analysis (LDA), Indenpendent Component Analysis (ICA),
-Local Feature Analysis (LFA), Manifolds, Correlation Filters alebo Tensorfaces sú založené práve na vhľade tváre.
+Obľúbené algoritmy ako sú Principal Component Analysis \acrshort{pca}, Linear Discriminant Analysis \acrshort{lda}, Indenpendent Component Analysis \acrshort{ica},
+Local Feature Analysis \acrshort{lfa}, Manifolds, Correlation Filters alebo Tensorfaces sú založené práve na vhľade tváre.
 Holistický prístup k rozpoznávaniu tváre má však často problémy pri rôznych polohách tváre\cite{handbookbio}.
 
-\subsubsection{Eigenfaces (PCA)}
+\subsubsection{Eigenfaces}
 Podstatou metódy Eigenfaces navrhnutej Turkom a Pentlandom\cite{turk1991eigenfaces}, tiež známej ako PCA,
 je hľadanie najmenšej kvadratickej chyby lineárneho podpriestoru,
 ktorý mapuje dáta z originálneho N-rozmerného priestoru na M-rozmerný priestor príznakov, kde M << N .
@@ -117,20 +120,20 @@ ktorá obsahuje kovariancie dát tváre.
 
 
 \begin{equation}\label{eqn:pca}
-    W_{PCA} = arg max|W^T S_T W| = [w, w2,\dots,wm]
+	W_{PCA} = arg max|W^T S_T W| = [w, w2,\dots,wm]
 \end{equation}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{img/eigenfaces}
-    \caption{Prvých 6 bázových vektorov Eigenfaces, prebraté z\cite[p.~45]{handbookbio}}
-    \label{fig:eigenfaces}
+	\centering
+	\includegraphics[width=1\linewidth]{img/eigenfaces}
+	\caption{Prvých 6 bázových vektorov Eigenfaces, prebraté z\cite[p.~45]{handbookbio}}
+	\label{fig:eigenfaces}
 \end{figure}
 
 Na obrázku\ref{fig:eigenfaces} vidíme príklad vlastných vektorov vybraných metódou Eigenfaces, na obrázkoch po procese normalizácie.
 Metóda PCA je vhodná na reprezentáciu dát, čo neznamená, že je vhodná aj na rozdeľovanie do tried.
 
-\subsubsection{LDA, Fisherfaces}
+\subsubsection{Linear Discriminant Analysis, Fisherfaces}
 Matóda LDA\cite{duda2012pattern} je oveľa vhodnejšia k hľadaniu projekcií, ktoré dobre oddeľujú rozdielne triedy.
 Táto metóda je založená na hľadaní optimálnych projekčných vektorov, ktoré optimalizujú pomer medzitriednych (within class) a vnútrotriednych (between class) vzdialeností - maximalizuje oddelenie tried
 v premietnutom priestore.
@@ -138,7 +141,7 @@ Optimálne bázové vektory LDA, môžu byť podľa\cite{handbookbio} definovan�
 vnútrotriednu maticu rozptylu.\\
 \indent
 \begin{equation}\label{eqn:lda}
-W_{LDA} = arg max \frac{|W^T S_B W|}{|W^T S_W W|}
+	W_{LDA} = arg max \frac{|W^T S_B W|}{|W^T S_W W|}
 \end{equation}
 
 Zvyčajne pri riešení problematiky rozpoznávania tváre (a vačšine ostatných problémov rozpoznávania vzorov obrázkov) je množstvo tréningových obrázkov menší ako počet pixelov
@@ -149,16 +152,47 @@ NA základe týchto zmien bolo dosiahnuté zlepšenie výsledkov v porovnaní s 
 Projekčné vektory, ktorých príklad môžeme vidiet na obrázku\ref{fig:fisherfaces}  Fisherfaces sú tie, ktorú spĺňajú maximalizujú vysledok optimalizačnej funkcie\eqref{eqn:fisher}.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{img/fisherfaces.png}
-    \caption{Prvých 6 bázových vektorov Fisherfaces, prebraté z\cite[p.~46]{handbookbio}}
-    \label{fig:fisherfaces}
+	\centering
+	\includegraphics[width=1\linewidth]{img/fisherfaces.png}
+	\caption{Prvých 6 bázových vektorov Fisherfaces, prebraté z\cite[p.~46]{handbookbio}}
+	\label{fig:fisherfaces}
 \end{figure}
 
 \begin{equation}\label{eqn:fisher}
-W_{LDA} = arg max \frac{|W^T W_{PCA}^T S_B W_{PCA} W|}{|W^T W_{PCA}^T S_W W_{PCA} W|}
+	W_{LDA} = arg max \frac{|W^T W_{PCA}^T S_B W_{PCA} W|}{|W^T W_{PCA}^T S_W W_{PCA} W|}
 \end{equation}
 
+\subsubsection{Indenpendent Component Analysis}
+Podstatou metódy ICA, je hľadanie takých neortogonálnych báz,
+aby boli na nich založené transormácie príznakov boli štatisticky nezávislé, zatiaľ čo
+metóda PCA hľadá také ortogonálne bázy tváre, aby príznaky po transformácii neboli korelované\cite{handbookbio}.
+Bázové vektory tvárí metódy PCA sú založené len na štatisike druhého rádu.
+ICA zovšeobecňuje koncept PCA a vytvára tak model so vzťahmi štatisticky vyššie rádu.
+Pôvodná motivácia tejto metódy výchadza z potreby zaradiť zvukové vlny do nezávislých zdrojov, bez priamej znalosti procesu spájania
+(mixovania) týchto vĺn\cite{handbookbio}. Bartlett vo svoje publikácií\cite{bartlett2002face}, v ktorej aplikoval metódu ICA
+na rozpoznávanie tváre uvádza, že ICA dosahuje oveľa lepšie výsledky v porovnaní s metódou PCA, pri rozponávaní tváre
+v rôznych častiach dňa a rôznych výrazoch tváre.
+
+\subsubsection{Local Feature Analysis}
+LFA vytvára skupinu lokálne prepojených detektorov príznakov, založených na rozložení charakteristikého podpriestoru.
+Vzniknú tak minimálne kolerované a topograficky indexované podskupiny príznakov, ktoré definujú podpriestor záujmu.
+Lokálna reprezentácia vytvára odolnosť voči zmenám v lokalizovaných oblastiach objektov.
+Príznaky použité metódoou LFA sú menej náchylné na zmenú vo svetle a zároveň je vďaka nim jednoduchšie odhadnúť
+rotáciu objektu.
+Algoritmus LFA bol pouitý ako kľučový komponent algoritmu FaceIt, ktorý je jedným z komerčne využívaných
+systémov na rozpoznávanie tváre.\cite{handbookbio}
+
+\subsubsection{Neurónové siete a Support Vector Machines}
+Neurónové siete \acrshort{ns} a Support Vector Machines \acrshort{svm} sú zvyčajne využívané v nízkodimenzionálnych priestoroch príznakov, najmä kvoli výpočtovej náročnosti spracovania,
+v prípade viacdimenzionálnych dát tváre\cite{handbookbio}.
+Neurónové siete podliehaju širokému záujmu o výskum, najmä čo sa týka lepšej reprezentáciu príznakov tváre a rozpoznávania tváre.
+Avšak, so zvyšujúcim sa množstvom osôb, ktoré sa neurónová sieť učí rozpoznávať, narastá výpočtová zložitosť exponencionálne.
+Spojením viacerých neurónových sietí sa podarilo zlepšiť celkový výkon pri rozpoznávaní tváre.\\
+\indent Vo všobecnosti nevieme povedať, čo presne sa neurónová sieť naučila, alebo akým spôsobom bude fungovať.
+NS zvyčajne vyžaduje veľké množstvo tréningových dát kvôli dobrej generalizácii dát, s čím zároveň súvisí značné množstvo výpočtov uskotočnených v procese trénovania.
+SVM sa ukazuje ako úspešná metóda pri rozpoznávaní objektov, použitím kernelového triku (kernel trick), ktorý mapuje dáta do viacdimenzionálneho priestoru príznakov.
+SVM v tomto priestore potom nájde nadrovinu, ktorá maximalizuje šírku hranice oddeľujúcej triedy klasifikácie, a znižuje tak riziko zlej klasifikácie nielen pre trénovacie dáta,
+ale tiež k dosiahnutiu lepšej generalizácie neznámych dát.\cite{handbookbio}
 
 \subsection{Detekcia tváre}
 \subsection{Hľadania bodov tváre}
@@ -166,14 +200,134 @@ W_{LDA} = arg max \frac{|W^T W_{PCA}^T S_B W_{PCA} W|}{|W^T W_{PCA}^T S_W W_{PCA
 \subsection{Súčasný stav}
 
 
-%\section{Neurónové siete}
-%\subsection{Neurón}
-%\subsection{Učenie neuróvej siete}
+\section{Neurónové siete}
+\subsection{Neurón}
+Základnou jednotkou z ktorej sa skladá mozog je neurón.
+Kúsok mozgu, o veľkosti malého zrnka ryže, obsahuje približne 10000 neurónov, pričom každý neurón
+vytvára v priemere 6000 prepojení s inými neurónmi, a ide teda v podstate o
+veľkú biologickú sieť prepojení, ktorá nám dovoľuje rozumieť svetu okolo nás\cite{buduma2017fundamentals}. \\
+\indent V samotnej podstate neurónu, prichádza k príjmu informácií z ostatných neurónov, 
+ich spracovaniu a odoslaní výsledku spracovania ďalším bunkám.
+Neurón prijíma vstupné informácií pomocou dendritov, čo sú v výbežky na konči neurónu ktoré sa správajú ako 
+ako antény a zachytávajú signály.
+Každé z týchto prepojení je dynamicky zosilnené alebo zoslabené, závislosti od frekvencie používania daného spojenia, pričom sila prepojenia definuje, aký veľký prínos má daný dendrit k výstupu neurónu\cite{buduma2017fundamentals}.
+Po zvážení sily(váhy) prepojení sú vstupné informácie sčítané v jadre neurónu a tranformované na 
+nový signá(výsledok), ktorý je cez neurit odoslaný ďalším neurónom.
+Zjednodušený proces fungovania biologického neurónu vidíme na obrázku\ref{fig:bioneuron}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/bioneuron}
+	\caption{Zjednodušený popis fungovania biologického neurónu}
+	\label{fig:bioneuron}
+\end{figure}
+
+\indent Fungovanie biologického neurónu sa stalo inšpiráciou pre návrh umelého neurónu.
+Rovnako ako biologický neurón, aj umelý neurón prijíma vstupné údaje - x\textsubscript{1},  x\textsubscript{2}, \dots,  x\textsubscript{n} ktoré sú násobené špecifickou váhou w\textsubscript{1},  w\textsubscript{2}, \dots,  w\textsubscript{n} prislúchajúcou k neurónu.
+Váhované vstupy sú podobne ako pri biologickom neuróne sčítané, je k ním pripočítaný
+základ(bias), a následne transormované aktivačnou funkciou, ktorej výsledok je odoslaný ďalším neurónom. Fungovanie neurónu sa dá zapísať ako rovnica\eqref{eqn:artneuron}, kde vstup, a jeho schému vidíme na obrázku\ref{fig:artneuron}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/artneuron}
+	\caption{Schéma fungovania umelého neurónu}
+	\label{fig:artneuron}
+\end{figure}
+
+\begin{equation}\label{eqn:artneuron}
+y = f(\sum\limits_{i=1}^n x_{i}w_{i} + b)
+\end{equation}
+
+\indent Jedným neurónom vieme aproximovať jednoduchú lineárnu funkciu.
+Na aproximáciu zložitejších problémov, napríklad na rozpoznanie ručne písaných znakov, ich však potrebujeme viac.
+Ľudský mozog má usporiadané neuróny vo vrstvách.
+Buduma tvrdí, že mozgová kôra, ktorá je zodpovedná za ľudské myslenie, je tvorená šiestimi takýmito vrstvami\cite{buduma2017fundamentals}, a informácia sa prenáša z jednej vrstvy do druhy, až kým vstupná informácia nedáva zmysel.
+Príkladom je ľudské videnie, kde najspodnejšia vrstva prijíma informácie zo sietnice oka, táto informácia sa presúva vrstvami mozgovej kôry, až nakoniec v poslednej vrstve rozpozná, o aký predmet ide.\\
+
+\indent Aplikovaním rovnakého konceptu spájania neurónov do vrstiev, výtvárame umelé neurónové siete.
+Obrázok jednduchej neurónovej siete vidíme na obrázku\ref{fig:ann}, kde spodná vrstva prijíma vstupné dáta a vrchná vrstva neurónov počíta finálny výsledok.
+Stredná vrstva neurónov je nazývaná skrytá vrstva, kde $w_{i, j}^{(k)}$ označuje váhu prepojania medzi í-tym v k-tej vrstve a j-tym neurónom v k+1 vrstve, pričom schopnosť neurónovej siete riešiť problémi 
+priamo závisí na nájdení optimálnych hodnôt váh, pričom vďaka skrytej vrstve je možné vypočítať komplexnejšie vzťahy vo vstupných dátach.
+V ukážkovej sieti sú existujú prepojenia neurónov v smere do nasledujúcej vrstvy, bez prepojení medzi neurónmi v rovnakej vrstve alebo do predchádzajúcej, tento typ siete sa označuje ako dopredná - feed forward.
+Lineárne neuróny sú nenáročné na výpočet, avšak akákoľvek dopredná sieť len s lineárnymi neurónmi môže byť vyjadrená ako sieť bez skrytej vrstvy, a teda je limitovaná na naučenie sa zložitejších vzťahov.
+Riešením je vnesenie nelineárnych vzťahov do neurónovej siete, prostredníctvom aktivačných funkcií.\cite{buduma2017fundamentals}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/ann}
+	\caption{Príklad doprednej neurónovej vrstvy skladajúcej sa z troch vrstiev a tromi neurónmi vo vrstve.}
+	\label{fig:ann}
+\end{figure}
+
+\subsection{Aktivačné funkcie}
+Poznáme 3 základné nelineárne aktivačné funkcie - sigmoid, tanh a relu.
+Sigmoidná funkcia, je definovaná ako\eqref{eqn:sigmoid}, jej priebeh\ref{fig:sigmoid} je podobný písmenu s, čo spôsobuje, že ak je vstup veľmi malý, výstup bude blízky 0, a pokiaľ je veľmi veľký, výsledok sa blíži k 1.
+
+\begin{equation}\label{eqn:sigmoid}
+f(z) = \frac{1}{1 + e^{-z}}
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/sigmoid}
+	\caption{Priebeh sigmoidnej funkcie}
+	\label{fig:sigmoid}
+\end{figure}
+
+Funkcia tanh - hyperbolický tangens, je podobná sigmoidnej čo sa týka priebehu\ref{fig:tanh}, s tým že jej rozsah je od -1 do 1, má centrum priebehu v 0, kvôli čomu je často preferovanou aktivačnou funkciou.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/tanh}
+	\caption{Priebeh funkcie tanh}
+	\label{fig:tanh}
+\end{figure}
+
+Iným tipom nelineárnej funkcie je \acrshort{relu}, vyjadrený rovnicou \eqref{eqn:relu}, a priebehom ako na obrázku\ref{fig:relu} a je používanou funkciou najmä v oblasti strojového videnia.
+
+\begin{equation}\label{eqn:relu}
+f(z) = max(0, z)
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/relu}
+	\caption{Priebeh ReLU funkcie}
+	\label{fig:relu}
+\end{figure}
+
+\subsection{Trénovanie neuróvej siete}
+Pod pojmom trénovania neurónovej siete rozumieme proces optimalizácie vektora váhových prepojení medzi neurónmi.
+Počas trénovania sa zvyčajne na vstup neurónovej siete prináša veľké množstvo tréningových vzoriek, pričom opakovane upravujeme hodnoty váh s cieľom minimalizovať chybné výsledky neurónovej siete.
+Chybu výsledku neurónovej siete vypočítame chybovou funkciou(objective function, error function loss function) \eqref{eqn:learning}, a kde $E$ je výsledná chyba pre i-tu tréningovú vzorku, $t^{i}$ označuje pravdivú hodnotu výsledku pre vzorku i a $y^{i}$ označuje výstup neurónovej siete.
+
+\begin{equation}\label{eqn:learning}
+E = \frac{1}{2} \sum \nolimits_{i} (t^{(i)} - y^{(i)})^2
+\end{equation}
+
+Výsledok chybovej funkcie je rovný nule, pokiaľ náš model neurónovej siete vracia perfektné výsledky pre každú trénovaciu vzorku.
+Cieľom trénovania je teda optimalizovať váhy neurónov tak, aby sa výsledok chybovej funkcie E čo najviac približoval k E. 
+
+\subsection{Gradient descent}
+Po vypočítaní chybovej funckie je potrebné upraviť samotné hodnoty váh, pomocou metódy gradient descent.
+Predpokladajme, že máme funkciu $y = f(x)$, kde obe x a y sú reálne čísla a derivácia tejto funckie je označená
+ako $f'(x)$.
+Derivácia $f'(x)$ nám dáva sklon alebo smerovanie funcie $f(x)$ v bode x, inými slovami nám udáva, ako upraviť
+malú zmenu vo vstupe tak, aby sme dosiahli požadovanú funckiu na výtupe \eqref{gd}. \cite{goodfellow2016deep}
+
+\begin{equation}\label{eqn:gd}
+f(x + e) \approx f(x) + ef'(x)
+\end{equation}
+
+Derivácie sú vhodným prostriedkom na minimalizáciu funcií, pretože nám udáva, ako uraviť x tak, aby sme dosiahli zlepšenie v y.  
+
+
 %\subsection{Konvolučné neurónové siete}
 %\subsection{Vrstvy konvolučnej neurónovej siete}
 %\subsubsection{Konvolučná vrstva}
 %\subsubsection{ReLU vrstva}
 %\subsubsection{Pooling vrstva}
+
 %\section{Trénovanie modelu na rozpoznávanie tvárí}
 %\subsection{Tensorflow}
 %\subsection{Výber datasetu}

@@ -1,3 +1,5 @@
+\let\counterwithout\relax
+\let\counterwithin\relax
 \documentclass[dp]{FEIstyle}
 
 \FEIauthor{Bc. Ján Polaček}
@@ -11,7 +13,7 @@
 
 \FEIglossaries{includes/glossary}
 \bibliography{includes/bibliography.bib}
-\nocite{*}
+
 \iffalse \input{includes/glossary} \fi
 
 \begin{document}
@@ -20,14 +22,14 @@
 \FEIpdfInfo
 \FEIcover
 \FEItitlePage
-\FEIassignment{includes/assignment.png}
+\FEIassignment{includes/assignment.jpeg}
 % \FEIassignment{includes/assignment_part2.jpeg}
 \FEIabstract{includes/abstract}
 \FEIabstractEn{includes/abstractEN}
 \FEIthanks{includes/thanks}
 \FEIcontent
-%\FEIlistOfFiguresAndTables
-%\FEIlistOfGlossaries
+\FEIlistOfFiguresAndTables
+\FEIlistOfGlossaries
 \FEIlistOfAlgorithms
 \FEIlistOfListings
 
@@ -44,7 +46,7 @@
 
 \backmatter
 
-%\FEIlistOfAppendix
+\FEIlistOfAppendix
 %\FEIappendix{Štruktúra elektronického nosiča\label{att:A}}{includes/attachmentA}
 %\FEIappendix{Algoritmus\label{att:B}}{includes/attachmentB}
 %\FEIappendix{Výpis sublime\label{att:C}}{includes/attachmentC}
