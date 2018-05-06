@@ -1,0 +1,751 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{icao}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=de2d7d28ebb7db43a2765fed22af2d75}{%
+           family={HEADQUARTERS},
+           familyi={H\bibinitperiod},
+           given={ACI\bibnamedelima WORLD},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{de2d7d28ebb7db43a2765fed22af2d75}
+      \strng{fullhash}{de2d7d28ebb7db43a2765fed22af2d75}
+      \strng{bibnamehash}{de2d7d28ebb7db43a2765fed22af2d75}
+      \strng{authorbibnamehash}{de2d7d28ebb7db43a2765fed22af2d75}
+      \strng{authornamehash}{de2d7d28ebb7db43a2765fed22af2d75}
+      \strng{authorfullhash}{de2d7d28ebb7db43a2765fed22af2d75}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{note}{(Accessed on 04/04/2018)}
+      \field{title}{The Application of Biometrics at Airports}
+      \field{year}{2005}
+    \endentry
+    \entry{handbookface}{book}{}
+      \name{author}{2}{}{%
+        {{hash=1ffcf0581c056441ab1d3806e04f52e1}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anil\bibnamedelima K},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=65f53988efe45979d16877047dd9055f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Stan\bibnamedelima Z},
+           giveni={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{fe131c736ecac5e0046889fe0d777b55}
+      \strng{fullhash}{fe131c736ecac5e0046889fe0d777b55}
+      \strng{bibnamehash}{fe131c736ecac5e0046889fe0d777b55}
+      \strng{authorbibnamehash}{fe131c736ecac5e0046889fe0d777b55}
+      \strng{authornamehash}{fe131c736ecac5e0046889fe0d777b55}
+      \strng{authorfullhash}{fe131c736ecac5e0046889fe0d777b55}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook of face recognition}
+      \field{year}{2011}
+    \endentry
+    \entry{kanade1974}{article}{}
+      \name{author}{1}{}{%
+        {{hash=45496c6a7530cfbfb4f3218a2602b77e}{%
+           family={Kanade},
+           familyi={K\bibinitperiod},
+           given={Takeo},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Kyoto University}%
+      }
+      \strng{namehash}{45496c6a7530cfbfb4f3218a2602b77e}
+      \strng{fullhash}{45496c6a7530cfbfb4f3218a2602b77e}
+      \strng{bibnamehash}{45496c6a7530cfbfb4f3218a2602b77e}
+      \strng{authorbibnamehash}{45496c6a7530cfbfb4f3218a2602b77e}
+      \strng{authornamehash}{45496c6a7530cfbfb4f3218a2602b77e}
+      \strng{authorfullhash}{45496c6a7530cfbfb4f3218a2602b77e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Picture processing system by computer complex and recognition of human faces}
+      \field{year}{1974}
+    \endentry
+    \entry{kirby1990application}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d95023eeb203399c7d2176f751ae56dc}{%
+           family={Kirby},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=328fb15a22a40f2696c18aefe44c8cb0}{%
+           family={Sirovich},
+           familyi={S\bibinitperiod},
+           given={Lawrence},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{8b0d6b6cd03b5469cde23b8a5d87da6f}
+      \strng{fullhash}{8b0d6b6cd03b5469cde23b8a5d87da6f}
+      \strng{bibnamehash}{8b0d6b6cd03b5469cde23b8a5d87da6f}
+      \strng{authorbibnamehash}{8b0d6b6cd03b5469cde23b8a5d87da6f}
+      \strng{authornamehash}{8b0d6b6cd03b5469cde23b8a5d87da6f}
+      \strng{authorfullhash}{8b0d6b6cd03b5469cde23b8a5d87da6f}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Pattern analysis and Machine intelligence}
+      \field{number}{1}
+      \field{title}{Application of the Karhunen-Loeve procedure for the characterization of human faces}
+      \field{volume}{12}
+      \field{year}{1990}
+      \field{pages}{103\bibrangedash 108}
+      \range{pages}{6}
+    \endentry
+    \entry{turk1991eigenfaces}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3688cccd8484f3ca2424096f189fed1c}{%
+           family={Turk},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cfeba84379500ca15113b46bf96d3c2a}{%
+           family={Pentland},
+           familyi={P\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{dc8adaa15afe715c3dc76dda35cb7e0f}
+      \strng{fullhash}{dc8adaa15afe715c3dc76dda35cb7e0f}
+      \strng{bibnamehash}{dc8adaa15afe715c3dc76dda35cb7e0f}
+      \strng{authorbibnamehash}{dc8adaa15afe715c3dc76dda35cb7e0f}
+      \strng{authornamehash}{dc8adaa15afe715c3dc76dda35cb7e0f}
+      \strng{authorfullhash}{dc8adaa15afe715c3dc76dda35cb7e0f}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of cognitive neuroscience}
+      \field{number}{1}
+      \field{title}{Eigenfaces for recognition}
+      \field{volume}{3}
+      \field{year}{1991}
+      \field{pages}{71\bibrangedash 86}
+      \range{pages}{16}
+    \endentry
+    \entry{belhumeur1997eigenfaces}{article}{}
+      \name{author}{3}{}{%
+        {{hash=681728813999823c951d218b5586d6eb}{%
+           family={Belhumeur},
+           familyi={B\bibinitperiod},
+           given={Peter\bibnamedelima N.},
+           giveni={P\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=0c2687e05d43d831bb584af12ece67b7}{%
+           family={Hespanha},
+           familyi={H\bibinitperiod},
+           given={Jo{ã}o\bibnamedelima P},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=d6e249eaffd01da06408895a2a8a5853}{%
+           family={Kriegman},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{85f91111d27fd1a980fd96462f631ab3}
+      \strng{fullhash}{85f91111d27fd1a980fd96462f631ab3}
+      \strng{bibnamehash}{85f91111d27fd1a980fd96462f631ab3}
+      \strng{authorbibnamehash}{85f91111d27fd1a980fd96462f631ab3}
+      \strng{authornamehash}{85f91111d27fd1a980fd96462f631ab3}
+      \strng{authorfullhash}{85f91111d27fd1a980fd96462f631ab3}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on pattern analysis and machine intelligence}
+      \field{number}{7}
+      \field{title}{Eigenfaces vs. fisherfaces: Recognition using class specific linear projection}
+      \field{volume}{19}
+      \field{year}{1997}
+      \field{pages}{711\bibrangedash 720}
+      \range{pages}{10}
+    \endentry
+    \entry{wiskott1997face}{article}{}
+      \name{author}{4}{}{%
+        {{hash=1a32a99893f7cb5a5f0da14f6d31a3b9}{%
+           family={Wiskott},
+           familyi={W\bibinitperiod},
+           given={Laurenz},
+           giveni={L\bibinitperiod}}}%
+        {{hash=83d203645a838b4d0ce3e80ee5ced39b}{%
+           family={Kr{ü}ger},
+           familyi={K\bibinitperiod},
+           given={Norbert},
+           giveni={N\bibinitperiod}}}%
+        {{hash=b9c78c8d61e348587fd20a4a360c96b1}{%
+           family={Kuiger},
+           familyi={K\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod}}}%
+        {{hash=5f21d40956d78e3ac07d06da8733c24e}{%
+           family={Von\bibnamedelimb Der\bibnamedelima Malsburg},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{f9c6ad950c5e4b0c0b806e5bff031689}
+      \strng{fullhash}{f9c6ad950c5e4b0c0b806e5bff031689}
+      \strng{bibnamehash}{f9c6ad950c5e4b0c0b806e5bff031689}
+      \strng{authorbibnamehash}{f9c6ad950c5e4b0c0b806e5bff031689}
+      \strng{authornamehash}{f9c6ad950c5e4b0c0b806e5bff031689}
+      \strng{authorfullhash}{f9c6ad950c5e4b0c0b806e5bff031689}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on pattern analysis and machine intelligence}
+      \field{number}{7}
+      \field{title}{Face recognition by elastic bunch graph matching}
+      \field{volume}{19}
+      \field{year}{1997}
+      \field{pages}{775\bibrangedash 779}
+      \range{pages}{5}
+    \endentry
+    \entry{viola2001rapid}{article}{}
+      \name{author}{2}{}{%
+        {{hash=050f01d5a79687cfd1d63ef25567fc35}{%
+           family={Viola},
+           familyi={V\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5a25bc91f524ca6dfc2ecf9f4a13903c}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{add3d8794d306082d388ffc8fba59210}
+      \strng{fullhash}{add3d8794d306082d388ffc8fba59210}
+      \strng{bibnamehash}{add3d8794d306082d388ffc8fba59210}
+      \strng{authorbibnamehash}{add3d8794d306082d388ffc8fba59210}
+      \strng{authornamehash}{add3d8794d306082d388ffc8fba59210}
+      \strng{authorfullhash}{add3d8794d306082d388ffc8fba59210}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Computer Vision and Pattern Recognition, 2001. CVPR 2001. Proceedings of the 2001 IEEE Computer Society Conference on}
+      \field{title}{Rapid object detection using a boosted cascade of simple features}
+      \field{volume}{1}
+      \field{year}{2001}
+      \field{pages}{I\bibrangedash I}
+      \range{pages}{1}
+    \endentry
+    \entry{zhao2003face}{article}{}
+      \name{author}{4}{}{%
+        {{hash=69afc66e51c35a04e6e5d7bb0453b097}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Wenyi},
+           giveni={W\bibinitperiod}}}%
+        {{hash=58e34e482e0dd6e755329ae57da3b293}{%
+           family={Chellappa},
+           familyi={C\bibinitperiod},
+           given={Rama},
+           giveni={R\bibinitperiod}}}%
+        {{hash=bf7aa0c9301586128c686b0cf21a6b2d}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={P\bibnamedelima Jonathon},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=bd8e7a06733ac5e466135943c911bacb}{%
+           family={Rosenfeld},
+           familyi={R\bibinitperiod},
+           given={Azriel},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{c892fd7f6ac9aad1656da571f393780c}
+      \strng{fullhash}{c892fd7f6ac9aad1656da571f393780c}
+      \strng{bibnamehash}{c892fd7f6ac9aad1656da571f393780c}
+      \strng{authorbibnamehash}{c892fd7f6ac9aad1656da571f393780c}
+      \strng{authornamehash}{c892fd7f6ac9aad1656da571f393780c}
+      \strng{authorfullhash}{c892fd7f6ac9aad1656da571f393780c}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM computing surveys (CSUR)}
+      \field{number}{4}
+      \field{title}{Face recognition: A literature survey}
+      \field{volume}{35}
+      \field{year}{2003}
+      \field{pages}{399\bibrangedash 458}
+      \range{pages}{60}
+    \endentry
+    \entry{handbookbio}{book}{}
+      \name{author}{3}{}{%
+        {{hash=1ffcf0581c056441ab1d3806e04f52e1}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anil\bibnamedelima K},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=5dcc2da2780c0f68094a797734576320}{%
+           family={Flynn},
+           familyi={F\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=eadfe4bfc4fc0ce7c1b125554df387f4}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={Arun\bibnamedelima A},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{abbefbc5ba73518059a036d129964596}
+      \strng{fullhash}{abbefbc5ba73518059a036d129964596}
+      \strng{bibnamehash}{abbefbc5ba73518059a036d129964596}
+      \strng{authorbibnamehash}{abbefbc5ba73518059a036d129964596}
+      \strng{authornamehash}{abbefbc5ba73518059a036d129964596}
+      \strng{authorfullhash}{abbefbc5ba73518059a036d129964596}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook of biometrics}
+      \field{year}{2007}
+    \endentry
+    \entry{duda2012pattern}{book}{}
+      \name{author}{3}{}{%
+        {{hash=3ab1043c4f5042ab807b3127299273bf}{%
+           family={Duda},
+           familyi={D\bibinitperiod},
+           given={Richard\bibnamedelima O},
+           giveni={R\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=7dae4f12ee54d7468eca9356ad48cbed}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={Peter\bibnamedelima E},
+           giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=afc98afc05a3316cc20767394b042692}{%
+           family={Stork},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{17b5b1567d35549a5404ab243bea9834}
+      \strng{fullhash}{17b5b1567d35549a5404ab243bea9834}
+      \strng{bibnamehash}{17b5b1567d35549a5404ab243bea9834}
+      \strng{authorbibnamehash}{17b5b1567d35549a5404ab243bea9834}
+      \strng{authornamehash}{17b5b1567d35549a5404ab243bea9834}
+      \strng{authorfullhash}{17b5b1567d35549a5404ab243bea9834}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Pattern classification}
+      \field{year}{2012}
+    \endentry
+    \entry{bartlett2002face}{article}{}
+      \name{author}{3}{}{%
+        {{hash=29ef211edcd875dd9bfd9d3a448cbdb2}{%
+           family={Bartlett},
+           familyi={B\bibinitperiod},
+           given={Marian\bibnamedelima Stewart},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=9b4ae5f7cca20bdf9e08fabdb5f1e8a1}{%
+           family={Movellan},
+           familyi={M\bibinitperiod},
+           given={Javier\bibnamedelima R},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=ee5fa322db02106c8bf890b09ff210f8}{%
+           family={Sejnowski},
+           familyi={S\bibinitperiod},
+           given={Terrence\bibnamedelima J},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{bec4b0afa6156c3248ebbeafa30f65ac}
+      \strng{fullhash}{bec4b0afa6156c3248ebbeafa30f65ac}
+      \strng{bibnamehash}{bec4b0afa6156c3248ebbeafa30f65ac}
+      \strng{authorbibnamehash}{bec4b0afa6156c3248ebbeafa30f65ac}
+      \strng{authornamehash}{bec4b0afa6156c3248ebbeafa30f65ac}
+      \strng{authorfullhash}{bec4b0afa6156c3248ebbeafa30f65ac}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on neural networks}
+      \field{number}{6}
+      \field{title}{Face recognition by independent component analysis}
+      \field{volume}{13}
+      \field{year}{2002}
+      \field{pages}{1450\bibrangedash 1464}
+      \range{pages}{15}
+    \endentry
+    \entry{buduma2017fundamentals}{book}{}
+      \name{author}{2}{}{%
+        {{hash=420b3d7c1b6cb8877c330542f28451a9}{%
+           family={Buduma},
+           familyi={B\bibinitperiod},
+           given={Nikhil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=34ee88fb0e077cba84c6eb8e4b33b614}{%
+           family={Locascio},
+           familyi={L\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {" O'Reilly Media, Inc."}%
+      }
+      \strng{namehash}{bd104c2c83c943d684af8f2e88a11864}
+      \strng{fullhash}{bd104c2c83c943d684af8f2e88a11864}
+      \strng{bibnamehash}{bd104c2c83c943d684af8f2e88a11864}
+      \strng{authorbibnamehash}{bd104c2c83c943d684af8f2e88a11864}
+      \strng{authornamehash}{bd104c2c83c943d684af8f2e88a11864}
+      \strng{authorfullhash}{bd104c2c83c943d684af8f2e88a11864}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamentals of deep learning: designing next-generation machine intelligence algorithms}
+      \field{year}{2017}
+    \endentry
+    \entry{goodfellow2016deep}{book}{}
+      \name{author}{4}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press Cambridge}%
+      }
+      \strng{namehash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{fullhash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{bibnamehash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{authorbibnamehash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{authornamehash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \strng{authorfullhash}{d84b0b9d19401c079b1a67dd4962d9e0}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Deep learning}
+      \field{volume}{1}
+      \field{year}{2016}
+    \endentry
+    \entry{lawrence1997lessons}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=eecf2ce6415b262f4cbccc026c92c684}{%
+           family={Lawrence},
+           familyi={L\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b21e53f501bfe0f2accf1dba2eb80049}{%
+           family={Giles},
+           familyi={G\bibinitperiod},
+           given={C\bibnamedelima Lee},
+           giveni={C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=bad8c3458d4ad9db77a764f7bfaed629}{%
+           family={Tsoi},
+           familyi={T\bibinitperiod},
+           given={Ah\bibnamedelima Chung},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{35c21f152750897f6a7dad04389d1275}
+      \strng{fullhash}{35c21f152750897f6a7dad04389d1275}
+      \strng{bibnamehash}{35c21f152750897f6a7dad04389d1275}
+      \strng{authorbibnamehash}{35c21f152750897f6a7dad04389d1275}
+      \strng{authornamehash}{35c21f152750897f6a7dad04389d1275}
+      \strng{authorfullhash}{35c21f152750897f6a7dad04389d1275}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{AAAI/IAAI}
+      \field{title}{Lessons in neural network training: Overfitting may be harder than expected}
+      \field{year}{1997}
+      \field{pages}{540\bibrangedash 545}
+      \range{pages}{6}
+    \endentry
+    \entry{nielsen2015chapter}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9464fec9e7bc41dacf4bbd5db14a22ec}{%
+           family={Nielsen},
+           familyi={N\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9464fec9e7bc41dacf4bbd5db14a22ec}
+      \strng{fullhash}{9464fec9e7bc41dacf4bbd5db14a22ec}
+      \strng{bibnamehash}{9464fec9e7bc41dacf4bbd5db14a22ec}
+      \strng{authorbibnamehash}{9464fec9e7bc41dacf4bbd5db14a22ec}
+      \strng{authornamehash}{9464fec9e7bc41dacf4bbd5db14a22ec}
+      \strng{authorfullhash}{9464fec9e7bc41dacf4bbd5db14a22ec}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks and Deep Learning. Available online: http://neuralnetworksanddeeplearning. com/chap3. html (accessed on 8 May 2017)}
+      \field{title}{Chapter 3, Improving the Way Neural Networks Learn}
+      \field{year}{2015}
+    \endentry
+    \entry{Regulari14}{misc}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization}}
+      \field{note}{(Accessed on 05/04/2018)}
+      \field{title}{Regularization for Simplicity: L2 Regularization  |  Machine Learning Crash Course  |  Google Developers}
+    \endentry
+    \entry{van2017l2}{article}{}
+      \name{author}{1}{}{%
+        {{hash=bbf065a4bda8d760399889d354512e30}{%
+           family={Laarhoven},
+           familyi={L\bibinitperiod},
+           given={Twan},
+           giveni={T\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{bbf065a4bda8d760399889d354512e30}
+      \strng{fullhash}{bbf065a4bda8d760399889d354512e30}
+      \strng{bibnamehash}{bbf065a4bda8d760399889d354512e30}
+      \strng{authorbibnamehash}{bbf065a4bda8d760399889d354512e30}
+      \strng{authornamehash}{bbf065a4bda8d760399889d354512e30}
+      \strng{authorfullhash}{bbf065a4bda8d760399889d354512e30}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1706.05350}
+      \field{title}{L2 regularization versus batch and weight normalization}
+      \field{year}{2017}
+    \endentry
+    \entry{Regulari75}{misc}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization}}
+      \field{note}{(Accessed on 05/06/2018)}
+      \field{title}{Regularization for Sparsity: L1 Regularization  |  Machine Learning Crash Course  |  Google Developers}
+    \endentry
+    \entry{dumoulin2016guide}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1328d3ceef6add8461994fc364c664df}{%
+           family={Dumoulin},
+           familyi={D\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=6b5929470a8840e4c6f9b8836bd55286}{%
+           family={Visin},
+           familyi={V\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac3e7f97a270527500aed940113f1070}
+      \strng{fullhash}{ac3e7f97a270527500aed940113f1070}
+      \strng{bibnamehash}{ac3e7f97a270527500aed940113f1070}
+      \strng{authorbibnamehash}{ac3e7f97a270527500aed940113f1070}
+      \strng{authornamehash}{ac3e7f97a270527500aed940113f1070}
+      \strng{authorfullhash}{ac3e7f97a270527500aed940113f1070}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1603.07285}
+      \field{title}{A guide to convolution arithmetic for deep learning}
+      \field{year}{2016}
+    \endentry
+    \entry{cs231n}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=facb30e7eafc021b924f05da837a153b}{%
+           family={CS231n},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{fullhash}{facb30e7eafc021b924f05da837a153b}
+      \strng{bibnamehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{authorbibnamehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{authornamehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{authorfullhash}{facb30e7eafc021b924f05da837a153b}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://cs231n.github.io/convolutional-networks}}
+      \field{month}{1}
+      \field{note}{(Accessed on 05/01/2018)}
+      \field{title}{CS231n Convolutional Neural Networks for Visual Recognition}
+      \field{year}{2018}
+    \endentry
+    \entry{schroff2015facenet}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=c62e96f68033a3d3cd4639e35a2de4da}{%
+           family={Schroff},
+           familyi={S\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=6cbb997a11c6922af719c32863261918}{%
+           family={Kalenichenko},
+           familyi={K\bibinitperiod},
+           given={Dmitry},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1e9a1d678032dfffb4e871a0f622e030}{%
+           family={Philbin},
+           familyi={P\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{fullhash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{bibnamehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{authorbibnamehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{authornamehash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \strng{authorfullhash}{474363fec59aa6cdd11f5b6b8275a8f2}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE conference on computer vision and pattern recognition}
+      \field{title}{Facenet: A unified embedding for face recognition and clustering}
+      \field{year}{2015}
+      \field{pages}{815\bibrangedash 823}
+      \range{pages}{9}
+    \endentry
+    \entry{wst2008deeply}{article}{}
+      \name{author}{1}{}{%
+        {{hash=01c29c6a3faa1930e3c7e16487565f4f}{%
+           family={WST},
+           familyi={W\bibinitperiod},
+           given={Web-Scale\bibnamedelima Training},
+           giveni={W\bibinithyphendelim S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{01c29c6a3faa1930e3c7e16487565f4f}
+      \strng{fullhash}{01c29c6a3faa1930e3c7e16487565f4f}
+      \strng{bibnamehash}{01c29c6a3faa1930e3c7e16487565f4f}
+      \strng{authorbibnamehash}{01c29c6a3faa1930e3c7e16487565f4f}
+      \strng{authornamehash}{01c29c6a3faa1930e3c7e16487565f4f}
+      \strng{authorfullhash}{01c29c6a3faa1930e3c7e16487565f4f}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{perception}
+      \field{title}{Deeply learned face representations are sparse, selective, and robust}
+      \field{volume}{31}
+      \field{year}{2008}
+      \field{pages}{411\bibrangedash 438}
+      \range{pages}{28}
+    \endentry
+    \entry{weinberger2009distance}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d4806c5e19f2bed51b4188ae242ad629}{%
+           family={Weinberger},
+           familyi={W\bibinitperiod},
+           given={Kilian\bibnamedelima Q},
+           giveni={K\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+        {{hash=5b3b0692ba432de2656e974c244d47e3}{%
+           family={Saul},
+           familyi={S\bibinitperiod},
+           given={Lawrence\bibnamedelima K},
+           giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{b1a64d68bc5178898a74cd17d90c5b7f}
+      \strng{fullhash}{b1a64d68bc5178898a74cd17d90c5b7f}
+      \strng{bibnamehash}{b1a64d68bc5178898a74cd17d90c5b7f}
+      \strng{authorbibnamehash}{b1a64d68bc5178898a74cd17d90c5b7f}
+      \strng{authornamehash}{b1a64d68bc5178898a74cd17d90c5b7f}
+      \strng{authorfullhash}{b1a64d68bc5178898a74cd17d90c5b7f}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{Feb}
+      \field{title}{Distance metric learning for large margin nearest neighbor classification}
+      \field{volume}{10}
+      \field{year}{2009}
+      \field{pages}{207\bibrangedash 244}
+      \range{pages}{38}
+    \endentry
+    \entry{davidsan26}{misc}{}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/davidsandberg/facenet}}
+      \field{note}{(Accessed on 05/06/2018)}
+      \field{title}{davidsandberg/facenet: Face recognition using Tensorflow}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

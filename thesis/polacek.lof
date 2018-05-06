@@ -1,0 +1,48 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {slovak}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Proces rozpozn\IeC {\'a}vania tv\IeC {\'a}re\relax }}{4}{figure.caption.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2}{\ignorespaces Prv\IeC {\'y}ch 6 b\IeC {\'a}zov\IeC {\'y}ch vektorov Eigenfaces, t\IeC {\'e} z\cite [p.~45]{handbookbio}\relax }}{6}{figure.caption.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3}{\ignorespaces Prv\IeC {\'y}ch 6 b\IeC {\'a}zov\IeC {\'y}ch vektorov Fisherfaces, prebrat\IeC {\'e} z\cite [p.~46]{handbookbio}\relax }}{7}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4}{\ignorespaces Zjednodu\IeC {\v s}en\IeC {\'y} popis fungovania biologick\IeC {\'e}ho neur\IeC {\'o}nu\relax }}{9}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5}{\ignorespaces Sch\IeC {\'e}ma fungovania umel\IeC {\'e}ho neur\IeC {\'o}nu\relax }}{10}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6}{\ignorespaces Pr\IeC {\'\i }klad doprednej neur\IeC {\'o}novej vrstvy skladaj\IeC {\'u}cej sa z troch vrstiev a tromi neur\IeC {\'o}nmi vo vrstve.\relax }}{11}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7}{\ignorespaces Priebeh sigmoidnej funkcie\relax }}{12}{figure.caption.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {8}{\ignorespaces Priebeh funkcie tanh\relax }}{12}{figure.caption.28}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9}{\ignorespaces Priebeh ReLU funkcie\relax }}{13}{figure.caption.30}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka, ako deriv\IeC {\'a}cie funkcie m\IeC {\^o}\IeC {\v z}e by\IeC {\v t} pou\IeC {\v z}it\IeC {\'a} na h\IeC {\v l}adanie minima funkcie (gradient descent)\relax }}{14}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka funkcie s nieko\IeC {\v l}k\IeC {\'y}mi lok\IeC {\'a}lnymi minimami, prebrat\IeC {\'e} z\cite [p.~85]{goodfellow2016deep}\relax }}{15}{figure.caption.36}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {12}{\ignorespaces Kapacita siete a jej vz\IeC {\v t}ah k nedotr\IeC {\'e}vaniu a pretr\IeC {\'e}novaniu\relax }}{17}{figure.caption.39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {13}{\ignorespaces Vz\IeC {\v t}ah medzi kapacitou a chybou tr\IeC {\'e}novania, prebrat\IeC {\'a} z z\cite [p.~115]{goodfellow2016deep}\relax }}{18}{figure.caption.40}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {14}{\ignorespaces Diagram vrstvy konvolu\IeC {\v c}nej neur\IeC {\'o}novej siete\relax }}{19}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {15}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka red\IeC {\v s}ieho prepojenia neur\IeC {\'o}nov so zv\IeC {\'y}raznen\IeC {\'\i }m prepojen\IeC {\'\i }, ktor\IeC {\'e} m\IeC {\'a} neur\IeC {\'o}n $x_{3}$ \relax }}{20}{figure.caption.49}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {16}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka pln\IeC {\'y}ch prepojen\IeC {\'\i } neur\IeC {\'o}nov so zv\IeC {\'y}raznen\IeC {\'\i }m prepojen\IeC {\'\i }, ktor\IeC {\'e} m\IeC {\'a} neur\IeC {\'o}n $x_{3}$\relax }}{21}{figure.caption.50}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {17}{\ignorespaces V\IeC {\'y}po\IeC {\v c}et v\IeC {\'y}stupn\IeC {\'y}ch hodn\IeC {\^o}t oper\IeC {\'a}cie konvol\IeC {\'u}cie\relax }}{22}{figure.caption.51}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {18}{\ignorespaces V\IeC {\'y}po\IeC {\v c}et v\IeC {\'y}stupn\IeC {\'y}ch hodn\IeC {\^o}t konvol\IeC {\'u}cie s pou\IeC {\v z}it\IeC {\'\i }m paddingu a stridu \relax }}{23}{figure.caption.52}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {19}{\ignorespaces Max pooling spolu s downsamplingom z poh\IeC {\v l}adu prepojen\IeC {\'\i } neur\IeC {\'o}nov\relax }}{24}{figure.caption.54}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {20}{\ignorespaces V\IeC {\'y}po\IeC {\v c}et v\IeC {\'y}stupn\IeC {\'y}ch hodn\IeC {\^o}t pou\IeC {\v z}it\IeC {\'\i }m max poolingu\relax }}{25}{figure.caption.55}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {21}{\ignorespaces Diagram fungovania Facenetu\relax }}{27}{figure.caption.60}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {22}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka princ\IeC {\'\i }pu \IeC {\'u}pravy vzdialenost\IeC {\'\i } medzi vzorkami pri chybovej funkcii troj\IeC {\'\i }c\relax }}{28}{figure.caption.61}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {23}{\ignorespaces Porovnanie v\IeC {\'y}po\IeC {\v c}tovej n\IeC {\'a}ro\IeC {\v c}nosti v z\IeC {\'a}vislosti od \IeC {\'u}spe\IeC {\v s}nosti siete, prebrat\IeC {\'e} z\cite [p.~5]{schroff2015facenet}\relax }}{29}{figure.caption.65}

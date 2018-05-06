@@ -1,0 +1,62 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {slovak}{}
+\defcounter {refsection}{0}\relax 
+\thispagestyle {plain}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\'{U}vod}{1}{section*.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Rozpozn\IeC {\'a}vanie tv\IeC {\'a}re}{2}{section.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Rozdelenie}{3}{subsection.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Proces identifik\IeC {\'a}cie}{4}{subsection.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}Techniky rozpozn\IeC {\'a}vania tv\IeC {\'a}ri}{5}{subsection.8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.3.1}Eigenfaces}{6}{subsubsection.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.3.2}Linear Discriminant Analysis, Fisherfaces}{6}{subsubsection.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.3.3}Indenpendent Component Analysis}{7}{subsubsection.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.3.4}Local Feature Analysis}{7}{subsubsection.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.3.5}Neur\IeC {\'o}nov\IeC {\'e} siete a Support Vector Machines}{8}{subsubsection.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Neur\IeC {\'o}nov\IeC {\'e} siete}{9}{section.19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Neur\IeC {\'o}n}{9}{subsection.20}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Aktiva\IeC {\v c}n\IeC {\'e} funkcie}{11}{subsection.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Tr\IeC {\'e}novanie neur\IeC {\'o}vej siete}{13}{subsection.31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}Gradient descent}{13}{subsection.33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5}Stochastic gradent descent}{15}{subsection.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.6}Generaliz\IeC {\'a}cia, overfitting a underfitting}{16}{subsection.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.7}Regulariz\IeC {\'a}cia}{18}{subsection.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.7.1}$L^2$ regulariz\IeC {\'a}cia}{18}{subsubsection.42}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.7.2}$L^1$ regulariz\IeC {\'a}cia}{19}{subsubsection.44}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.8}Konvolu\IeC {\v c}n\IeC {\'e} neur\IeC {\'o}nov\IeC {\'e} siete}{19}{subsection.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.1}Konvol\IeC {\'u}cia}{20}{subsubsection.48}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.2}Pooling}{23}{subsubsection.53}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Model neur\IeC {\'o}novej siete na rozpozn\IeC {\'a}vanie tv\IeC {\'a}r\IeC {\'\i }}{26}{section.56}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Facenet}{26}{subsection.59}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Tensorflow}{29}{subsection.66}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Z\'{a}ver}{30}{section*.67}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{31}{section*.68}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.69}

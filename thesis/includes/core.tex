@@ -1,5 +1,8 @@
 \section{Rozpoznávanie tváre}
-Rozpoznávanie tváre je jedným z úkonov, ktoré človek robí pravidelne a bez námahy v každodennom živote.
+V tejto časti práce sa budeme venovať problematike rozpoznávania tváre, popíšeme ako je možné rozdeliť rozpoznávanie tváre z pohľadu porovnávania,
+ukážeme z akých krokov vo všeobecnosti pozostáva proces rozpoznávania tváre a nakoniec popíšeme niektoré známe techniky používané pri rozpoznávaní tváre. \\
+
+\indent Rozpoznávanie tváre je jedným z úkonov, ktoré človek robí pravidelne a bez námahy v každodennom živote.
 Široká dostupnosť silných počítačov za nízku cenu vytvára obrovský záujem o automatické spracovanie digitálneho
 obrazu v širokom spektre aplikácií, ako sú napríklad biometrická autentifikácia, monitorovanie osôb,
 interakcia s počítačom či spravovanie multimédií.
@@ -54,7 +57,7 @@ nespolupracujúcej osoby často na väčšiu vzdialenosť.
 \subsection{Proces identifikácie}
 Jain popisuje rozpoznávanie tváre takto: ``Rozpoznávanie tváre sa zaraďuje medzi problémi rozpoznávania vzorov, kde tvár, ktorá je reprezentovaná ako trojzormerný objekt,
 podlieha odlišnostiam vo svetle, postoji, výraze a iných faktoroch, potrebuje byt identifikovaná na zákle zozbieraných obrázkov``\cite{handbookface}.
-Zatiaľ čo roznávanie tváre z dvojrozmerného snímku je dnes bežne používané vo vačšine prípadov, v niektorých, najmä tých ktoré vyžadujú vyššiu bezpečnosť,
+Zatiaľ čo roznávanie tváre z dvojrozmerného snímku je dnes bežne používané vo vačšine prípadov, v niektorých, najmä tých, ktoré vyžadujú vyššiu bezpečnosť,
 sa využíva trojrozmerný snímok tváre,
 prípadne snímky tváre mimo bežne viditeľného spektra - napr. termografický snímok tváre.  Systém na rozpoznávanie tváre sa podľa Jaina\cite{handbookface} vo všeobecnosti skladá zo štyroch
 základných častí, ako je ukázané na obrázku\ref{fig:workflow}:
@@ -77,21 +80,23 @@ základných častí, ako je ukázané na obrázku\ref{fig:workflow}:
 V prípade videa je potrebné sledovať (track) detekovanú tvár naprieč niekoľkými snímkami videa pomocou komponentu na sledovanie pohybu tváre.
 Zatiaľ čo detekcia tváre poskytuje len hruby odhad polohy a veľkosti tváre, lokalizácia bodov tváre najde už konkrétne časti tváre,
 ako sú napríklad oči, nos, obrys tváre a podobne.
-Lokalizácia bodov tváre je zväčša vykonanávaná osobitným komponentom na lokalizáciu bodov alebo komponentom na vyrovnanie (alignment) tváre.\cite{handbookface}\\
+Lokalizácia bodov tváre je zväčša vykonanávaná osobitným komponentom na lokalizáciu bodov alebo komponentom na vyrovnanie (alignment) tváre.\\
 Normalizácia tváre ide o normalizáciu tváre v geometrickom a fotometrickom zmysle.
 Tento krok je nevyhnutný, pretože sa od najnovších a najlepších (state-of-the-art) rozpoznávacích metód očakáva, že dokážu rozpoznať tvár v rôznych polohách a rôznom svetle.
-Geometrická normalizácia vykonáva transformáciu tváre do štandartného formátu snímku pomocou orezania (crop) tváre.
-Snímok je následne zakrivený (warp) a upravený (morph) kvôli ešte lepšej a presnejšej normalizácií tváre.
-Úlohou fotometrickej normalizácie je spracovanie snímku na základe osvetlenie či farebnej škály.\cite{handbookface}\\
+Geometrická normalizácia vykonáva transformáciu tváre do štandartného formátu snímku pomocou orezania (crop) tváre \cite{handbookface}.
+Snímok je následne zakrivený (warp) a upravený (morph) kvôli ešte lepšej a presnejšej normalizácií tváre \cite{handbookface}.
+Úlohou fotometrickej normalizácie je spracovanie snímku na základe osvetlenie či farebnej škály.\\
+
 \indent Extrakcia príznakov je vykonávaná na normalizovanom snímku tváre, s cieľom vybrať charakteristické infomácie, ktoré sú užitočné pri rozlišovaní tvárí rozdielnych osôb,
-pričom odolný voči odchýlkam v geometrickej a fotometrickej normalizácii.
-Extrahované príznaky sú nasledne použité pri hľadaní zhody s identitou.\cite{handbookface}\\
+pričom odolný voči odchýlkam v geometrickej a fotometrickej normalizácii \cite{handbookface}.
+Extrahované príznaky sú nasledne použité pri hľadaní zhody s identitou.\\
+
 \indent Pri hľadaní zhody tváre sa porovnávajú extrahované priznaky zo vstupnej tváre s jednou alebo viacerými tvárami ktoré už sú zapísané v databáze.
 Výsledkom porovnania s jednou tvárou je výsledkom odpoveď áno alebo nie (verifikácia).
 V prípade porovnávania s viacerými tvárami je výsledkom indetita vstupnej tváre, za predpokladu, že identita ktorá je nájdená presiahne prah spoľahlivosti,
 inak vráti informáciu, že tvár je neznáma.
-V súčastnosti je v tejto oblasti najväčšou výzvou nájsť spoľahlivé meranie vhodné na určenie podobnosti príznakov tváre.\cite{handbookface}\\
-\indent Presnosť systému na rozoznávanie tváre vo veľkom závisí na správnosti extrahovaných príznakoch tváre, ktoré naopak, závisia od správnej lokalizácii a normalizácii tváre.
+V súčastnosti je v tejto oblasti najväčšou výzvou nájsť spoľahlivé meranie vhodné na určenie podobnosti príznakov tváre.\\
+\indent Presnosť systému na rozoznávanie tváre vo veľkom závisí na správnosti extrahovaných príznakov tváre, ktoré zase závisia od správnej lokalizácii a normalizácii tváre.
 
 \subsection{Techniky rozpoznávania tvári}
 Zhao rozdeľuje\cite{zhao2003face} algoritmy rozponávania do dvoch základných kategórií, vzhľadom na spôsob extrakcie príznakov:
@@ -126,7 +131,7 @@ ktorá obsahuje kovariancie dát tváre.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{img/eigenfaces}
-	\caption{Prvých 6 bázových vektorov Eigenfaces, prebraté z\cite[p.~45]{handbookbio}}
+	\caption{Prvých 6 bázových vektorov Eigenfaces, té z\cite[p.~45]{handbookbio}}
 	\label{fig:eigenfaces}
 \end{figure}
 
@@ -170,37 +175,39 @@ Bázové vektory tvárí metódy PCA sú založené len na štatisike druhého r
 ICA zovšeobecňuje koncept PCA a vytvára tak model so vzťahmi štatisticky vyššie rádu.
 Pôvodná motivácia tejto metódy výchadza z potreby zaradiť zvukové vlny do nezávislých zdrojov, bez priamej znalosti procesu spájania
 (mixovania) týchto vĺn\cite{handbookbio}. Bartlett vo svoje publikácií\cite{bartlett2002face}, v ktorej aplikoval metódu ICA
-na rozpoznávanie tváre uvádza, že ICA dosahuje oveľa lepšie výsledky v porovnaní s metódou PCA, pri rozponávaní tváre
-v rôznych častiach dňa a rôznych výrazoch tváre.
-
+na rozpoznávanie tváre uvádza, že ICA dosahuje oveľa lepšie výsledky v porovnaní s metódou PCA, pri rozponávaní tváre v rôznych častiach dňa a rôznych výrazoch tváre.
+prebra
 \subsubsection{Local Feature Analysis}
 LFA vytvára skupinu lokálne prepojených detektorov príznakov, založených na rozložení charakteristikého podpriestoru.
-Vzniknú tak minimálne kolerované a topograficky indexované podskupiny príznakov, ktoré definujú podpriestor záujmu.
-Lokálna reprezentácia vytvára odolnosť voči zmenám v lokalizovaných oblastiach objektov.
+Vzniknú tak minimálne kolerované a topograficky indexované podskupiny príznakov, ktoré definujú podpriestor záujmu. \cite{handbookbio} \\
+
+\indent Lokálna reprezentácia vytvára odolnosť voči zmenám v lokalizovaných oblastiach objektov.
 Príznaky použité metódoou LFA sú menej náchylné na zmenú vo svetle a zároveň je vďaka nim jednoduchšie odhadnúť
 rotáciu objektu.
-Algoritmus LFA bol pouitý ako kľučový komponent algoritmu FaceIt, ktorý je jedným z komerčne využívaných
-systémov na rozpoznávanie tváre.\cite{handbookbio}
+Algoritmus LFA bol pouitý ako kľučový komponent algoritmu FaceIt, ktorý je jedným z komerčne využívaných systémov na rozpoznávanie tváre\cite{handbookbio}.
 
 \subsubsection{Neurónové siete a Support Vector Machines}
-Neurónové siete \acrshort{ns} a Support Vector Machines \acrshort{svm} sú zvyčajne využívané v nízkodimenzionálnych priestoroch príznakov, najmä kvoli výpočtovej náročnosti spracovania,
+Neurónové siete \acrshort{ns} a Support Vector Machines \acrshort{svm} sú zvyčajne využívané v nízko-dimenzionálnych priestoroch príznakov, najmä kvoli výpočtovej náročnosti spracovania,
 v prípade viacdimenzionálnych dát tváre\cite{handbookbio}.
 Neurónové siete podliehaju širokému záujmu o výskum, najmä čo sa týka lepšej reprezentáciu príznakov tváre a rozpoznávania tváre.
 Avšak, so zvyšujúcim sa množstvom osôb, ktoré sa neurónová sieť učí rozpoznávať, narastá výpočtová zložitosť exponencionálne.
 Spojením viacerých neurónových sietí sa podarilo zlepšiť celkový výkon pri rozpoznávaní tváre.\\
-\indent Vo všobecnosti nevieme povedať, čo presne sa neurónová sieť naučila, alebo akým spôsobom bude fungovať.
-NS zvyčajne vyžaduje veľké množstvo tréningových dát kvôli dobrej generalizácii dát, s čím zároveň súvisí značné množstvo výpočtov uskotočnených v procese trénovania.
-SVM sa ukazuje ako úspešná metóda pri rozpoznávaní objektov, použitím kernelového triku (kernel trick), ktorý mapuje dáta do viacdimenzionálneho priestoru príznakov.
-SVM v tomto priestore potom nájde nadrovinu, ktorá maximalizuje šírku hranice oddeľujúcej triedy klasifikácie, a znižuje tak riziko zlej klasifikácie nielen pre trénovacie dáta,
-ale tiež k dosiahnutiu lepšej generalizácie neznámych dát.\cite{handbookbio}
 
-\subsection{Detekcia tváre}
-\subsection{Hľadania bodov tváre}
-\subsection{Meranie úspešnosti}
-\subsection{Súčasný stav}
+\indent Vo všobecnosti nevieme povedať, čo presne sa neurónová sieť naučila, alebo akým spôsobom bude fungovať.
+Neurónová sieť zvyčajne vyžaduje veľké množstvo tréningových dát kvôli dobrej generalizácii dát, s čím zároveň súvisí značné množstvo výpočtov uskotočnených v procese trénovania.
+SVM sa ukazuje ako úspešná metóda pri rozpoznávaní objektov, použitím kernelového triku (kernel trick), ktorý mapuje dáta do viacdimenzionálneho priestoru príznakov\cite{handbookbio}.
+SVM v tomto priestore potom nájde nadrovinu, ktorá maximalizuje šírku hranice oddeľujúcej triedy klasifikácie, a znižuje tak riziko zlej klasifikácie nielen pre trénovacie dáta,
+ale tiež k dosiahnutiu lepšej generalizácie neznámych dát.\cite{handbookbio} \\
+
+\indent Neurónovú siete v kombinácii s SVM použijeme v praktickej časti tejto práce, ktorou detekujeme príznaky tváre a následne klasifikujeme.
 
 
 \section{Neurónové siete}
+V tejto kapitole popíšeme neurónové siete, ktoré sme si zvolili ako techniku na rozpoznávanie tváre.
+Začneme hlavnou stavebnou jednotkou neurónových sietí - neurónom, následne pokračujeme teóriou trénovania neurónových sietí a optimalizáciám
+ako je stochastic gradient descent či regularizácie.
+Nakoniec tejto kapitoly popíšeme konvolučné neurónové siete a jej základné princípy, ktoré použijeme pri rozpoznávaní tváre v praktickej časti tejto práce.
+
 \subsection{Neurón}
 Základnou jednotkou z ktorej sa skladá mozog je neurón.
 Kúsok mozgu, o veľkosti malého zrnka ryže, obsahuje približne 10000 neurónov, pričom každý neurón
@@ -259,7 +266,7 @@ Riešením je vnesenie nelineárnych vzťahov do neurónovej siete, prostredníc
 	\label{fig:ann}
 \end{figure}
 
-\subsection{Aktivačné funkcie}
+\subsection{Aktivačné funkcie}\label{activation}
 Poznáme 3 základné nelineárne aktivačné funkcie - sigmoid, tanh a relu.
 Sigmoidná funkcia, je definovaná ako\eqref{eqn:sigmoid}, jej priebeh\ref{fig:sigmoid} je podobný písmenu s, čo spôsobuje, že ak je vstup veľmi malý, výstup bude blízky 0, a pokiaľ je veľmi veľký, výsledok sa blíži k 1.
 
@@ -308,31 +315,382 @@ E = \frac{1}{2} \sum \nolimits_{i} (t^{(i)} - y^{(i)})^2
 Výsledok chybovej funkcie je rovný nule, pokiaľ náš model neurónovej siete vracia perfektné výsledky pre každú trénovaciu vzorku.
 Cieľom trénovania je teda optimalizovať váhy neurónov tak, aby sa výsledok chybovej funkcie E čo najviac približoval k E. 
 
-\subsection{Gradient descent}
+\subsection{Gradient descent}\label{gd}
 Po vypočítaní chybovej funckie je potrebné upraviť samotné hodnoty váh, pomocou metódy gradient descent.
-Predpokladajme, že máme funkciu $y = f(x)$, kde obe x a y sú reálne čísla a derivácia tejto funckie je označená
+Predpokladajme, že máme funkciu $y = f(x)$, kde obe $x$ a $y$ sú reálne čísla a derivácia tejto funckie je označená
 ako $f'(x)$.
-Derivácia $f'(x)$ nám dáva sklon alebo smerovanie funcie $f(x)$ v bode x, inými slovami nám udáva, ako upraviť
-malú zmenu vo vstupe tak, aby sme dosiahli požadovanú funckiu na výtupe \eqref{gd}. \cite{goodfellow2016deep}
+Derivácia $f'(x)$ nám dáva sklon alebo smerovanie funcie $f(x)$ v bode $x$, inými slovami nám udáva, ako upraviť
+malú zmenu vo vstupe tak, aby sme dosiahli požadovanú funckiu na výtupe \eqref{eqn:gd}. \cite{goodfellow2016deep}
 
 \begin{equation}\label{eqn:gd}
 f(x + e) \approx f(x) + ef'(x)
 \end{equation}
 
-Derivácie sú vhodným prostriedkom na minimalizáciu funcií, pretože nám udáva, ako uraviť x tak, aby sme dosiahli zlepšenie v y.  
+\indent Derivácie sú vhodným prostriedkom na minimalizáciu funcií, pretože nám udáva, ako uraviť x tak, aby sme dosiahli zlepšenie v y. 
+Teda pokial vieme, že $f(x -  \epsilon (znamienko) (f'(x)))$ je menšie ako $f(x)$ pre malé $\epsilon$.
+Môžeme teda zmenšiť $f(x)$ úpravou $x$ v malých krokoch v opačnom smere ako je $znamienko$ derivácie.
+Táto technika sa nazýva gradient descent, a jej príklad vidíme na obrázku \ref{fig:gd}. \cite{goodfellow2016deep} \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/gd}
+	\caption{Ukážka, ako derivácie funkcie môže byť použitá na hľadanie minima funkcie (gradient descent)}
+	\label{fig:gd}
+\end{figure}
+
+\indent V bodoch, kde $f'(x) = 0$, nemáme informáciu o tom, ktorým smerom sa má hodnota upraviť, a sú označované ako kritické alebo stacionárne body \cite{goodfellow2016deep}.
+Lokálne minimum je bod, kde $f(x)$ je menšia ako všetky okolité body, takže nie je viac možné znížiť
+hodnotu $f(x)$ vykonaním nekonečne malých krokov v jednom alebo druhom smere.
+Analogicky lokálne maximum je body, kde $f(x)$ je väčšia ako všetky okolité body, takže nie je viac možné zvýšiť hodnotu $f(x)$ vykonaním nekonečne malých krokov v jednom alebo druhom smere.
+Niektoré kritické body niesu ani minimom ani maximom a nazývajú sa sedlové body.\\
+
+\indent Bod, kde $f(x)$ dosahuje absolútne najnižšiu hodnotu sa nazýva globálne minimum.
+Je možné, aby mala funkcia jedno, alebo aj viac globálnych miním.
+Tiež je možné, aby existovali lokálne minimá, ktoré niesu globálne optimálne.
+V kontexte učenia neurónových sietí optimalizujeme funkcie, ktoré môžu mať veľké množstvo lokálnych miním, veľké množstvo sedlových bodov so širokými plochými oblasťami.
+Toto všetko robí trénovanie neurónovej siete náročným, najmä pokiaľ ide o n-rozmerné dáta.
+Kvôli tomu sa trénovanie siete často ukončí pri hodnote funkcie $f(x)$ ktorá je veľmi malá, ale 
+nie nutne minimálne z formálneho hľadiska, ako vidíme na obrázku \ref{fig:gd_global_min}. \cite{goodfellow2016deep}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/gdglobalmin}
+	\caption{Ukážka funkcie s niekoľkými lokálnymi minimami, prebraté z\cite[p.~85]{goodfellow2016deep}}
+	\label{fig:gd_global_min}
+\end{figure}
+
+\subsection{Stochastic gradent descent} \label{l:sgt}
+Stochastic gradient descent \acrshort{sgd} dôležitým a často používaným algoritmom pri učení neurónových sietí.
+Ide o rozšírenie gradient descent algoritmu, ktorý sme popísali v \ref{gd}.\cite{goodfellow2016deep} \\
+
+\indent Pri učení neurónových sietí sa snažíme dosiahnuť čo najlepšiu generalizáciu problému, k čomu je potrebné veľké množstvo trénovacích dát (dataset), ktoré sú však výpočtovo náročné.
+Chybová funkcia používaná v strojovom učení je často založená na vypočítaní chyby pre každý prvok z trénovacích dát a ich následnom sčítaní, náročnosť tohoto výpočtu je $O(m)$ pre $m$ prvkov.
+SGT tento problém rieši používaním menšieho počtu vzoriek (minibatch) pri výpočte chybovej funkcie, ktorých množstvo postačuje na určenie smeru optimalizácie chybovej funkcie. 
+Použitie menšieho počtu vzoriek je kľúčovým aspektom pri trénovaní veľkých modelov neurónových sietí s veľkými trénovacími datasetmi.
+Ak má model siete fixnú veľkosť, potom náročnosť SGD pri výpočte chyby v jednom cykle nezáleží od veľkosti trénovacieho datasetu $m$. \\
+
+\indent Počet výpočtov chybovej funkcie pri klasickom gradient descent algoritme zvyčajne rastie v závislosti od počtru trénovacích prvkov.
+S množstvom prvkov $m$ blížiacemu sa k nekonečnu, dosiahne model najlepší možný výsledok ešte predtým, než SGD použíje všetky prvky trénovacieho datasetu.
+Zvyšovaním množstva prvkov v datasete v takomto prípade už nenavýši množstvo času potrebného na dosiahnutie najlepšieho možného výsledku.
+Z tohoto uhla pohľadu je možné tvrdiť, že približná náročnosť trénovania modelu pomocou SGD sa rovná $O(1)$, ako funkcií $m$.\cite{goodfellow2016deep}
+
+\subsection{Generalizácia, overfitting a underfitting}
+Hlavným cieľom strojového učenia aby model fungoval dobre nielen na trénovacích dátach, ale najmä 
+na úplne nových vstupných dátach.
+Schopnosť neurónovej siete správne fungovať aj na nových dátach nazývame generalizácia. \\
+
+\indent Pri trénovaní neurónovej siete sa využíva trénovací dataset, na ktorom sa počíta trénovacia chyba, ktorú sa snažíme minimalizovať.
+Tento proces môžeme zaradiť zaradiť medzi jednoduché optimalizačné problémi.
+Čo však oddeľuje strojové uťenie od optimalizácie je snaha dosiahnuť aj nízku generalizačnú chybu, tiež označovanej ako testovacia chyba a je  definovaná ako hodnota chyby na nových dátach.\cite{goodfellow2016deep}. \\
+
+\indent Testovaciu chybu modelu neurónovej siete získavame meraním úspešnosti na testovacom datasete, pričom vzorky z testovacieho datasetu sa nenachádzajú v trénovacom datasete - teda sú úplne nezávislé, rozdelené rovnomerným spôsobom.
+Pri výpočte testovacej chyby chyby sa do neurónovej siete privedú vzorky z trénovacieho datasetu, vypočíta sa trénovacia chyba, optimalizujú sa parametre - váhy tak aby sa znížila trénovacia chyba - tento proces sme popísali v kapitole \ref{gd}, potom sa na vstup neurónovej siete privedú vzorky z testovacieho datasetu a vypočíta sa testovacia chyba, ktorá je väčšia alebo rovná trénovacej chybe\cite{goodfellow2016deep}.
+
+Faktory, ktoré určujúc úspešnosť neurónovej siete, sú schopnosti:
+
+\begin{itemize}
+	\item Minimalovať trénovaciu chyby
+	\item Udržať čo najmenšiu vzdialenosť medzi testovacou a trénovacou chybou
+\end{itemize}
+\cite{goodfellow2016deep}
+
+\indent Tieto dva faktory faktory korešpondujú dvom problémom strojového učenia - nedotrénovanie (underfit) a pretrénovanie(overfit).
+Undefitting znamená, že modelej siete nie je schopný dosiahnuť požadovanú hodnotu chyby na trénovacom datasete.
+Pretrénovanie označuje situáciu, kedy je rozdiel medzi trénovacou a testovacou chybou príliš veľký.
+Kapacitou modelu (capacity), je možné kontrolovať, či bude sieť náchylnejšia k nedotrénovaniu alebo pretrénovaniu.
+Kapacitou modelu myslíme schopnosť modelu obsiahnuť širokú škálu funkcií\cite{goodfellow2016deep}.
+Modely s nižšou kapacitou môžu mať problém pri naučení sa zložitejších funkcií trénovacích dát,
+zatiaľ čo modely s vyššou kapacitou sú náchylné k naučeniu sa takých vlastností trénovacieho datasetu, ktoré zvyšujú chybovosť testovacieho datasetu.
+Vo všeobecnosti teda platí, že model funguje najlepšie v prípade, ak kapacita modelu korešponduje so skutočnou komplexitou problému, ktorý sa sieť model snaží naučiť \cite{lawrence1997lessons}. \\
+
+\indent Na obrázku \ref{fig:capacity} vidíme názornú ukážku týchto princípov, na ktorom porovnávame model s kapacitou na predikovanie lineárnych, kvadratických a 9 dimenzionálnych funkcií, pričom skutočným cieľom je predikovanie kvadratických funkcií. Linerána kapacita nie je schopná poňať celú podstatu kvadratickej funckie, a preto je model podtrénovaný. Model o kapacite 9 je schopný poňať kvadratickú funkciu, avšak jeho rozsah dovoľuje natrénovať nekonečné množstvo iných funkcií so správnymi hodnotami pre trénovacie dáta, pretože má model viac parametrov než máme trénovacích dát. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/capacity}
+	\caption{Kapacita siete a jej vzťah k nedotrévaniu a pretrénovaniu}
+	\label{fig:capacity}
+\end{figure}
+
+\indent Ukážku trénovacaj a testovacej chyby a ich vzťahu s podtrénovaním a pretrénovaním vidíme na obrázku \ref{fig:errors}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\linewidth]{img/errors}
+	\caption{Vzťah medzi kapacitou a chybou trénovania,  prebratá z z\cite[p.~115]{goodfellow2016deep}}
+	\label{fig:errors}
+\end{figure}
+
+\subsection{Regularizácia}
+Ako sme už spomenuli, hlavným cieľom pri strojovom učení je vytvoriť taký model, ktorý bude fungovať správne nielen na trénovacích dátach, ale taktiež na nových neznámych vzorkách.
+Veľké množstvo algoritmov strojového učenia je špeciálne navrhnutých tak, aby minimalizovali testovaciu chybu, hoci za cenu výššej trénovacej chyby.
+Tieto prístupy pri učení neurónových sietí označujeme ako regularizácia\cite{nielsen2015chapter}.
+Najčastejšie ide o pridanie nových pravidiel do modelu neurónovej siete, ako napríklad obmedznie možných hodnôt parametrov neurónovej siete či pridanie pravidiel do chybovej funkcie, čo môžeme tiež chápať ako nepriame obmedzenie hodnôt parametrov v neurónovej sieti \cite{goodfellow2016deep}.
+Za predpokladu, že sú tieto pravidlá a obmedzenia vybrané vhodne, môžu viesť k lepším výsledkom na testovacom datasete.
+
+\subsubsection{$L^2$ regularizácia}
+$L^2$, tiež známa ako úpadok váh(weight decay), je regularizáciou, ktorá približuje váhy smerom k pôvodnej hodnote - najčastejšie k 0 tým, že do chybovej funkcie zavádza vzťah \eqref{eqn:l2} \cite{Regulari14}.
+
+Tento vzťah vyjadruje, že $L^2$ spôsobuje, že stupné dáta si zachovávajú vyššiu varianciu,  čím znižuje hodnoty váh príznakov, ktorých kovariancia na cieľovom výstupe je nízka v porovnaní s varianciou vstupu. \cite{van2017l2}.
+
+\begin{equation}\label{eqn:l2}
+	L^2 = \frac{1}{2} \parallel w \parallel^2_{2} = \frac{1}{2}\sum\limits_{i=0}^n w^2_{i}
+\end{equation}
+
+\indent Tento vzťah môžeme tiež chápať tak, že váhy ktorých hodnota je blízka nule majú nízky vplyv na komplexitu modelu, zatiaľ čo vzdialenejšie hodnoty majú obrovský vplyv \cite{Regulari14}.
+
+\subsubsection{$L^1$ regularizácia}
+$L^2$ regularizácia je pravdepodobne najpoužívanejšia pri redukovaní hodnôt váh, okrem nej však existujú aj iné druhy regularizácií ktoré zmenšujú veľkosť modelu - napríklad $L^1$, ktorá je definovaná vzťahom \eqref{eqn:l1} \cite{goodfellow2016deep}.
+\begin{equation}\label{eqn:l1}
+	L^1 =  \parallel w \parallel{+} = \sum\limits_{i=0}^n \lvert w_{i} \rvert_{i}
+\end{equation}
+
+\indent V porovnaní s $L^2$ je výsledkom $L^1$ regularizácie redší model, čo znamená, že väčšie množstvo parametrov môže dosiahnuť presnú hodnotu 0, na rozdiel od $L^2$, kde sa hodnota parametrov len približuje k 0.\cite{Regulari75}. 
+Toto môžeme chápať ako mechanizmus selekcie použitých príznakov, čím sa zjednodušuje proces učenia neurónovej siete, keďže sa zníži množstvo parametrov, ktoré sa použijú.
+
+\subsection{Konvolučné neurónové siete}
+Konvolučné neurónové siete sú špeciálnym druhom neurónových sietí ktoré majú topológiu podobnú mriežke, ako napríklad time-series dát, reprezentovateľné ako 1-rozmerná mriežka, alebo obrázkové dáta, v ktorých sú pixely usporiadané ako 2-rozmerná mriežka\cite{goodfellow2016deep}.
+
+Vrstvy konvolučnej neurónovej siete sa v bežnom prípade skladajú z troch základných krokov, ako vidíme aj na obrázku\ref{fig:convo}, v literatúra sa často uvádzajú tiež ako osobitné vrstvy:
+\begin{itemize}
+	\item Konvolúcia
+	\item Detekcia (ReLU)
+	\item Pooling
+\end{itemize}
 
 
-%\subsection{Konvolučné neurónové siete}
-%\subsection{Vrstvy konvolučnej neurónovej siete}
-%\subsubsection{Konvolučná vrstva}
-%\subsubsection{ReLU vrstva}
-%\subsubsection{Pooling vrstva}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\linewidth]{img/convo}
+	\caption{Diagram vrstvy konvolučnej neurónovej siete}
+	\label{fig:convo}
+\end{figure}
 
-%\section{Trénovanie modelu na rozpoznávanie tvárí}
-%\subsection{Tensorflow}
+
+\subsubsection{Konvolúcia}
+Názov konvolučná neurónová sieť je založený na matematickej operácii - konvolúcii. 
+Tá je založená na troch základných bodoch, ktoré zlepšuju učenie neurónovej siete:
+\begin{itemize}
+	\item Redšie prepojenia (sparse interactions)
+	\item Zdieľanie parametrov (parameter sharing)
+	\item Ekvivariantné vyjadrenia (equivariant representations)
+\end{itemize}
+\cite{goodfellow2016deep}.\\
+
+\indent Tradičné vrstvy neurónové siete sú postavené na násobení matice parametrov s maticou parametrou (váhami), medzi každým vstupným a každým výstupným neurónom - čo znamená, že každý neurón stupnej vrstvy ovplyňuje všetky neuróny výstupnej vrstvy.
+Konvolučné neuróné siete sa v tomto odlišujú, pretože používajú redšie prepojenia, čo je dosiahnuté použitím menšieho jadra než je vstup (kernel).
+Napríklad, pri spracovaní obrázkových dát, ktoré pozostávajú z miliónov pixelov, detekujeme menšie príznaky ako napríklad hrany, v podoblasti len niekoľkých stoviek pixelov. \cite{goodfellow2016deep}
+Teda, pokiaľ máme $m$ vstupných neurónov a $n$ výstupných, potom maticové násobenie vyžaduje $m \times n$ parametrov, a teda náročnosť takejto operácie je $O(m \times n)$.
+Ak však zmenšíme množstvo prepojení na $k$, potom je potrebných $k \times n$, s náročnosťou $O(k \times n)$, pričom v praxi je možné dosiahnuť dobré výsledky trénovania pri použití $k$, ktoré je omnoho menšie ako $m$.
+To znamená, že je potrebný menší počet parametrov, čo šetrí pamäťové prostriedky, znižuje množstvo operácií, ktoré je potrebné vykonať, a vo všeobecnosti výrazným spôsobom zlepšuje efektivitu trénovania modelu.
+Názornú demonštráciu redších prepojení vidíme na obrázku \ref{fig:sparse} a ukážku plný prepojení na obrázku \ref{fig:fully}. 
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/sparse}
+	\caption{Ukážka redšieho prepojenia neurónov so zvýraznením prepojení, ktoré má neurón $x_{3}$ }
+	\label{fig:sparse}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/fully}
+	\caption{Ukážka plných prepojení neurónov so zvýraznením prepojení, ktoré má neurón $x_{3}$} 
+	\label{fig:fully}
+\end{figure}
+
+\indent Zdieľanie parametrov znanemná, že rovnaké parametre sú použíté vo viacerých funkciách modelu.
+Pri klasických neurónových sieťach je každý element matice váh použitý práve jeden krát, s jedným  elementom zo vstupu, pri výpočte výstupu pre nasledujúcu vrstvu.
+Pri konvolučných neurónových sieťach sa každý prvok jadra použije spolu s každým elementom zo vstupu (okrem hraničných v závislosti od návrhu modelu - padding, stride \dots). Zdieľanie parametrov teda znamená, že namiesto učenia osobitných skupín parametrov pre každú pozíciu zo vstupu, sa sieť naučí len jednu, ktorá je použítá pre všetky lokácie.\cite{goodfellow2016deep} \\
+
+\indent Vďaka zdieľaniu parametrov nadobúdajú vrstvy neurónovej siete vlastnosť ekvivariancie voči presunom.
+Funkcia je ekvivariantná, pokiaľ zmeny vstupu ovplyvňujú zmeny vo výstupe rovnakou mierou, a teda, 
+funkcia $f(x)$ je ekvivariantná k funkcii $g$, ak $g(f(x)) = f(g(x))$.
+V prípade konvolúcie, nech $g$ je funkcia ktorá, sa presúva po vstupe, je funkcia $g$ ekvivariantná funkcií konvolúcie.
+Táto vlastnosť je obzvlásť výhodná, pokiaľ chceme na celom vstupe detekovať rovnaké príznaky - napríklad hrany, noapak nemusí pokiaľ chceme v rôznych častiach obrázka detekovať iné príznaky - napríklad vo vrhnej časti obrázka detekovať obočie, a v spodnej bradu. \cite{goodfellow2016deep} \\
+
+\indent Na obrázku\ref{fig:cnn1} vidíme jednoduchý príklad operácie konvolúcie, kde tmavomodrá mriežka  predstavuje vstupnú mapu príznakov (input feature map).
+Pre zjednodušenie použijeme príklad len s jednou mapou príznakov, avšak v bežnej praxi ich môže byť niekoľko naskladaných jedna na druhej.
+Šedá oblasť ktorá sa označuje ako jadro, posúvame naprieč mapou príznakov.
+Pre každú podoblasť mapy príznakov je vypočítaný výstup vychádzajúci z danej podloblasti, ktorých sčítanie tvorí výstup danej podoblasti.\cite{dumoulin2016guide}
+Tento postup môže byť zopakovaný $n-krát$ použitím rôznych jadier, čím vznikne $n$ výstupných máp priznakov, výstupná mapa príznakov je označená zelenou farbou.
+Pokiaľ máme niekoľko vstupných máp vstupujúcich do konvolúcie, potom je potrebné použiť 3-rozmerné jadro, alebo, každá zo vstupných máp použije odlišné jadro, ktorých výsledok bude následne sčítaný do výstupnej mapy príznakov.\\
+\indent Príklad na obrázku \ref{fig:cnn1} zobrazuje 2-rozmernú konvolúciu, avšak môže byť  použitý na generalizovanie aj n-rozmernej konvolúcie.
+V prípade 3-rozmernej konvolúcie by jadro predstavovalo kváder, ktorým by sme prechádzali naprieč výškou, šírkou a hĺbkou vstupnej mapy príznakov.\cite{dumoulin2016guide} \\
+
+\indent Súbor jadier predstavujúcich konvolúcie má tvar korešpondujúci permutácii $(n, m, k_{1}, \dots, k_{N})$ kde $n$ označuje počet výstupných máp príznakov, $m$ označuje počet vstupných máp príznakov a $k_{j}$ označuje veľkosť jadra pozdĺž osi $j$.\cite{dumoulin2016guide}
+
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/cnn1}
+	\caption{Výpočet výstupných hodnôt operácie konvolúcie}
+	\label{fig:cnn1}
+\end{figure}
+
+\indent Výstupnú veľkosť $o_{j}$ konvolučnej vrstvy pozdĺž osi $j$ ovplyvňuje niekoľko parametrov:
+
+\begin{itemize}
+	\item $i_{j}$: vstupná veľkosť (input size) pozdĺž osi j
+	\item $k_{j}$: veľkosť jadra (kernel size) pozdĺž osi j
+	\item $s_{j}$: vzdialenosť medzi dvomi po sebe nasledujúcimi podoblasťami (stride) pozdĺž osi j
+	\item $p_{j}$: veľkosť okraja (padding) pozdĺž osi j
+\end{itemize}
+
+\indent Na obrázku \ref{fig:cnn2} ukazuje použitie jadra  o veľkosti $3 \times 3$, použitého na vstupe o veľkosti $5 \times 5$, okrajom $1 \times 1$ s hodnotami $0$ a stridom $2 \times 2$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/cnn2}
+	\caption{Výpočet výstupných hodnôt konvolúcie s použitím paddingu a stridu }
+	\label{fig:cnn2}
+\end{figure}
+
+\subsubsection{Pooling}
+Vo fáze detekcie prejde výstup konvolúcie aktivačnou funkciou ReLU, ktorú sme spomenuli v časti\ref{activation}. Výstup z fázy detekcie pokračuje do funkcie poolingu, ktorá ďalej upraví výstup do ďalšej vrstvy.\\ 
+
+\indent Ide o aplikáciu poolingovej funkcie na vstupné dáta, čím dôjde k zmenšeniu výsledku.
+Podobne ako pri konvolúcií, prechádzame vstup krok po kroku, avšak namiesto lineárnej operácie používanej pri konvolúcii, použijeme štatistickú funkciu, hľadajúci napríklad maximálne, priemerné či minimálne hodnoty v danej oblasti \cite{cs231n}.
+Vo všetkých týchto prípadoch, napomáha pooling vytvoriť výstup, ktorý je invariantný voči malým zmenám pozičným posunom vstupu - to znamená, že pokiaľ sa sa vstup do funkcie poolingu zmení len o malú hodnotu, potom sa väčšina dát vo výstupe poolingu nezmení. 
+Invariancia voči malým lokálnym zmenám môže byť veľmi užitočná, pokiaľ je väčším cieľom detekovať, či sú príznaky vôbec prítomné, než detekovať kde presne sú\cite{goodfellow2016deep}.
+Napríklad, ak je naším cieľom detekovať, či obrázok obsahuje tvár, potom nepotrebujeme zisťovať presnú polohu očí na pixel presne, stačí, že vieme zistiť, že tvár má oči na oboch stranách. \\
+
+\indent Poolingová funkcia použitá na riedke oblasti vytvára invarianciu voči posunom, avšak ak použijeme pooling na nezávíslé parametrizované konvolúcie, potom je možné, že sa príznaky samé naučie, voči ktorým príznakom sa majú stať invariantnými\cite{goodfellow2016deep}. \\
+
+\indent Pretože pooling sumarizuje výsledok z celej oblasti, potrebujeme menšie množstvo jednotiek vykonávajúcich pooling než jednotiek detektora, vďaka tomu, že bedú do úvahy oblasti o veľkosti $k$ pixelov, namiesto 1 pixelu, ako vidíme aj na obrázku \ref{fig:pooling}.
+Tým sa zvyšuje výpočtová efektivita vrstvy neurónovej siete, pretoťe ďalšia vrstva má $k$ krát menší vstup, ktorý potrebuje spracovať.\cite{goodfellow2016deep} \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/pooling}
+	\caption{Max pooling spolu s downsamplingom z pohľadu prepojení neurónov}
+	\label{fig:pooling}
+\end{figure}
+
+Veľkosť výstupu $o_{j}$ a fungovanie poolingu ovplyvňuje niekoľko parametrov.
+
+\begin{itemize}
+		\item $i_{j}$: vstupná veľkosť (input size) pozdĺž osi j
+		\item $k_{j}$: veľkosť polingovej podoblasťami (pooling window) pozdĺž osi j
+		\item $s_{j}$: vzdialenosť medzi dvomi po sebe nasledujúcimi podoblasťami (stride) pozdĺž osi j
+\end{itemize}
+
+Príklad ich použitia vidíme na obrázku \ref{fig:poolingex}, kde $i = 5 \times 5$, $k = 3 \times 3$ a  $s = 1 \times 1$:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/poolingex}
+	\caption{Výpočet výstupných hodnôt použitím max poolingu}
+	\label{fig:poolingex}
+\end{figure}
+
+
+\section{Model neurónovej siete na rozpoznávanie tvárí}
+Cieľom tejto práce je aplikovať natrénovaný model konvolučnej neurónovej siete pri rozpoznávaní tváre na zariadení Android OS.
+Tento cieľ je teda možné rozdeliť na dve základné časti:
+\begin{enumerate}
+	\item Natrénovanie modelu neurónovej siete
+	\item Aplikácia modelu na zariadení Android OS.
+\end{enumerate}
+
+Táto kapitola sa bude venovať prvému budu - vytvoreniu natrénovaného modelu neurónovej siete.
+V našom prípade sme netrénovali celú sieť na rozpoznávanie tváre, ale použili sme model neurónovej siete Facenet, ktorá je schopná extrahovať príznaky tváre, 
+ktoré budú použité pri klasifikácii.
+
+\subsection{Facenet}
+Pri popise tohoto modelu neurónovej siete sa budeme opierať najmä o článok \cite{schroff2015facenet},
+v ktorom je detailne popísaná štruktúra Facenetu a problémov ktoré rieši.
+Taktiež využijeme poznatky Sandberga, ktorý vytvoril voľne dostupnú implementáciu Facenetu na \url{https://github.com/davidsandberg/facenet}, a ktorý sa ďalej vyvíja.
+Chceme upozorniť, že v tejto práci budeme popisovať implementáciu modelu k marcu 2018, vhľadom k tomu, že v súčastnosti sa jeho implementácia pozmenila.\\
+ 
+\indent Ide o model neurónovej siete, navrhnutý na rozpoznávanie tvárí pre rôzne potreby - identifikácie, verifikácie či clusteringu (hľadanie a spájanie rovnakých tvári).
+Je založený na učení sa príznakov v Euklidovskom priestore  (Euclidean embedding) obrázkov prostredníctvom hlbokej konvolučnej siete.
+Sieť je trénovaná tak, aby umocnené $ L^2 $ vzdialenosti v podpriestore príznakov priamo poukazovali na podobnosť tvárí - teda podobné tváre majú nižšiu vzdialenosť než odlišné tváre \cite{schroff2015facenet}.
+Po vypočítaní príznakov tváre je ďalší krok rovnaký ako pri iných klasifikačných problémoch - vypočítanie vzdialenosti medzi príznakmi dvoch tvári a určeniu či ide o rovnaké tváre na základe thresholdu v prípade verifikácie alebo k-NN (k nearest neighbors) klasifikačný problém v prípade identifikácie.\\
+
+\indent Facenet sa odlišuje od ostatných prístupov k rozpoznávaniu tvárí pomocou hlbokých neurónových sietí, menovite článok \cite{schroff2015facenet} porovnáva prístup voči \cite{wst2008deeply}, kde bola použitá stredná vrstva neurónovej siete natrénovanej na známych inentitách, na všeobecné rozpoznívanie tvárí mimo trénovacieho datasetu.
+``Nevýhodou tohoto prístupu je však nepriamosť a neefektivita: je nutné dúfať, že reprezentácie tváre strednou vrstvou je dostatočne generalizovaná voči novým tváram; použitím strednej vrstvy na vzníkajú veľké (1000 - rozmerné) reprezentácie tvárí``\cite{schroff2015facenet}. 
+Túto dimenzionalitu je možné síce redukovať pomocou PCA podobne ako v \cite{wst2008deeply}, avšak ide len o lineárnu transformáciu príznakov, čím nemusíme nutne zaručiť dostatočnú generalizáciu na nové tváre. \\
+
+\indent Prístup Facenetu je odlišný v tom, že priamo trénuje neurónovú sieť do 128-rozmerného výstupu, pričom trénovanie je založené chybovej funkcií využívajúcej trojice založenej na LMNN (Large margin nearest neighbor)\cite{weinberger2009distance}.
+Chybová funkcia Facenetu teda pracuje s trojicami, ktoré pozostavajú z dvoch tvárí rovnakej identity a jednej odlišnej, čím dosahuje väčšiu vzdialenosť v priestore medzi tvárami odlišných identít a naopak nižšiu medzi tvárami rovnakej identity.
+Na trénovanie využíva orezané obrázky tvárí, na ktoré nebolo aplikované žiadne špeciálne 2-rozmeré alebo 3-rozmerné zarovnanie, okrem škálovania a posunu. \\
+
+\indent Je postavený na architektúre neurónových sietí typu Inception, ktoré si popíšeme neskôr.
+Zjednodušený diagram fungovania Facenetu vidíme na obrázku \ref{fig:facenet}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/facenet}
+	\caption{Diagram fungovania Facenetu}
+	\label{fig:facenet}
+\end{figure}
+
+\indent Prostredníctvom chybovej funkcie trojíc sa sieť usiluje o zapuzdrenie $f(x)$, vstupného obrázka $x$ do $d$-rozmerného Euklidovského priestoru príznakov $R^d$, $f(x) \in R^d$, aby umocnená vzialenosť medzi všetkými tvárami, nezávisle na variácií póz, osvetlenia či iných podmienok, medzi rovnakými tvárami bola nízka, zatiaľ čo vzialenosť medzi obrázkami tvárí rozdielnych bola veľká, \ref{fig:triplet}\cite{schroff2015facenet}.
+Okrem toho zavádza ďalšie pravidlo $\parallel f(x) \parallel_{2} = 1$ čím omedzuje vnorenie na 
+$d$-rozmernú hypeguľu.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{img/triplet}
+	\caption{Ukážka princípu úpravy vzdialeností medzi vzorkami pri chybovej funkcii trojíc}
+	\label{fig:triplet}
+\end{figure}
+
+Túto chybovú funkciu vieme vyjadriť ako rovnicu \eqref{eqn:tripletl} \eqref{eqn:tripletl2}, kde $x_{i}^a$ označuje vstupnú vzorku (anchor), $x_{i}^p$ označuje zhodnú identitu (positive), ktorú chceme priblížiť vstupu,
+$x_{i}^n$ inú osobu (negative), $\alpha$ vyjadruje vynútený rozostup medzi pozitívnym a negatívnym párom a $\tau$ označuje všetky možné trojice obrázkov s kardinalitou $ N $ \cite{schroff2015facenet}.
+
+\begin{equation}\label{eqn:tripletl}
+\parallel f(x_{i}^a) - f(x_{i}^p) \parallel_{2}^2 + \alpha <
+\parallel f(x_{i}^a) - f(x_{i}^n)\parallel_{2}^2
+\end{equation}
+
+\begin{equation}\label{eqn:tripletl2}
+\forall (f(x_{i}^a), f(x_{i}^p), f(x_{i}^n)) \in \tau
+\end{equation}
+
+\indent Výsledná chybová funkcia má potom tvar \eqref{eqn:tripletlf} \cite{schroff2015facenet}.
+
+\begin{equation}\label{eqn:tripletlf}
+\sum \limits_{i}^N [
+\parallel f(x_{i}^a) - f(x_{i}^p) \parallel_{2}^2 -
+\parallel f(x_{i}^a) - f(x_{i}^n) \parallel_{2}^2 + \alpha 
+]_{+}
+\end{equation} 
+
+\indent Vhodný výber trojíc sa ukázal ako kľúčový pre rýchlu konvergenciu k dobrým výsledkom, a teda
+vybrať také trojice, aby porušovali rovnicu \eqref{eqn:tripletl}, čo znamená, že pre zvolený vstup
+$x_{i}^a$ chceme vybrať také $x_{i}^p$, aby sme dosiahli $argmax_{x_{i}^p}\parallel f(x_{i}^a) - f(x_{i}^p) \parallel_{2}^2$ a podobne $x_{i}^n$ také aby spĺňalo $argmin_{x_{i}^n}\parallel f(x_{i}^a) - f(x_{i}^n) \parallel_{2}^2$. 
+
+Autori článku\cite{schroff2015facenet} o Facenete udávajú, že je nemožné počítať $ argmin $ a $ argmax $ cez celý tréningový dataset kvôli výpočtovej náročnosti, a navrhujú dve možné riešenia výberu trojíc:
+
+\begin{itemize}
+	\item Generovať trojice offline každých n krokov a počítať $ argmin $ a $ argmax $ na podmnožine dát
+	\item Generovať trojice online, výberom pozitívnej a negatívnej vzorky z mini-batchu (dávky v jednom cykle) 
+\end{itemize}
+
+\indent Z týchto dvoch možností autofi zvolili možnosť online generovania s použitím väčších - niekoľko-tisícových mini-batchov, v ktorých sa nachádza približne 40 vzoriek pre jednu identitu. \\
+
+\indent Model bol trénovaný pomocou SGD algoritmu, ktorý sme popísali v \ref{l:sgt}.
+Autori testovali 4 rôzne architektúry typu Inception, líšiacich sa vo veľkosti vstupu (220x220 - 96x96) či hĺbke siete a množstve potrebnej výpočtovej sily(220 mil. FLOPS - 20 mil. FLOPS), a ich porovnanie výsledkov vidíme na obrázku \ref{fig:facenetflops}, a dosiahli úspešnosť na LFW datasete $ 99,63\% +- 0.09 $ s použitím zarovnani tvárí.
+Z výsledkoch ich pokusov je tiež zaujimavé, že dimenzionalita príznakov na ktoré trénovali neurónové siete je prekvapivo najvhodnejšia pri 128 rozmeroch, kde dosiahli najlepšie výsledky v porovnaní so 64, 256 a 512 dimezií.
+Tieto výsledky dosiahli na veľkosti snímkov o rozmeroch $ 220 \times 220 $, avšak poukázali na to, že menšie snímky o veľkosti $ 120 \times 120 $ dosahujú len o málo horšie výsledky.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\linewidth]{img/facenetflops}
+	\caption{Porovnanie výpočtovej náročnosti v závislosti od úspešnosti siete, prebraté z\cite[p.~5]{schroff2015facenet}}
+	\label{fig:facenetflops}
+\end{figure}
+
+\indent V ďalších čatiach si popíšeme konkrétnu implementáciu od Facenetu Sandberga \cite{davidsan26}.
+
+\subsection{Tensorflow}
+
 %\subsection{Výber datasetu}
 %\subsection{Predspracovanie dát}
-%\subsection{Facenet}
+%\subsection{Dlib}
+%\subsection{Detekcia}
 %\subsection{Klasifikovanie tváre}
 
 %\section{Rospoznávanie tvárí na zariadení Android}

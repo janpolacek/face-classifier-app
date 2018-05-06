@@ -1,0 +1,14 @@
+[0] Config.pm:302> INFO - This is Biber 2.10
+[0] Config.pm:305> INFO - Logfile is 'polacek.blg'
+[19] biber:313> INFO - === Ne máj  6, 2018, 19:54:54
+[34] Biber.pm:371> INFO - Reading 'polacek.bcf'
+[90] Biber.pm:857> INFO - Found 25 citekeys in bib section 0
+[100] Biber.pm:3976> INFO - Processing section 0
+[107] Biber.pm:4136> INFO - Looking for bibtex format file 'includes/bibliography.bib' for section 0
+[108] bibtex.pm:1490> INFO - LaTeX decoding ...
+[130] bibtex.pm:1306> INFO - Found BibTeX data source 'includes/bibliography.bib'
+[227] UCollate.pm:68> INFO - Overriding locale 'sk-SK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[227] UCollate.pm:68> INFO - Overriding locale 'sk-SK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[227] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sk-SK'
+[239] bbl.pm:617> INFO - Writing 'polacek.bbl' with encoding 'UTF-8'
+[245] bbl.pm:720> INFO - Output to polacek.bbl
