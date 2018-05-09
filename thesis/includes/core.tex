@@ -131,7 +131,7 @@ ktorá obsahuje kovariancie dát tváre.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{img/eigenfaces}
-	\caption{Prvých 6 bázových vektorov Eigenfaces, té z\cite[p.~45]{handbookbio}}
+	\caption{Prvých 6 bázových vektorov Eigenfaces, té z\cite[s.~45]{handbookbio}}
 	\label{fig:eigenfaces}
 \end{figure}
 
@@ -159,7 +159,7 @@ Projekčné vektory, ktorých príklad môžeme vidiet na obrázku\ref{fig:fishe
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{img/fisherfaces.png}
-	\caption{Prvých 6 bázových vektorov Fisherfaces, prebraté z\cite[p.~46]{handbookbio}}
+	\caption{Prvých 6 bázových vektorov Fisherfaces, prebraté z\cite[s.~46]{handbookbio}}
 	\label{fig:fisherfaces}
 \end{figure}
 
@@ -186,7 +186,7 @@ Príznaky použité metódoou LFA sú menej náchylné na zmenú vo svetle a zá
 rotáciu objektu.
 Algoritmus LFA bol pouitý ako kľučový komponent algoritmu FaceIt, ktorý je jedným z komerčne využívaných systémov na rozpoznávanie tváre\cite{handbookbio}.
 
-\subsubsection{Neurónové siete a Support Vector Machines}
+\subsubsection{Neurónové siete a Support Vector Machines}\label{svm}
 Neurónové siete \acrshort{ns} a Support Vector Machines \acrshort{svm} sú zvyčajne využívané v nízko-dimenzionálnych priestoroch príznakov, najmä kvoli výpočtovej náročnosti spracovania,
 v prípade viacdimenzionálnych dát tváre\cite{handbookbio}.
 Neurónové siete podliehaju širokému záujmu o výskum, najmä čo sa týka lepšej reprezentáciu príznakov tváre a rozpoznávania tváre.
@@ -201,6 +201,7 @@ ale tiež k dosiahnutiu lepšej generalizácie neznámych dát.\cite{handbookbio
 
 \indent Neurónovú siete v kombinácii s SVM použijeme v praktickej časti tejto práce, ktorou detekujeme príznaky tváre a následne klasifikujeme.
 
+\newpage 
 
 \section{Neurónové siete}
 V tejto kapitole popíšeme neurónové siete, ktoré sme si zvolili ako techniku na rozpoznávanie tváre.
@@ -355,7 +356,7 @@ nie nutne minimálne z formálneho hľadiska, ako vidíme na obrázku \ref{fig:g
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{img/gdglobalmin}
-	\caption{Ukážka funkcie s niekoľkými lokálnymi minimami, prebraté z\cite[p.~85]{goodfellow2016deep}}
+	\caption{Ukážka funkcie s niekoľkými lokálnymi minimami, prebraté z\cite[s.~85]{goodfellow2016deep}}
 	\label{fig:gd_global_min}
 \end{figure}
 
@@ -417,7 +418,7 @@ Vo všeobecnosti teda platí, že model funguje najlepšie v prípade, ak kapaci
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\linewidth]{img/errors}
-	\caption{Vzťah medzi kapacitou a chybou trénovania,  prebratá z z\cite[p.~115]{goodfellow2016deep}}
+	\caption{Vzťah medzi kapacitou a chybou trénovania,  prebratá z z\cite[s.~115]{goodfellow2016deep}}
 	\label{fig:errors}
 \end{figure}
 
@@ -584,6 +585,7 @@ Príklad ich použitia vidíme na obrázku \ref{fig:poolingex}, kde $i = 5 \time
 	\label{fig:poolingex}
 \end{figure}
 
+\newpage 
 
 \section{Model neurónovej siete na rozpoznávanie tvárí}
 Cieľom tejto práce je aplikovať natrénovaný model konvolučnej neurónovej siete pri rozpoznávaní tváre na zariadení Android OS.
@@ -600,10 +602,10 @@ ktoré budú použité pri klasifikácii.
 \subsection{Facenet}
 Pri popise tohoto modelu neurónovej siete sa budeme opierať najmä o článok \cite{schroff2015facenet},
 v ktorom je detailne popísaná štruktúra Facenetu a problémov ktoré rieši.
-Taktiež využijeme poznatky Sandberga, ktorý vytvoril voľne dostupnú implementáciu Facenetu na \url{https://github.com/davidsandberg/facenet}, a ktorý sa ďalej vyvíja.
-Chceme upozorniť, že v tejto práci budeme popisovať implementáciu modelu k marcu 2018, vhľadom k tomu, že v súčastnosti sa jeho implementácia pozmenila.\\
+Taktiež využijeme poznatky Sandberga, ktorý vytvoril voľne dostupnú implementáciu Facenetu na \url{https://github.com/davidsandberg/facenet}, a ktorá sa v súčastnosti ďalej vyvíja.
+Chceme upozorniť, že v tejto práci sme vychádzali a upravovali implementáciu Facenetu z konca roka 2017, vhľadom k tomu, že v súčastnosti sa jeho implementácia pozmenila.\\
  
-\indent Ide o model neurónovej siete, navrhnutý na rozpoznávanie tvárí pre rôzne potreby - identifikácie, verifikácie či clusteringu (hľadanie a spájanie rovnakých tvári).
+\indent Ide o model neurónovej siete, navrhnutý na rozpoznávanie tvárí pre rôzne možnsti aplikácie - identifikácie, verifikácie či clusteringu (hľadanie a spájanie rovnakých tvári).
 Je založený na učení sa príznakov v Euklidovskom priestore  (Euclidean embedding) obrázkov prostredníctvom hlbokej konvolučnej siete.
 Sieť je trénovaná tak, aby umocnené $ L^2 $ vzdialenosti v podpriestore príznakov priamo poukazovali na podobnosť tvárí - teda podobné tváre majú nižšiu vzdialenosť než odlišné tváre \cite{schroff2015facenet}.
 Po vypočítaní príznakov tváre je ďalší krok rovnaký ako pri iných klasifikačných problémoch - vypočítanie vzdialenosti medzi príznakmi dvoch tvári a určeniu či ide o rovnaké tváre na základe thresholdu v prípade verifikácie alebo k-NN (k nearest neighbors) klasifikačný problém v prípade identifikácie.\\
@@ -616,8 +618,7 @@ Túto dimenzionalitu je možné síce redukovať pomocou PCA podobne ako v \cite
 Chybová funkcia Facenetu teda pracuje s trojicami, ktoré pozostavajú z dvoch tvárí rovnakej identity a jednej odlišnej, čím dosahuje väčšiu vzdialenosť v priestore medzi tvárami odlišných identít a naopak nižšiu medzi tvárami rovnakej identity.
 Na trénovanie využíva orezané obrázky tvárí, na ktoré nebolo aplikované žiadne špeciálne 2-rozmeré alebo 3-rozmerné zarovnanie, okrem škálovania a posunu. \\
 
-\indent Je postavený na architektúre neurónových sietí typu Inception, ktoré si popíšeme neskôr.
-Zjednodušený diagram fungovania Facenetu vidíme na obrázku \ref{fig:facenet}
+\indent Zjednodušený diagram fungovania Facenetu vidíme na obrázku \ref{fig:facenet}
 
 \begin{figure}[H]
 	\centering
@@ -626,7 +627,8 @@ Zjednodušený diagram fungovania Facenetu vidíme na obrázku \ref{fig:facenet}
 	\label{fig:facenet}
 \end{figure}
 
-\indent Prostredníctvom chybovej funkcie trojíc sa sieť usiluje o zapuzdrenie $f(x)$, vstupného obrázka $x$ do $d$-rozmerného Euklidovského priestoru príznakov $R^d$, $f(x) \in R^d$, aby umocnená vzialenosť medzi všetkými tvárami, nezávisle na variácií póz, osvetlenia či iných podmienok, medzi rovnakými tvárami bola nízka, zatiaľ čo vzialenosť medzi obrázkami tvárí rozdielnych bola veľká, \ref{fig:triplet}\cite{schroff2015facenet}.
+\subsubsection{Chybová funkcia}
+Prostredníctvom chybovej funkcie trojíc sa sieť usiluje o zapuzdrenie $f(x)$, vstupného obrázka $x$ do $d$-rozmerného Euklidovského priestoru príznakov $R^d$, $f(x) \in R^d$, aby umocnená vzialenosť medzi všetkými tvárami, nezávisle na variácií póz, osvetlenia či iných podmienok, medzi rovnakými tvárami bola nízka, zatiaľ čo vzialenosť medzi obrázkami tvárí rozdielnych bola veľká, \ref{fig:triplet}\cite{schroff2015facenet}.
 Okrem toho zavádza ďalšie pravidlo $\parallel f(x) \parallel_{2} = 1$ čím omedzuje vnorenie na 
 $d$-rozmernú hypeguľu.
 
@@ -658,7 +660,8 @@ $x_{i}^n$ inú osobu (negative), $\alpha$ vyjadruje vynútený rozostup medzi po
 ]_{+}
 \end{equation} 
 
-\indent Vhodný výber trojíc sa ukázal ako kľúčový pre rýchlu konvergenciu k dobrým výsledkom, a teda
+\subsubsection{Výber trojíc}
+Vhodný výber trojíc sa ukázal ako kľúčový pre rýchlu konvergenciu k dobrým výsledkom, a teda
 vybrať také trojice, aby porušovali rovnicu \eqref{eqn:tripletl}, čo znamená, že pre zvolený vstup
 $x_{i}^a$ chceme vybrať také $x_{i}^p$, aby sme dosiahli $argmax_{x_{i}^p}\parallel f(x_{i}^a) - f(x_{i}^p) \parallel_{2}^2$ a podobne $x_{i}^n$ také aby spĺňalo $argmin_{x_{i}^n}\parallel f(x_{i}^a) - f(x_{i}^n) \parallel_{2}^2$. 
 
@@ -679,22 +682,294 @@ Tieto výsledky dosiahli na veľkosti snímkov o rozmeroch $ 220 \times 220 $, a
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.75\linewidth]{img/facenetflops}
-	\caption{Porovnanie výpočtovej náročnosti v závislosti od úspešnosti siete, prebraté z\cite[p.~5]{schroff2015facenet}}
+	\caption{Porovnanie výpočtovej náročnosti v závislosti od úspešnosti siete, prebraté z\cite[s.~5]{schroff2015facenet}}
 	\label{fig:facenetflops}
 \end{figure}
 
-\indent V ďalších čatiach si popíšeme konkrétnu implementáciu od Facenetu Sandberga \cite{davidsan26}.
+\indent V ďalších čatiach si popíšeme konkrétnu implementáciu od Facenetu Sandberga \cite{davidsan26} pomocou knižnice Tensorflow v jazyku Python.
 
 \subsection{Tensorflow}
+Tensorflow je open source softvérová knižnica slúžiaca k náročným numerickým výpočtom, ako je napríklad strojové učenie.\cite{tensorflow2015}.
+Jej implementácia dostupná na \url{https://github.com/tensorflow/tensorflow} umožňuje fungovanie na širokej škále systémov, nezávisle od operačného systému (Linux, Windows, Mac, Android ..), od hardvéru (umožňuje výpočty na jednom - viacerých CPU, jednom - viacerých GPU) a teda je použitelná počnúc mobilnými zariadeniami až po veľké výpočtové strediská.
+Podporuje veľké množstvo programovacích jazykov - Python, C++, Java, Go či najnovšie Javascript, vďaka čomu si zaslúžila obrovskú pozornosť verejnosti, a v súčastnosti je to najpopulárnejšia knižnica slúžiaca k učeniu hlbokých konvolučných sietí.\\
 
-%\subsection{Výber datasetu}
-%\subsection{Predspracovanie dát}
-%\subsection{Dlib}
-%\subsection{Detekcia}
-%\subsection{Klasifikovanie tváre}
+\indent Tensorflow je vyvíjaný spoločnosťou Google, pod Apache licenciou od roku 2015\cite{tensorflow2015}.
+Jej fungovanie je postavené na využívaní grafových štruktúr a toku dát(data flow).
+Uzly grafu reprezentujú vykonávané matematické operácie, premenné a konštanty, zatiaľ čo hrany reprezentujú dáta, ktoré sa presúvajú od jedného vrcholu k druhému.
+Dáta sú reprezentované ako tensory, čo sú viacdimenzionálne polia, z čoho výchádza aj samotný názov. \\
 
-%\section{Rospoznávanie tvárí na zariadení Android}
-%\subsection{Android OS}
+\indent Všetky výpočty v Tensorflowe sú reprezentované inštanciou triedy $ tf.Graph $. \cite{TensorFl6}
+Graf pozostáva z inštancií tried $ tf.Tensor $ - dáta, a $ tf.Operation $ - napríklad maticové násobenie, špeciálneho typu uzluv - $ tf.Placeholder $ - ktoré reprezentujú uzly ktoré prijímajú dáta a $ tf.Variable $, ktoré uchovávajú hodnoty v grafe ktoré sa menia pri výpočte - napríklad hodnoty váh.
+Je dôležité spomenúť, že graf definuje len samotnú štruktúru výpočtov, ale nie samotný výpočet.
+Výpočet prebieha pomocou inštancie triedy $ tf.Session $. \\
+
+\indent Na príklade \ref{fig:tfexample} vidíme vytvorenie neurónovej siete slúžiacej na klasifikáciu ručne písaných čísel z datasetu MNIST, s jednou skrytou vrstvou, prijímajúcej dáta dáta o veľkosti 784 (veľkosť snímku v MNIST datasete) do 10 tried.
+
+
+\begin{lstlisting}[language=Python, label={fig:tfexample}, caption={Príklad klasifikácie pomocou Tensorflow}]
+	# 1.Vytvor graf reprezentujci model.
+	x = tf.placeholder(tf.float32, [BATCH_SIZE, 784])  # Miesto (placeholder) pre vstup.
+	y = tf.placeholder(tf.float32, [BATCH_SIZE, 10])   # Placeholder pre triedy.
+	
+	W_1 = tf.Variable(tf.random_uniform([784, 100]))   # 784x100 matica vah.
+	b_1 = tf.Variable(tf.zeros([100]))                 # 100-prvkovy bias vektor.
+	layer_1 = tf.nn.relu(tf.matmul(x, W_1) + b_1)      # Vystup skrytej vrstvy.
+	
+	W_2 = tf.Variable(tf.random_uniform([100, 10]))    # 100x10 matica vah.
+	b_2 = tf.Variable(tf.zeros([10]))                  # 10-element bias vector.
+	layer_2 = tf.matmul(layer_1, W_2) + b_2            # Vystup linearnej vrstvy.
+	
+	# 2. Pridaj uzly reprezentujuce algoritmus minimalizacie chyby
+	loss = tf.nn.softmax_cross_entropy_with_logits(layer_2, y)
+	train_op = tf.train.AdagradOptimizer(0.01).minimize(loss)
+	
+	# 3. Spusti graph na davkach vstupnych dat
+	with tf.Session() as sess:                         # Vytvorenie session.
+	  sess.run(tf.initialize_all_variables())          # Inicializacia vah na nahodne hodnoty.
+	  for step in range(NUM_STEPS):                    # Trenuj v cykle.
+	    x_data, y_data = ...                           # Nacitaj davku vstupnych dat.
+	    sess.run(train_op, {x: x_data, y: y_data})     # Vykonaj jeden treningovy cyklus.
+\end{lstlisting}
+
+\indent Knižnicu Tensoflow budeme používať pomocou jazyka Python pri trénovaní modelu a neskôr pomocou
+jazyka Java, pri aplikácií modelu pod operačným systémom Android.
+
+\subsection{Výber datasetu}
+Pre trénovanie hlbokých neurónových sietí je potrebné použiť datasety, obsahujúce veľké množstvo trénovavích vzoriek.
+Originálna Facenet implementácia \cite{schroff2015facenet} využíva tréningové datasety Labeled Faces in Wild \acrshort{lfw} a Youtube Faces.
+Sandsbergova implementácia je trénovaná na datasetoch CASIA-WebFace a VGGFace2.
+V pri našom finálnom trénovaní používame kombináciu LFW datasetu a zbierky osobných fotiek kvôli testovaniu na živých osobám na zariadení Android.
+
+\subsubsection{Labeled Faces in Wild}
+Tento datasaet obsahuje viac ako 13 000 obrázkov tvárí zozbieraných z webu.
+V datasete sa nachádza približne 1700 ľudí, ktorý majú apsoň dve odlišné fotky tváre v datasete,
+pričom každá tvár je priradená do priečinka s názvom nesúcim meno osoby na snímkoch \ref{fig:lfwf}.\cite{LFWTech}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/lfwf}
+	\caption{Štruktúra datasetu LFW}
+	\label{fig:lfwf}
+\end{figure}
+
+\subsubsection{Youtube Faces}
+Ide o dataset pozostávajúci z 3425 videí tvár prebratých z portálu Youtube, na ktorých sa nachádza 1595 rozličných ľudí, a teda priemerne 2.15 videa na jednu identitu.
+Dĺžka videa sa pohybuje od 48 snímkov po 6070 s priemernou dĺžkou 181 snímkov.
+Dataset je štruktúrou podobný LFW - a teda videá identít sa nachádzajú v priečinkoch nesúcich meno osoby na videu.\cite{wolf2011face}
+
+\subsubsection{CASIA-WebFace}
+Autori tohto datasetu uvádzajú, že v súčastnosti je v oblasti rozpoznávania tvárí pomocou konvolučných sietí dataset často dôležitejší, než samotný algoritmus\cite{Centerfo}.
+Prichádzajú teda s riešením, v ktorom polo-automaticky zozbierali fotky tvárí z internetu a vytvorili databázu tvárí pozostávajúcu z 10 575 identít v celkovom počte 494 414 tvárí.
+Po databáze tvárí Faceboooku (nie je verejne dostupná) a VGGFace2 ide o tretiu najväčšiu databázu tvárí.
+\subsubsection{VGGFace2}
+Ide v súčastnosti o najnovší veľký dataset tvárí, pozostávajúci z 3,31 milióna tvárí 9131 identít.
+Tváre boli zozbierané pomocou Google Image Search, s veľkou variáciou v pózach, veku, osvetlení, etník či zamestnania.\cite{cao2017vggface2}
+Ide teda o najväšiu voľne dostupnú databázu tvárí.
+
+\subsection{Predspracovanie dát}
+Trénovaniu modelu predbieha predspracovanie dát, najmä o odfiltrovanie niektorých nevhodných snímkov, detekciu tváre, jej zarovnanie či normalizácia.
+Facenet \cite{davidsan26} pracuje s dvomi variantami pre detekciu tvárí:
+
+\begin{itemize}
+	\item Multi-task Cascade Convolutional Neural Networks (\acrshort{mtcnn})
+	\item Dlib Face detector
+\end{itemize}
+
+\indent V tejto práci pracujeme s oboma možnosťami pre detekciu tvárí - MTCNN využívame pri trénovaní modelu a Dlib na zariadení Android.
+V oboch prípadoch tváre škálujeme tvár do veľkosti $ 160 \times 160 $ s okrajom o veľkosti $ 25\% - 32px $.
+
+\begin{lstlisting}[language=Bash, caption={Spustenie predspracovania tvárí pomocou MTCNN}]
+for N in {1..4}; do python3 src/align/align_dataset_mtcnn.py ~/datasets/lfw/raw ~/datasets/lfw/alligned --image_size 160 --margin 32 --random_order --gpu_memory_fraction 0.25 & done~
+\end{lstlisting}
+
+\begin{lstlisting}[language=Bash, caption={Spustenie predspracovania tvárí pomocou Dlib}]
+for N in {1..4}; do python3 tmp/align_dataset.py ~/datasets/lfw/raw ~/datasets/lfw/alligned_dlib --image_size 160 --margin 0.20 --dlib_face_predictor ~/models/dlib/shape_predictor_68_face_landmarks.dat & done
+\end{lstlisting}
+
+\indent Výsledné porovnanie snímkov pred a po detekovaní vidíme na obrázkoch \ref{fig:dlib_raw} a \ref{fig:dlib_aligned}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/dlib_raw}
+	\caption{Fotky tvárí pred spracovaním}
+	\label{fig:dlib_raw}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/dlib_aligned}
+	\caption{Fotky tvárí po spracovaní}
+	\label{fig:dlib_aligned}
+\end{figure}
+
+
+\subsubsection{MTCNN}
+Najväčšou výhodou MTCNN je jeho presnosť pri detekcií tvárí v náročných podmienkach v porovnaní s Dlib, ktorý ich nebol schopný detekovať\cite{davidsan26}.
+Tým bolo trénovanie siete výrazne uľahčené čo sa týka variácií póz a osvetlenia, čo v niektorých prípadoch zhoršilo výsledky pri finálnom rozpoznávaní tváre.
+Z tohoto dôvodu bolo potrebné nájsť vhodnejší detektor tváre, ktorým bol zvolený MTCNN.\\
+
+\indent Samotný detektor pozostáva z troch častí využívajúcich kaskádne konvolučné neurónové siete.
+Prvá časť pozostáva z kovolučnej siete nazvanej Proposal Network (P-Net), ktorá slúží k získaniu  oblastí, ktoré sú kandidátom na výskit tváre a vektorov definijúcich ohraničenie týchti oblastí, podobným spôsobom ako v práci \cite{farfade2015multi}.
+Následne sa použije algoritmus non-maximum supression na zlúčenie kandidátov, ktorý sa vo veľkej miere prekrývajú. \cite{mtcnn} \\
+
+\indent V druhej fáze zavádzajú ďalšiu konvolučnú neurónovú sieť, nazvanú Refine Network (R-Net),
+ktorá slúží k odfiltrovaniu veľkého množstva negatívnych kandidátov, vykoná karlibráciu ohraničení kandidátov a opät zlúčenie kandidátov algoritmom non-maximum supression. \cite{mtcnn} \\
+
+\indent Tretia fáza nazvaná The Output Network (O-Net) je podobná druhej, avšak viac sa zameriava na detailnejšie popísanie tváre, najmä o nájdenie dôležitých bodov tváre.\cite{mtcnn} \\
+
+\indent Názornú ukážku ako každá z fáz funguje vidíme na obrázku \ref{fig:mtcnn}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{img/mtcnn}
+	\caption{Ukážka výsledkov každej z fáz MTCNN, prebraté z \cite[s.~2]{mtcnn}}
+	\label{fig:mtcnn}
+\end{figure}
+
+\indent MTCNN dokáže spracovať snímky pri 16fps na procesore s výkonom 2.6Ghz, a 99fps na grafickej karte Nvidia Titan Black \cite{mtcnn}.
+Tieto hodnoty nie sú problémom pri detekcií tvárí na silných počítačoch, avšak mobilné zariadenia nedisponujú možnosťou takýchto výpočtov na grafickom čipe, a taktiež procesor nemá dostatočný výkon aby bol schopný detekovať tvár v reálnom čase.
+To je jedným z hlavných dôvodov, prečo MTCNN nepoužívame aj pri detekcií tvárí na zariadení Android, a namiesto toho využívame Dlib.
+
+\subsubsection{Dlib}
+Dlib je open source knižnica napísaná v programovacom jazyku C++, obsahujúca algoritmy slúžiace k strojovému učeniu a jej pôvodným autorom je Davis King\cite{dlibCLib91}.
+Má využitie v priemysle rovnako ako v akademickej sfére, a je možné ju použiť na širokom množstve zariadení, počnúc robotickými zariadeniami, mobilnými zariadeniami až po výkonné výpočtové centrá.
+Medzi jej najväčšie výhody patrí výborná dokumentácia, portabilita a optimalizácie pre výpočty aj na mobilnom zariadení. \\
+
+\indent Z tejto knižnice využijeme najmä predtrénovaný detektor tváre.
+Knižnica taktiež ponúka dva natrénované modely detekcie bodov tváre - 5 \ref{fig:dlib_5_landmarks} a 68 \ref{dlib_68_landmarks} bodový, na základe ktorých je potom možné vykonať zarovnanie tváre, ktorým docielime, že napríklad oči sa nachádzajú vo vodorovnej rovine v na približne rovnakej pozícii pre každú tvár.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.4\linewidth]{img/dlib_5_landmarks}
+	\caption{Dlib - 5 bodová detekcia}
+	\label{fig:dlib_5_landmarks}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.4\linewidth]{img/dlib_68_landmarks}
+	\caption{Dlib - 68 bodová detekcia}
+	\label{fig:dlib_68_landmarks}
+\end{figure}
+
+Model detektora je postavený na klasickom Histogram of Oriented Gradients (\acrshort{hog}) algoritme v kombinácií s lineárnym klasifikátorom, obrázkovou pyramídou (image pyramid) a schéme posúvajúceho sa okna.
+Obrázkovou pyramídou myslíme postupnú zmenu veľkosti obrázka smerom hore alebo dole, v zmysle zmenšenia alebo zväčšnia, ako na obrázku \ref{fig:pyramid}, kde vidíme 3 úrovňe pyramídy. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.2\linewidth]{img/pyramid}
+	\caption{Obrázková pyramída}
+	\label{fig:pyramid}
+\end{figure}
+
+\subsubsection{Histogram of Oriented Gradients}
+Ide o algoritmus slúžiaci prímárne popisu príznakov pri detekcií objektov, založená na vyhodnocovaní dobre normalizovaných lokálnych historgramoch prechodov na pomyselnej mriežke na obrázku.
+Základnou myšlienkou algoritmu, že objekty a ich tvár môžu byť často veľmi dobre popísané pomocou sily prechodov či orientácie hrán medzi oblasťami, aj bez znalosti presnej polohy prechodu či hrany.\cite{dalal2005histograms} \\
+
+
+\indent Tento algoritmus pozostáva z rodelenia obrázka na malé oblasti označované ako bunky, a výpočtu 1-rozmerného histogramu gradientov prechodov a hrán pre každý pixel v bunke\cite{dalal2005histograms}.
+Výpočet samotných gradientov pozostáva z aplikácie horizontálnej $ [-1, 0, 1] $ a vertikálnej $ [-1, 0, 1]^T $ derivačnej masky na obrázok.
+Z nich je následne miera prechodu (gradient magnitude) rovnicou $ g = \sqrt{g_{x}^2 + g_{y}^2}$ \cite{Histogra74}.
+Po vypočítaní miery prechodu je potrebné vypočítať orientáciu prechodu rovnicou $ \Phi = arctan\frac{g_{y}}{g_{x}}$.
+Ich kombináciou získavame smer prechodu a jeho silu.
+
+Celý algoritmus výpočtu HOG vidíme na obrázku \ref{fig:hog}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/hog}
+	\caption{Algoritmus výpočtu HOG, prebraté z \cite{HOGextra27}}
+	\label{fig:hog}
+\end{figure}
+
+
+
+\indent Skombinované histogramy všetkých oblastí potom tvoria reprezentáciu bloku.
+Pre lepšiu invarianciu voči zmenám vo svetle či tieňom sa často aplikuje aj kontrastová normalizácia.
+Posúvaním detekčného okna po mriežke sa zozbieravajú vypočítané HOG do spoločného vektora príznakov, ktorý je následne použitý pri klasickom SVM klasifikátore .
+Celý proces trénovania HOG klasifikátora vidíme na obrázku. \ref{fig:hog_class}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/hog_class}
+	\caption{Diagram učenia HOG klasifikátora \cite[s.~3]{dalal2005histograms}}
+	\label{fig:hog_class}
+\end{figure}
+
+\subsection{Klasifikovanie tváre}
+Po fáze detekcie kedy sú snímky ľudí orezené a zarovnané, sa normalizujú do škály $ <-1, 1> $, algoritmom \ref{fig:prewhiten}.
+
+\begin{lstlisting}[language=Python, label={fig:prewhiten}, caption={Normalizácia tváre}]
+def prewhiten(x):
+	mean = np.mean(x)
+	std = np.std(x)
+	std_adj = np.maximum(std, 1.0/np.sqrt(x.size))
+	y = np.multiply(np.subtract(x, mean), 1/std_adj)
+	return y
+\end{lstlisting}
+
+Normalizované hodnoty vstupujú následne do natrénovaného Facenet modelu, ktorého výstupom je 128-rozmerný vektor príznakov pre každý zo snímkov z trénovacej množiny (v súčastnosti 512).
+Tie sú následne použité pri klasifikácií pomocou SVM ktoré sme popísali v \ref{svm} a natrénovaný model uložili.
+Oproti pôvodnej Sandbergovej implementácii Facenetu bolo potrebné použiť SVM klasifikátor z knižnice OpenCV, ktorá je na rozdiel od pôvodnej implementácie z knižnice Scipy, dostupná aj pre Android.
+
+\subsection{Optimalizácia modelu}
+Facenet bol v pôvodnom článku \cite{schroff2015facenet} trénovaný na architektúrach neurónových sietí typu Inception, konkrétna Sandbergova implementácia využíva model Inception-Resnet popísanej v \cite{SzegedyIV16}, vďaka ktorým dosahuje výborné výsledky čo sa týka chyby ktorú schopné dosiahnuť a rovnako aj rýchlosti učenia (learning rate).
+Výsledky \cite{canziani2016analysis} však potvrdzujú aj náročnosť týchto sietí, kde trvanie za ktoré je sieť schopná vrátiť výsledok (inference time), sa pohybuje od 100 do 200ms na zariadení Nvidia TX1
+Problémom nie je len náročnosť výpočtov, ale rovnako aj veľkosť samotného modelu - 93,3Mb.
+Z týchto dôvodov je potrebné vykonať optimalizácie modelu tak, aby fungovali čo najlepšie na mobilnom zariadení. \\
+
+\indent Autori Tensorflow poskytli príručku\cite{Optimizi3}, v ktorej navrhujú možné riešenia vedúce k optimalizácií modelov neurónových sietí a taktiež k nej viazané nástroje.
+Prvým krokom je výpočet našej optimalizácie je odhad náročnosti modelu (Facenet), ktorý sa bude používať.
+Naše referenčné zariadenie, ktoré budeme používať je Samsung Note3, ktorý má výkon približne 5BFLOPS. 
+
+\begin{lstlisting}[language=Bash, label={fig:optim}, caption={Spustenie procesu analýzy modelu}]
+bazel-bin/tensorflow/tools/benchmark/benchmark_model  --graph=/home/jan/models/facenet/20170512-110547.pb  --input_layer="input:0,phase_train,batch_size"  --input_layer_shape="1,160,160,3::1"  --input_layer_type="float,bool,int32"  --output_layer="embeddings:0"  --show_run_order=false  --show_time=false  --show_memory=false  --show_summary=true  --show_flops=true
+\end{lstlisting}
+
+
+\indent Spustením príkazu \ref{fig:optim}, dostávame sériu štatistických informácií o tom, koľko každý uzol modelu vyžaduje času či jeho výpočtovú náročnosť.
+Z nich za najsmerodajnejšie považujeme \ref{fig:optim_res}, kde vidíme, že priemerný čas inferencie je 0,605 sekundy a náročnosť modelu 2.83BFLOPS.
+
+\begin{lstlisting}[language=Bash, label={fig:optim_res}, caption={Výsledky analýzy modelu}]
+Timings (microseconds): count=32 first=1174163 curr=569701 min=479800 max=1174163 avg=605828 std=138948
+Memory (bytes): count=32 first=38866348 curr=38910508 min=38824236 max=39015084 avg=3.89352e+07 std=46903
+4349 nodes observed
+FLOPs estimate: 2.83B
+\end{lstlisting}
+
+\indent Jedným z možných riešení je použitie nástrojov, ktoré umožňujú spojenie uzlov v grafe modelu, a odstránenie uzlov, ktoré boli napríklad potrebné len v procese trénovania, ale pri aplikácii sa nepoužívajú.
+Ich použitím sme dosiahli výsledky \ref{fig:optim_res_f}, na ktorých vidíme 100ms zlepšenie výkonu modelu,teda približne o $ 15\% $.
+Oveľa markantnejším výsledkom je však zredukovanie veľkosti modelu, ktorú sa podarilo zredukovať na $ 25,2Mb $, teda približne o $ 73\%  $
+
+\begin{lstlisting}[language=Bash, label={fig:optim_res_f}, caption={Výsledky analýzy modelu po optimalizácii}]
+Timings (microseconds): count=38 first=505042 curr=476550 min=473424 max=676329 avg=506505 std=34466
+Memory (bytes): count=38 first=38878380 curr=38921388 min=38849964 max=39028268 avg=3.89496e+07 std=47100
+4349 nodes observed
+FLOPs estimate: 2.83B
+\end{lstlisting}
+
+\indent V súčastnosti prebieha ďalší výskum v oblasti optimalizácie modelov neurónových sietí a ich aplikácia na mobilných zariadeniach, ako napríklad SqueezeNet\cite{IandolaMAHDK16}, kde sa podarilo zmenšenie modelu siete AlexNet o viac ako $ 50 \times $, či výskum MobileNet \cite{HowardZCKWWAA17}, ktorý je v súčastnosti vyvíjaný ako súčasť knižnice Tensorflow. 
+Celý workflow trénovania modelu je zobrazený na obrázku \ref{fig:trainig_workflow}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{img/trainig_workflow}
+	\caption{Worfklow trénovania modelu}
+	\label{fig:trainig_workflow}
+\end{figure}
+
+\newpage 
+
+\section{Rospoznávanie tvárí na zariadení Android}
+Cieľom tejto práce je aplikovať natrénovaný model konvolučnej siete pri rozpoznávaní tváre na zariadení Android.
+V prechádzajúcich častiach práce sme popísali časť detekcie tváre, model, ktorý budeme používať na extrahovanie príznakov tváre - Facenet, spôsob klasifikácie extrahovaných príznakov a nakoniec optimalizáciu modelu.
+Poslednou fázou je samotné použitie modelu na zariadení Android.
+Workflow fungovania samotnej aplikácie je podobný \ref{fig:trainig_workflow}, rozdielom je zdroj dát, ktorým je v našom prípade živá kamera.
+V nasledujúcich sekciách popíšeme operačný systém Android a samotnú aplikáciu.
+
+\subsection{Android OS}
+
 %\subsection{Spracovanie obrazu z kamery}
 %\subsection{Detekcia tváre}
 %\subsection{Extrahovanie príznakov}

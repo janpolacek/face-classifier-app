@@ -7,3 +7,6 @@
 \glossaryentry{SVM?\glossentry{svm}|setentrycounter[]{page}\glsnumberformat}{8}
 \glossaryentry{ReLU?\glossentry{relu}|setentrycounter[]{page}\glsnumberformat}{12}
 \glossaryentry{SGD?\glossentry{sgd}|setentrycounter[]{page}\glsnumberformat}{15}
+\glossaryentry{LWF?\glossentry{lfw}|setentrycounter[]{page}\glsnumberformat}{31}
+\glossaryentry{MTCNN?\glossentry{mtcnn}|setentrycounter[]{page}\glsnumberformat}{32}
+\glossaryentry{HOG?\glossentry{hog}|setentrycounter[]{page}\glsnumberformat}{35}

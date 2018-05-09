@@ -3,9 +3,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Proces rozpozn\IeC {\'a}vania tv\IeC {\'a}re\relax }}{4}{figure.caption.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2}{\ignorespaces Prv\IeC {\'y}ch 6 b\IeC {\'a}zov\IeC {\'y}ch vektorov Eigenfaces, t\IeC {\'e} z\cite [p.~45]{handbookbio}\relax }}{6}{figure.caption.11}
+\contentsline {figure}{\numberline {2}{\ignorespaces Prv\IeC {\'y}ch 6 b\IeC {\'a}zov\IeC {\'y}ch vektorov Eigenfaces, t\IeC {\'e} z\cite [s.~45]{handbookbio}\relax }}{6}{figure.caption.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3}{\ignorespaces Prv\IeC {\'y}ch 6 b\IeC {\'a}zov\IeC {\'y}ch vektorov Fisherfaces, prebrat\IeC {\'e} z\cite [p.~46]{handbookbio}\relax }}{7}{figure.caption.14}
+\contentsline {figure}{\numberline {3}{\ignorespaces Prv\IeC {\'y}ch 6 b\IeC {\'a}zov\IeC {\'y}ch vektorov Fisherfaces, prebrat\IeC {\'e} z\cite [s.~46]{handbookbio}\relax }}{7}{figure.caption.14}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4}{\ignorespaces Zjednodu\IeC {\v s}en\IeC {\'y} popis fungovania biologick\IeC {\'e}ho neur\IeC {\'o}nu\relax }}{9}{figure.caption.21}
 \defcounter {refsection}{0}\relax 
@@ -21,11 +21,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {10}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka, ako deriv\IeC {\'a}cie funkcie m\IeC {\^o}\IeC {\v z}e by\IeC {\v t} pou\IeC {\v z}it\IeC {\'a} na h\IeC {\v l}adanie minima funkcie (gradient descent)\relax }}{14}{figure.caption.35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {11}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka funkcie s nieko\IeC {\v l}k\IeC {\'y}mi lok\IeC {\'a}lnymi minimami, prebrat\IeC {\'e} z\cite [p.~85]{goodfellow2016deep}\relax }}{15}{figure.caption.36}
+\contentsline {figure}{\numberline {11}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka funkcie s nieko\IeC {\v l}k\IeC {\'y}mi lok\IeC {\'a}lnymi minimami, prebrat\IeC {\'e} z\cite [s.~85]{goodfellow2016deep}\relax }}{15}{figure.caption.36}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {12}{\ignorespaces Kapacita siete a jej vz\IeC {\v t}ah k nedotr\IeC {\'e}vaniu a pretr\IeC {\'e}novaniu\relax }}{17}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Vz\IeC {\v t}ah medzi kapacitou a chybou tr\IeC {\'e}novania, prebrat\IeC {\'a} z z\cite [p.~115]{goodfellow2016deep}\relax }}{18}{figure.caption.40}
+\contentsline {figure}{\numberline {13}{\ignorespaces Vz\IeC {\v t}ah medzi kapacitou a chybou tr\IeC {\'e}novania, prebrat\IeC {\'a} z z\cite [s.~115]{goodfellow2016deep}\relax }}{18}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {14}{\ignorespaces Diagram vrstvy konvolu\IeC {\v c}nej neur\IeC {\'o}novej siete\relax }}{19}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
@@ -43,6 +43,26 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {21}{\ignorespaces Diagram fungovania Facenetu\relax }}{27}{figure.caption.60}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {22}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka princ\IeC {\'\i }pu \IeC {\'u}pravy vzdialenost\IeC {\'\i } medzi vzorkami pri chybovej funkcii troj\IeC {\'\i }c\relax }}{28}{figure.caption.61}
+\contentsline {figure}{\numberline {22}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka princ\IeC {\'\i }pu \IeC {\'u}pravy vzdialenost\IeC {\'\i } medzi vzorkami pri chybovej funkcii troj\IeC {\'\i }c\relax }}{28}{figure.caption.62}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {23}{\ignorespaces Porovnanie v\IeC {\'y}po\IeC {\v c}tovej n\IeC {\'a}ro\IeC {\v c}nosti v z\IeC {\'a}vislosti od \IeC {\'u}spe\IeC {\v s}nosti siete, prebrat\IeC {\'e} z\cite [p.~5]{schroff2015facenet}\relax }}{29}{figure.caption.65}
+\contentsline {figure}{\numberline {23}{\ignorespaces Porovnanie v\IeC {\'y}po\IeC {\v c}tovej n\IeC {\'a}ro\IeC {\v c}nosti v z\IeC {\'a}vislosti od \IeC {\'u}spe\IeC {\v s}nosti siete, prebrat\IeC {\'e} z\cite [s.~5]{schroff2015facenet}\relax }}{29}{figure.caption.67}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {24}{\ignorespaces \IeC {\v S}trukt\IeC {\'u}ra datasetu LFW\relax }}{31}{figure.caption.94}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {25}{\ignorespaces Fotky tv\IeC {\'a}r\IeC {\'\i } pred spracovan\IeC {\'\i }m\relax }}{33}{figure.caption.103}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {26}{\ignorespaces Fotky tv\IeC {\'a}r\IeC {\'\i } po spracovan\IeC {\'\i }\relax }}{33}{figure.caption.104}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {27}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka v\IeC {\'y}sledkov ka\IeC {\v z}dej z f\IeC {\'a}z MTCNN, prebrat\IeC {\'e} z \cite [s.~2]{mtcnn}\relax }}{34}{figure.caption.106}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {28}{\ignorespaces Dlib - 5 bodov\IeC {\'a} detekcia\relax }}{35}{figure.caption.108}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {29}{\ignorespaces Dlib - 68 bodov\IeC {\'a} detekcia\relax }}{35}{figure.caption.109}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {30}{\ignorespaces Obr\IeC {\'a}zkov\IeC {\'a} pyram\IeC {\'\i }da\relax }}{36}{figure.caption.110}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {31}{\ignorespaces Algoritmus v\IeC {\'y}po\IeC {\v c}tu HOG, prebrat\IeC {\'e} z \cite {HOGextra27}\relax }}{37}{figure.caption.112}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {32}{\ignorespaces Diagram u\IeC {\v c}enia HOG klasifik\IeC {\'a}tora \cite [s.~3]{dalal2005histograms}\relax }}{37}{figure.caption.113}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {33}{\ignorespaces Worfklow tr\IeC {\'e}novania modelu\relax }}{39}{figure.caption.135}

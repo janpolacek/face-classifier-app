@@ -53,10 +53,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}Facenet}{26}{subsection.59}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Tensorflow}{29}{subsection.66}
+\contentsline {subsubsection}{\numberline {3.1.1}Chybov\IeC {\'a} funkcia}{27}{subsubsection.61}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Z\'{a}ver}{30}{section*.67}
+\contentsline {subsubsection}{\numberline {3.1.2}V\IeC {\'y}ber troj\IeC {\'\i }c}{28}{subsubsection.66}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{31}{section*.68}
+\contentsline {subsection}{\numberline {3.2}Tensorflow}{29}{subsection.68}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Pr\'{i}lohy}{I}{section*.69}
+\contentsline {subsection}{\numberline {3.3}V\IeC {\'y}ber datasetu}{31}{subsection.92}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1}Labeled Faces in Wild}{31}{subsubsection.93}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2}Youtube Faces}{31}{subsubsection.95}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.3}CASIA-WebFace}{32}{subsubsection.96}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.4}VGGFace2}{32}{subsubsection.97}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4}Predspracovanie d\IeC {\'a}t}{32}{subsection.98}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.4.1}MTCNN}{33}{subsubsection.105}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.4.2}Dlib}{35}{subsubsection.107}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.4.3}Histogram of Oriented Gradients}{36}{subsubsection.111}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5}Klasifikovanie tv\IeC {\'a}re}{37}{subsection.114}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.6}Optimaliz\IeC {\'a}cia modelu}{38}{subsection.122}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Rospozn\IeC {\'a}vanie tv\IeC {\'a}r\IeC {\'\i } na zariaden\IeC {\'\i } Android}{40}{section.136}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Android OS}{40}{subsection.137}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Z\'{a}ver}{41}{section*.138}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{42}{section*.139}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.140}

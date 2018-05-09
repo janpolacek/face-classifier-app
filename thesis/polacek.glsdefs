@@ -1,0 +1,30 @@
+\ifglsentryexists{mtcnn}{}%
+{%
+\gls@defglossaryentry{mtcnn}%
+{%
+name={MTCNN},%
+sort={MTCNN},%
+type={acronym},%
+first={Multi-task Cascade Convolutional Neural Networks\glsspace (MTCNN)},%
+firstplural={Multi-task Cascade Convolutional Neural Networks\acrpluralsuffix \glsspace (MTCNN\acrpluralsuffix )},%
+text={MTCNN},%
+plural={MTCNN\acrpluralsuffix },%
+description={Multi-task Cascade Convolutional Neural Networks},%
+descriptionplural={Multi-task Cascade Convolutional Neural Networks\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Multi-task Cascade Convolutional Neural Networks},%
+longplural={Multi-task Cascade Convolutional Neural Networkss},%
+short={MTCNN},%
+shortplural={MTCNNs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
