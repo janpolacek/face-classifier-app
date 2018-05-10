@@ -39,6 +39,8 @@ public class Classifier {
     }
 
     public String [] classifyMultiple(final float [] embeddings){
+        long startTime = System.currentTimeMillis();
+
         int samplesCount = embeddings.length/inputSize;
         String [] results = new String[samplesCount];
         float [] sample = new float[inputSize];
@@ -47,6 +49,9 @@ public class Classifier {
             System.arraycopy(embeddings,i*inputSize, sample, 0, inputSize);
             results[i] = classify(sample);
         }
+        long estimatedTime = System.currentTimeMillis() - startTime;
+        Log.d(TAG, ",time:" + estimatedTime);
+
         return results;
     }
 

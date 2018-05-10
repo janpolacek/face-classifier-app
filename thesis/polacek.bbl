@@ -33,12 +33,12 @@
       \strng{authorbibnamehash}{de2d7d28ebb7db43a2765fed22af2d75}
       \strng{authornamehash}{de2d7d28ebb7db43a2765fed22af2d75}
       \strng{authorfullhash}{de2d7d28ebb7db43a2765fed22af2d75}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{11}
-      \field{note}{(Accessed on 04/04/2018)}
+      \field{note}{(Navšívené dňa 04.04.2018)}
       \field{title}{The Application of Biometrics at Airports}
       \field{year}{2005}
     \endentry
@@ -563,7 +563,7 @@
       \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization}}
-      \field{note}{(Accessed on 05/04/2018)}
+      \field{note}{(Navšívené dňa 05.04.2018)}
       \field{title}{Regularization for Simplicity: L2 Regularization  |  Machine Learning Crash Course  |  Google Developers}
     \endentry
     \entry{van2017l2}{article}{}
@@ -595,7 +595,7 @@
       \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization}}
-      \field{note}{(Accessed on 05/06/2018)}
+      \field{note}{(Navšívené dňa 06.05.2018)}
       \field{title}{Regularization for Sparsity: L1 Regularization  |  Machine Learning Crash Course  |  Google Developers}
     \endentry
     \entry{dumoulin2016guide}{article}{}
@@ -643,7 +643,7 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://cs231n.github.io/convolutional-networks}}
       \field{month}{1}
-      \field{note}{(Accessed on 05/01/2018)}
+      \field{note}{(Navšívené dňa 05.01.2018)}
       \field{title}{CS231n Convolutional Neural Networks for Visual Recognition}
       \field{year}{2018}
     \endentry
@@ -742,7 +742,7 @@
       \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://github.com/davidsandberg/facenet}}
-      \field{note}{(Accessed on 05/06/2018)}
+      \field{note}{(Navšívené dňa 06.05.2018)}
       \field{title}{davidsandberg/facenet: Face recognition using Tensorflow}
     \endentry
     \entry{tensorflow2015}{misc}{}
@@ -895,7 +895,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.matroid.com/dlwithtf/chap1-2.pdf}}
-      \field{note}{(Accessed on 05/07/2018)}
+      \field{note}{(Navšívené dňa 06.05.2018)}
       \field{title}{TensorFlow for Deep Learning}
     \endentry
     \entry{LFWTech}{misc}{}
@@ -981,7 +981,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html}}
-      \field{note}{(Accessed on 05/08/2018)}
+      \field{note}{(Navšívené dňa 06.05.2018)}
       \field{title}{Center for Biometrics and Security Research}
     \endentry
     \entry{cao2017vggface2}{article}{}
@@ -1115,7 +1115,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{http://dlib.net/intro.html}}
-      \field{note}{(Accessed on 05/09/2018)}
+      \field{note}{(Navšívené dňa 02.05.2018)}
       \field{title}{dlib C++ Library - Introduction}
     \endentry
     \entry{dalal2005histograms}{inproceedings}{}
@@ -1156,7 +1156,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.learnopencv.com/histogram-of-oriented-gradients/}}
-      \field{note}{(Accessed on 05/09/2018)}
+      \field{note}{(Navšívené dňa 03.05.2018)}
       \field{title}{Histogram of Oriented Gradients | Learn OpenCV}
     \endentry
     \entry{HOGextra27}{misc}{}
@@ -1164,7 +1164,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.researchgate.net/figure/HOG-extraction-features-representation-Image-is-divided-in-cells-Each-cell-is-done-of-N_fig3_268214334}}
-      \field{note}{(Accessed on 05/09/2018)}
+      \field{note}{(Navšívené dňa 06.05.2018)}
       \field{title}{HOG extraction features representation. Image is divided in cells. Each...}
     \endentry
     \entry{SzegedyIV16}{article}{}
@@ -1247,7 +1247,7 @@
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.tensorflow.org/mobile/optimizing}}
-      \field{note}{(Accessed on 05/09/2018)}
+      \field{note}{(Navšívené dňa 01.05.2018)}
       \field{title}{Optimizing for mobile  |  TensorFlow}
     \endentry
     \entry{IandolaMAHDK16}{article}{}
@@ -1374,6 +1374,134 @@
       \endverb
       \verb{url}
       \verb http://arxiv.org/abs/1704.04861
+      \endverb
+    \endentry
+    \entry{Applicat21}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://developer.android.com/guide/components/fundamentals}}
+      \field{note}{(Navštívené dňa 10.05.2018)}
+      \field{title}{Application Fundamentals  |  Android Developers}
+    \endentry
+    \entry{Understa46}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://developer.android.com/guide/components/activities/activity-lifecycle}}
+      \field{note}{(Navštívené dňa 10.05.2018)}
+      \field{title}{Understand the Activity Lifecycle |Android Developers}
+    \endentry
+    \entry{Fotoappa49}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/Fotoapparat/Fotoapparat}}
+      \field{note}{(Navštívené dňa 10.05.2018)}
+      \field{title}{Fotoapparat/Fotoapparat: Making Camera for Android more friendly.}
+    \endentry
+    \entry{YUVWikip53}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/wiki/YUV}}
+      \field{note}{(Navštívené dňa 10.05.2018)}
+      \field{title}{YUV - Wikipedia}
+    \endentry
+    \entry{tzutalin82}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/tzutalin/dlib-android}}
+      \field{note}{(Navštívené dňa 10.05.2018)}
+      \field{title}{tzutalin/dlib-android: Port dlib to Android}
+    \endentry
+    \entry{Introduc22}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/intro.html}}
+      \field{note}{(Navštívené dňa 10.05.2018)}
+      \field{title}{Introduction}
+    \endentry
+    \entry{redmon2016you}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=99bced2e56a5253f3fe98a5f04e6d9b2}{%
+           family={Redmon},
+           familyi={R\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=05ca9f19da9ecbd2def4e5514f8043c8}{%
+           family={Divvala},
+           familyi={D\bibinitperiod},
+           given={Santosh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=396c6ddedb6f986906fc3e4994d19974}{%
+           family={Farhadi},
+           familyi={F\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{fullhash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{bibnamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authorbibnamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authornamehash}{b5530443e433a4da53dbe3cf155225b4}
+      \strng{authorfullhash}{b5530443e433a4da53dbe3cf155225b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE conference on computer vision and pattern recognition}
+      \field{title}{You only look once: Unified, real-time object detection}
+      \field{year}{2016}
+      \field{pages}{779\bibrangedash 788}
+      \range{pages}{10}
+    \endentry
+    \entry{agermani43}{misc}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/agermanidis/thingscoop}}
+      \field{note}{(Accessed on 10.05.2018)}
+      \field{title}{agermanidis/thingscoop: Search and filter videos based on objects that appear in them using convolutional neural networks}
+    \endentry
+    \entry{Kim14f}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1fecefbf07117382be6f83e7910ea8a0}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Yoon},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{fullhash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{bibnamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authorbibnamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authornamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authorfullhash}{1fecefbf07117382be6f83e7910ea8a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{Convolutional Neural Networks for Sentence Classification}
+      \field{volume}{abs/1408.5882}
+      \field{year}{2014}
+      \verb{eprint}
+      \verb 1408.5882
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1408.5882
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1408.5882
       \endverb
     \endentry
   \enddatalist

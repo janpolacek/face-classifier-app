@@ -23,7 +23,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {11}{\ignorespaces Uk\IeC {\'a}\IeC {\v z}ka funkcie s nieko\IeC {\v l}k\IeC {\'y}mi lok\IeC {\'a}lnymi minimami, prebrat\IeC {\'e} z\cite [s.~85]{goodfellow2016deep}\relax }}{15}{figure.caption.36}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {12}{\ignorespaces Kapacita siete a jej vz\IeC {\v t}ah k nedotr\IeC {\'e}vaniu a pretr\IeC {\'e}novaniu\relax }}{17}{figure.caption.39}
+\contentsline {figure}{\numberline {12}{\ignorespaces Kapacita siete a jej vz\IeC {\v t}ah k nedotr\IeC {\'e}novaniu a pretr\IeC {\'e}novaniu\relax }}{17}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {13}{\ignorespaces Vz\IeC {\v t}ah medzi kapacitou a chybou tr\IeC {\'e}novania, prebrat\IeC {\'a} z z\cite [s.~115]{goodfellow2016deep}\relax }}{18}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
@@ -65,4 +65,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {32}{\ignorespaces Diagram u\IeC {\v c}enia HOG klasifik\IeC {\'a}tora \cite [s.~3]{dalal2005histograms}\relax }}{37}{figure.caption.113}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {33}{\ignorespaces Worfklow tr\IeC {\'e}novania modelu\relax }}{39}{figure.caption.135}
+\contentsline {figure}{\numberline {33}{\ignorespaces V\IeC {\'y}sledky testovania klasifik\IeC {\'a}tora pri r\IeC {\^o}znych nastaveniach\relax }}{38}{figure.caption.122}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {34}{\ignorespaces Worfklow tr\IeC {\'e}novania modelu\relax }}{40}{figure.caption.136}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {35}{\ignorespaces Zjednodu\IeC {\v s}en\IeC {\'y} diagram \IeC {\v z}ivotn\IeC {\'e}ho cyklu aktivity, prebrat\IeC {\'e} z \cite {Understa46}\relax }}{42}{figure.caption.139}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {36}{\ignorespaces Lokaliz\IeC {\'a}cia poz\IeC {\'\i }ci\IeC {\'\i } tv\IeC {\'a}r\IeC {\'\i } na Androide pou\IeC {\v z}\IeC {\'\i }t\IeC {\'\i }m kni\IeC {\v z}nice Dlib\relax }}{45}{figure.caption.142}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {37}{\ignorespaces Sch\IeC {\'e}ma fungovania aplik\IeC {\'a}cie\relax }}{47}{figure.caption.150}

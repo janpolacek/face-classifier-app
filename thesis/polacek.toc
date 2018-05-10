@@ -33,7 +33,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.4}Gradient descent}{13}{subsection.33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5}Stochastic gradent descent}{15}{subsection.37}
+\contentsline {subsection}{\numberline {2.5}Stochastic gradient descent}{15}{subsection.37}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6}Generaliz\IeC {\'a}cia, overfitting a underfitting}{16}{subsection.38}
 \defcounter {refsection}{0}\relax 
@@ -79,14 +79,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.5}Klasifikovanie tv\IeC {\'a}re}{37}{subsection.114}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6}Optimaliz\IeC {\'a}cia modelu}{38}{subsection.122}
+\contentsline {subsection}{\numberline {3.6}Optimaliz\IeC {\'a}cia modelu}{38}{subsection.123}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Rospozn\IeC {\'a}vanie tv\IeC {\'a}r\IeC {\'\i } na zariaden\IeC {\'\i } Android}{40}{section.136}
+\contentsline {section}{\numberline {4}Rospozn\IeC {\'a}vanie tv\IeC {\'a}r\IeC {\'\i } na zariaden\IeC {\'\i } Android}{41}{section.137}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Android OS}{40}{subsection.137}
+\contentsline {subsection}{\numberline {4.1}Android OS}{41}{subsection.138}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Z\'{a}ver}{41}{section*.138}
+\contentsline {subsection}{\numberline {4.2}Spracovanie obrazu z kamery}{42}{subsection.140}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{42}{section*.139}
+\contentsline {subsection}{\numberline {4.3}Detekcia tv\IeC {\'a}re}{43}{subsection.141}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Pr\'{i}lohy}{I}{section*.140}
+\contentsline {subsection}{\numberline {4.4}Extrahovanie pr\IeC {\'\i }znakov}{46}{subsection.143}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5}Klasifik\IeC {\'a}cia tv\IeC {\'a}re}{46}{subsection.149}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Z\'{a}ver}{48}{section*.151}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{50}{section*.152}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.153}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}\IeC {\v S}trukt\IeC {\'u}ra elektronick\IeC {\'e}ho nosi\IeC {\v c}a}{II}{section.155}

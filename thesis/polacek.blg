@@ -1,17 +1,17 @@
 [0] Config.pm:302> INFO - This is Biber 2.10
 [0] Config.pm:305> INFO - Logfile is 'polacek.blg'
-[28] biber:313> INFO - === St máj  9, 2018, 20:34:42
-[49] Biber.pm:371> INFO - Reading 'polacek.bcf'
-[128] Biber.pm:857> INFO - Found 42 citekeys in bib section 0
-[142] Biber.pm:3976> INFO - Processing section 0
-[153] Biber.pm:4136> INFO - Looking for bibtex format file 'includes/bibliography.bib' for section 0
-[155] bibtex.pm:1490> INFO - LaTeX decoding ...
-[209] bibtex.pm:1306> INFO - Found BibTeX data source 'includes/bibliography.bib'
-[387] Utils.pm:193> WARN - month field 'October' in entry 'LFWTech' is not an integer - this will probably not sort properly.
-[416] Utils.pm:193> WARN - month field 'Oct' in entry 'mtcnn' is not an integer - this will probably not sort properly.
-[490] UCollate.pm:68> INFO - Overriding locale 'sk-SK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[490] UCollate.pm:68> INFO - Overriding locale 'sk-SK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[491] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sk-SK'
-[520] bbl.pm:617> INFO - Writing 'polacek.bbl' with encoding 'UTF-8'
-[535] bbl.pm:720> INFO - Output to polacek.bbl
-[536] Biber.pm:110> INFO - WARNINGS: 2
+[27] biber:313> INFO - === Št máj 10, 2018, 17:54:35
+[47] Biber.pm:371> INFO - Reading 'polacek.bcf'
+[126] Biber.pm:857> INFO - Found 51 citekeys in bib section 0
+[139] Biber.pm:3976> INFO - Processing section 0
+[148] Biber.pm:4136> INFO - Looking for bibtex format file 'includes/bibliography.bib' for section 0
+[151] bibtex.pm:1490> INFO - LaTeX decoding ...
+[215] bibtex.pm:1306> INFO - Found BibTeX data source 'includes/bibliography.bib'
+[401] Utils.pm:193> WARN - month field 'October' in entry 'LFWTech' is not an integer - this will probably not sort properly.
+[430] Utils.pm:193> WARN - month field 'Oct' in entry 'mtcnn' is not an integer - this will probably not sort properly.
+[533] UCollate.pm:68> INFO - Overriding locale 'sk-SK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[533] UCollate.pm:68> INFO - Overriding locale 'sk-SK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[533] Biber.pm:3804> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'sk-SK'
+[566] bbl.pm:617> INFO - Writing 'polacek.bbl' with encoding 'UTF-8'
+[583] bbl.pm:720> INFO - Output to polacek.bbl
+[584] Biber.pm:110> INFO - WARNINGS: 2

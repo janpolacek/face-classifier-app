@@ -9,4 +9,7 @@
 \glossaryentry{SGD?\glossentry{sgd}|setentrycounter[]{page}\glsnumberformat}{15}
 \glossaryentry{LWF?\glossentry{lfw}|setentrycounter[]{page}\glsnumberformat}{31}
 \glossaryentry{MTCNN?\glossentry{mtcnn}|setentrycounter[]{page}\glsnumberformat}{32}
-\glossaryentry{HOG?\glossentry{hog}|setentrycounter[]{page}\glsnumberformat}{35}
+\glossaryentry{HOG?\glossentry{hog}|setentrycounter[]{page}\glsnumberformat}{36}
+\glossaryentry{SDK?\glossentry{sdk}|setentrycounter[]{page}\glsnumberformat}{41}
+\glossaryentry{NDK?\glossentry{ndk}|setentrycounter[]{page}\glsnumberformat}{41}
+\glossaryentry{JNI?\glossentry{jni}|setentrycounter[]{page}\glsnumberformat}{43}

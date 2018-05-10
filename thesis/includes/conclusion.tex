@@ -1,1 +1,34 @@
-Conclusion is going to be where? \newline Here.
+\noindent Problematikou ktorou sa zaoberá táto práca bolo naštudovanie problematiky klasifikácie ľudskej tváre. 
+V úvodnej kapitole\ref{l:techn} sme sa venovali problematike biometrických systémov ako takých, popísali sme základné rozdelenie biometrických systémov a venovali sa najmä technikám slúžiacim k rozpoznávaniu tváre.
+Zaujímavým ja javí najmä presun od techník využívajúce štatistickú analýzu dát, ako sú napríklad PCA, LDA či LFA smerom k neurónovým sieťam.
+
+\noindent Neurónovým sieťam sme sa detailnejšie venovali v kapitole \ref{l:nns}, kde sme prebrali základný koncept a matematický model neurónov a neurónových sietí,aktivačné funkcie, trénovanie neurónovej siete či najčastejšie problémy spojené s trénovaním modelov.
+Nakoniec kapitoly sme sa zamerali na špecifickú kategóriu neurónových sietí - konvolučným neurónovým siete, a prebrali v čom sa odlišujú od klasických neurónových sietí,z akých častí pozostáva a v čom predchádza klasické neurónové siete.
+O ich výborných vlastnostiach svedčí aj množstvo súčasných projektov založených práve na CNN, ako sú napríklad projekty Thingscoop\cite{agermani43} ktorého cieľom je klasifikácia a filtrovanie videí v závislosti od objektov ktoré sa v ňom nachádzajú alebo \cite{Kim14f} slúžiaci ku klasifikácii viet.
+
+\noindent V kapitole \ref{l:fcnt} tejto práce sme sa venovali návrhu konvolučnej neurónovej siete, slúžiacej ku klasifikácií tvárí.
+Využili sme pritom existujúcí návrh modelu schopného extrahovať príznaky tváre do kompaktného 128-dimenzionálneho vektora - Facenet\cite{schroff2015facenet}.
+Popísali sme princípy na ktorý je Facenet postavený - najmä chybovú funkciu trojíc, ktorá mala enormný podiel na dosiahnutí výborných výsledkov pri klasifikácií $ 99,63\% $) úspešnosť pri využití vektora príznakov, ktoré Facenet extrahuje z tváre, čím markantne prekonal doterajšie riešenia\\
+\noindent V ďalších sekciách kapitoly sme sa venovali procesu trénovania modelu Facenetu.
+Preskúmali sme dostupné datasety tvárí, pričom práve správny výber datasetu sa podľa niektorých štúdií\cite{Centerfo}, zdá byť často dôležitejší než samotný algoritmus použitý v CNN.
+Nemalú časť kaptily sme venovali možnostiam detekcie tváre, a porovnali sme dva najperspektívnejšie  riešenia - detekciu založenú na HOG v knižnici Dlib a detekciu tvárí pomocou kaskádnych konvolučných neurónových sietí - MTCNN.
+Zistili sme, že MTCNN\cite{mtcnn} je oveľa vhodnejšou možnosťou, so schopnosťou detegovať oveľa zložitejšie kompozície snímkov tvárí, avšak za cenu vyšších nárokov na výpočtovú silu. \\
+\noindent Pokračovali natrénovaním SVM modelu klasifikátora na základe extrahovaných príznakov z Facenetu, pričom sme porovnali úspešnosť klasifikácie pri variabilnom počte tried osôb, ktoré sme mali rozpoznať.
+
+\noindent Finálnym krokom\ref{l:andapp} tejto práce bolo implementovať mobilnú aplikáciu na zariadení Android OS.
+Mobilné zariadenia ani v súčasnosti nedosahujú výkon porovnateľný s výpočtovou silou počítačov disponujúcich silnou grafickou kartou.
+Z toho dôvodu sme sa venovali v časti\ref{l:opt} venovali možnostiam vedúcim k zníženiu výpočtovej náročnosti modelov.
+Touto optimalizáciou sa nám podarilo zlepšiť výkon Facenetu o $ 15\% $ a zmenšiť jeho veľkosť o $ 75\% $.
+Cieľom tejto práce bolo vytvoriť aplikáciu schopnú klasifikácie tváre v čo najlepšom čase.
+Z tohoto dôvodu sme k detekcií tváre z kamery využili C++ implementáciu detektora z knižnice Dlib, a vytvorili interface, cez ktorý je možné s knižnicou komunikovať z Java kódu.
+Pre detekované tváre, sme podobne ako pri časti trénovania klasifikátora, extrahovali príznaky, ktoré sme následne klasifikovali natrénovaným modelom SVM.
+
+
+\noindent Výsledkom tejto práce je aplikácia Face classifier, ktorá deteguje tváre 120ms, extrahuje príznaky za 500ms a klasifikuje za 1ms, a teda dostaneme 10fps detekciu polohy tváre a 2fps identifikáciu osoby a natrénované modely klasifikátora.
+Rovnako sme pripravili užívateľskú príručku popisujúcu všetky kroky potrebné k inicializácií projektu a inštalácii aplikácie, problémy s ktorými sme sa stretli - najmä v oblasti kompilácie knižníc pre Android či rôzne bash skripty potrebné k trénovaniu a optimalizácii klasifikátora.
+
+\noindent Touto prácou sme splnili všetky body zadania práce.
+Napriek tomu sme však pri skúmaní tejto problematiky objavili niekoľko možných zlepšení.
+Ide najmä o preskúmanie možností tvorby optimálnejších CNN pre mobilné zariadenia ako je SqueezeNet\cite{IandolaMAHDK16} a MobileNet\cite{HowardZCKWWAA17}, ktoré vyžadujú oveľa menší výpočtový výkon za cenu len malého zhoršenia presnosti.
+Možnosť ďalšieho zlepšenia vidíme v optimalizácie metódy detekcie na zariadení Android, implementujúc napríklad v ROLO\cite{redmon2016you},a teda metóde založenej kombinácií detekcie objektu a jeho následným trackovaním v ďalších snímkoch, namiesto použitia detekcie pre každý snímok.
+

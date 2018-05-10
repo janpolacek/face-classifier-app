@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.9)  9 MAY 2018 20:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6650) (preloaded format=pdflatex 2018.4.9)  10 MAY 2018 18:02
 entering extended mode
 **./polacek.tex
 (polacek.tex
@@ -1114,18 +1114,24 @@ LaTeX Info: Redefining \nameref on input line 19.
 \@outlinefile=\write8
 \openout8 = `polacek.out'.
 
- (polacek.glsdefs) [1
+ [1
 
 \openout5 = `polacek.ist'.
 
 
 {/home/jan/.miktex/texmfs/data/pdftex/config/pdftex.map}] [1]
-<includes/assignment.jpeg, id=190, 850.17625pt x 911.405pt>
+<includes/assignment.jpeg, id=210, 850.17625pt x 911.405pt>
 File: includes/assignment.jpeg Graphic file (type jpg)
 <use includes/assignment.jpeg>
 Package pdftex.def Info: includes/assignment.jpeg  used on input line 25.
 (pdftex.def)             Requested size: 597.50787pt x 640.56584pt.
- [2 <./includes/assignment.jpeg>]
+<includes/assignment_part2.jpeg, id=211, 850.17625pt x 911.405pt>
+File: includes/assignment_part2.jpeg Graphic file (type jpg)
+<use includes/assignment_part2.jpeg>
+Package pdftex.def Info: includes/assignment_part2.jpeg  used on input line 26.
+
+(pdftex.def)             Requested size: 597.50787pt x 640.56584pt.
+ [2 <./includes/assignment.jpeg>] [3 <./includes/assignment_part2.jpeg>]
 Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\T1/lmr/m/n/12 Klasifikácia
  []
@@ -1140,55 +1146,88 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \T1/lmr/m/n/12 konvolu£ných sietí
  []
 
-(includes/abstract.tex) [3]
-Underfull \hbox (badness 10000) in paragraph at lines 28--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--28
-[]\T1/lmr/m/n/12 Face classification
- []
-
-(includes/abstractEN.tex) [4
-
-] (includes/thanks.tex) [5
-
-] (polacek.toc
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 6.
-
-(/home/jan/.miktex/texmfs/install/tex/latex/lm/ot1lmr.fd
+(includes/abstract.tex
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 8.
+ (/home/jan/.miktex/texmfs/install/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 6.
-
-(/home/jan/.miktex/texmfs/install/tex/latex/lm/omllmm.fd
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 8.
+ (/home/jan/.miktex/texmfs/install/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 6.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 8.
 
 (/home/jan/.miktex/texmfs/install/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 6.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 8.
 
 (/home/jan/.miktex/texmfs/install/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 6.
+(Font)              <12> on input line 8.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 6.
+(Font)              <8> on input line 8.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 6.
- [6])
+(Font)              <6> on input line 8.
+)
+Overfull \hbox (3.7274pt too wide) in paragraph at lines 1--27
+\T1/lmr/m/n/12 ako také popisujeme v druhej kapitole, po£núc od definície matem
+atického modelu neurónu,
+ []
+
+
+Overfull \hbox (39.045pt too wide) in paragraph at lines 1--27
+\T1/lmr/m/n/12 procesu trénovania neurónových sietí. Kapitolu zakon£ujeme defin
+íciou konvolu£ných neurónových
+ []
+
+
+Overfull \hbox (11.53932pt too wide) in paragraph at lines 1--27
+\T1/lmr/m/n/12 v ktorej vyuºívame detektor tváre zaloºený na Histrogram of Orie
+nted Gradients. Detekované
+ []
+
+
+Overfull \hbox (10.8052pt too wide) in paragraph at lines 1--27
+\T1/lmr/m/n/12 tváre následne podliehajú procesu extrakcie príznakov v modely F
+acenetu implementovaného
+ []
+
+
+Overfull \hbox (32.3744pt too wide) in paragraph at lines 1--27
+\T1/lmr/m/n/12 v kniºnici Tensorflow, ktoré sú následne klasifikované pouºitím 
+natrénovaného SVM klasifikátora.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1--27
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
+
+ []
+
+(includes/abstractEN.tex)
+Overfull \hbox (17.72697pt too wide) in paragraph at lines 1--28
+\T1/lmr/m/n/12 inferred through model of Facenet implemented in Tensorflow libr
+ary, resulting in embeddings,
+ []
+
+[5
+
+] (includes/thanks.tex) [6
+
+] (polacek.toc [7])
 \tf@toc=\write9
 \openout9 = `polacek.toc'.
 
- [7]
+ [8]
 \mylenf=\skip128
-
-(polacek.lof
+ (polacek.lof
 Overfull \hbox (5.96849pt too wide) in paragraph at lines 14--14
  [][] [][][]\T1/lmr/m/n/12 Príklad doprednej neurónovej vrstvy skladajúcej sa z
  troch vrstiev 
@@ -1212,7 +1251,7 @@ Overfull \hbox (3.55334pt too wide) in paragraph at lines 48--48
 e²nosti siete, 
  []
 
-[8])
+[9])
 \tf@lof=\write10
 \openout10 = `polacek.lof'.
 
@@ -1220,25 +1259,47 @@ e²nosti siete,
 \tf@lot=\write11
 \openout11 = `polacek.lot'.
 
- [9] (polacek.acr
-\@gls@deffile=\write12
-\openout12 = `polacek.glsdefs'.
-
-
-Overfull \hbox (19.81085pt too wide) in alignment at lines 2--34
+ [10] (polacek.acr
+Overfull \hbox (19.81085pt too wide) in alignment at lines 2--41
  [] []
  []
 
-) [10] (polacek.loa)
-\tf@loa=\write13
-\openout13 = `polacek.loa'.
+) [11] (polacek.lol)
+\tf@lol=\write12
+\openout12 = `polacek.lol'.
 
- [11] (polacek.lol)
-\tf@lol=\write14
-\openout14 = `polacek.lol'.
+ [12] (includes/introduction.tex
+Overfull \hbox (14.95276pt too wide) in paragraph at lines 38--14
+\T1/lmr/m/n/12 Android OS na klasifikáciu tvárí. Android OS je populárnym opera
+£ným systémom mobilných
+ []
 
- [12] (includes/introduction.tex)
-[1
+
+Overfull \hbox (25.37708pt too wide) in paragraph at lines 38--14
+\T1/lmr/m/n/12 zariadení, s podielom na trhu $\OT1/lmr/m/n/12 87\OML/lmm/m/it/1
+2 ; \OT1/lmr/m/n/12 7%$\T1/lmr/m/n/12 , za £o v¤a£í najmä ve©kému mnoºstvo výro
+bcov,atraktívnej
+ []
+
+
+Overfull \hbox (7.31845pt too wide) in paragraph at lines 38--14
+\T1/lmr/m/n/12 ich výkad dop¨¬ame názornou grafickou ukáºkou. V prvej kapitole 
+sa venujeme problematike
+ []
+
+
+Overfull \hbox (21.80666pt too wide) in paragraph at lines 38--14
+\T1/lmr/m/n/12 konvolu£nej neurónovej siete slúºiaci k extrahovaniu príznakov t
+váre a natrénovaniu samotného
+ []
+
+
+Overfull \hbox (25.46696pt too wide) in paragraph at lines 38--14
+\T1/lmr/m/n/12 klasifikátora. V poslednej kapitole sa venujeme návrhu aplikácie
+, popisu pouºitia natrénovaného
+ []
+
+) [1
 
 
 
@@ -1267,9 +1328,15 @@ Overfull \hbox (2.37082pt too wide) in paragraph at lines 5--26
  []
 
 
-Overfull \hbox (12.8819pt too wide) in paragraph at lines 5--26
-\T1/lmr/m/n/12 presnosti, výskum na lokálnych Gaborových filtroch[[][]7[][]] k 
-dosiahnutiu efektívnej²ích príznakov
+Overfull \hbox (3.01984pt too wide) in paragraph at lines 5--26
+\T1/lmr/m/n/12 odvodenej z Karhunen-Loevovej transformácie alebo Principal Comp
+onent Analysis([][][]PCA[][]).
+ []
+
+
+Overfull \hbox (2.11964pt too wide) in paragraph at lines 5--26
+\T1/lmr/m/n/12 prístup AdaBoost u£enia, zaloºeného na architektúra kaskádneho k
+lasifikátora pre detekciu
  []
 
 [2]
@@ -1291,39 +1358,33 @@ Overfull \hbox (3.21515pt too wide) in paragraph at lines 49--56
 rihlasovaní do po£íta£a,
  []
 
-
-Overfull \hbox (3.7906pt too wide) in paragraph at lines 49--56
-\T1/lmr/m/n/12 tváre môºeme rozumie´ napríklad snímok tváre z predu s neutrálny
-m výrazom a otvorenými
+[3]
+Overfull \hbox (2.35477pt too wide) in paragraph at lines 58--64
+\T1/lmr/m/n/12 problémy rozpoznávania vzorov, kde tvár, ktorá je reprezentovaná
+ ako trojrozmerný objekt,
  []
 
-[3]
+
 Overfull \hbox (18.28644pt too wide) in paragraph at lines 58--64
 \T1/lmr/m/n/12 podlieha odli²nostiam vo svetle, postoji, výraze a iných faktoro
 ch, potrebuje byt identifikovaná
  []
 
-<img/workflow.png, id=436, 899.36pt x 201.75375pt>
+<img/workflow.png, id=478, 899.36pt x 201.75375pt>
 File: img/workflow.png Graphic file (type png)
 <use img/workflow.png>
 Package pdftex.def Info: img/workflow.png  used on input line 74.
 (pdftex.def)             Requested size: 455.24411pt x 102.1265pt.
 
-Overfull \hbox (31.66295pt too wide) in paragraph at lines 79--89
-\T1/lmr/m/n/12 Tento krok je nevyhnutný, pretoºe sa od najnov²ích a najlep²ích 
-(state-of-the-art) rozpoznávacích
+Overfull \hbox (29.05188pt too wide) in paragraph at lines 79--89
+\T1/lmr/m/n/12 Tento krok je nevyhnutný, pretoºe sa od najnov²ích a najlep²ích(
+state-of-the-art) rozpoznávacích
  []
 
 
 Overfull \hbox (1.85368pt too wide) in paragraph at lines 79--89
 \T1/lmr/m/n/12 metód o£akáva, ºe dokáºu rozpozna´ tvár v rôznych polohách a rôz
 nom svetle. Geometrická
- []
-
-
-Overfull \hbox (16.06255pt too wide) in paragraph at lines 79--89
-\T1/lmr/m/n/12 e²te lep²ej a presnej²ej normalizácií tváre [[][]2[][]]. Úlohou 
-fotometrickej normalizácie je spracovanie
  []
 
 
@@ -1342,12 +1403,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
-
-Overfull \hbox (13.0525pt too wide) in paragraph at lines 109--116
-\T1/lmr/m/n/12 Discriminant Analysis [][][]LDA[][], Indenpendent Component Anal
-ysis [][][]ICA[][], Local Feature Analysis
- []
-
 [5]
 Overfull \hbox (3.33481pt too wide) in paragraph at lines 118--125
 \T1/lmr/m/n/12 vektorov matice kovariance, ktoré kore²pondujú s najvä£²ími hodn
@@ -1360,24 +1415,18 @@ Overfull \hbox (23.8704pt too wide) in paragraph at lines 118--125
 etnutých dát. Jain popisuje[[][]10[][]]
  []
 
-<img/eigenfaces.png, id=462, 1446.40375pt x 230.8625pt>
+<img/eigenfaces.png, id=504, 1446.40375pt x 230.8625pt>
 File: img/eigenfaces.png Graphic file (type png)
 <use img/eigenfaces.png>
 Package pdftex.def Info: img/eigenfaces.png  used on input line 133.
 (pdftex.def)             Requested size: 455.24411pt x 72.66217pt.
 [6 <./img/eigenfaces.png>]
-Overfull \hbox (0.50586pt too wide) in paragraph at lines 152--158
-[]\T1/lmr/m/n/12 Zvy£ajne pri rie²ení problematiky rozpoznávania tváre (a va£²i
-ne ostatných problémov
- []
-
-
 Overfull \hbox (16.87268pt too wide) in paragraph at lines 152--158
 \T1/lmr/m/n/12 pixelov (dimenzionality dát), £o znamená, ºe vnútrotriedová mati
 ca rozptylu S$[]$ je singulárna,
  []
 
-<img/fisherfaces.png, id=482, 1446.40375pt x 230.8625pt>
+<img/fisherfaces.png, id=523, 1446.40375pt x 230.8625pt>
 File: img/fisherfaces.png Graphic file (type png)
 <use img/fisherfaces.png>
 Package pdftex.def Info: img/fisherfaces.png  used on input line 161.
@@ -1389,9 +1438,9 @@ zaloºených na rozloºení
  []
 
 
-Overfull \hbox (12.93317pt too wide) in paragraph at lines 181--183
-\T1/lmr/m/n/12 charakteristikého podpriestoru. Vzniknú tak minimálne kolerované
- a topograficky indexované
+Overfull \hbox (17.82875pt too wide) in paragraph at lines 181--183
+\T1/lmr/m/n/12 charakteristického podpriestoru. Vzniknú tak minimálne kolerovan
+é a topograficky indexované
  []
 
 
@@ -1400,14 +1449,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 181--183
  []
 
 [7 <./img/fisherfaces.png>]
+Overfull \hbox (16.58694pt too wide) in paragraph at lines 190--195
+\T1/lmr/m/n/12 nízko-dimenzionálnych priestoroch príznakov, najmä kvôli výpo£to
+vej náro£nosti spracovania,
+ []
+
+
+Overfull \hbox (0.85698pt too wide) in paragraph at lines 190--195
+\T1/lmr/m/n/12 v prípade viac-dimenzionálnych dát tváre[[][]10[][]]. Neurónové 
+siete podliehajú ²irokému záujmu
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 190--195
 
  []
 
 
-Overfull \hbox (27.48657pt too wide) in paragraph at lines 196--201
+Overfull \hbox (28.46597pt too wide) in paragraph at lines 196--201
 \T1/lmr/m/n/12 dát kvôli dobrej generalizácii dát, s £ím zárove¬ súvisí zna£né 
-mnoºstvo výpo£tov uskoto£nených
+mnoºstvo výpo£tov uskuto£nených
  []
 
 
@@ -1428,9 +1489,9 @@ vých sietí - neurónom,
  []
 
 
-Overfull \hbox (15.01682pt too wide) in paragraph at lines 207--211
+Overfull \hbox (16.91013pt too wide) in paragraph at lines 207--211
 \T1/lmr/m/n/12 následne pokra£ujeme teóriou trénovania neurónových sietí a opti
-malizáciám ako je stochastic
+malizáciám ako je Stochastic
  []
 
 
@@ -1445,19 +1506,19 @@ Overfull \hbox (6.21388pt too wide) in paragraph at lines 213--225
 s fungovania biologického
  []
 
-<img/bioneuron.png, id=508, 448.67625pt x 247.92625pt>
+<img/bioneuron.png, id=549, 448.67625pt x 247.92625pt>
 File: img/bioneuron.png Graphic file (type png)
 <use img/bioneuron.png>
 Package pdftex.def Info: img/bioneuron.png  used on input line 228.
 (pdftex.def)             Requested size: 227.62206pt x 125.77489pt.
 
-Overfull \hbox (13.12773pt too wide) in paragraph at lines 233--237
-\T1/lmr/m/n/12 a následne transormované aktiva£nou funkciou, ktorej výsledok je
- odoslaný ¤al²ím neurónom.
+Overfull \hbox (16.71797pt too wide) in paragraph at lines 233--237
+\T1/lmr/m/n/12 a následne transformované aktiva£nou funkciou, ktorej výsledok j
+e odoslaný ¤al²ím neurónom.
  []
 
 [9 <./img/bioneuron.png>]
-<img/artneuron.png, id=517, 390.45876pt x 171.64125pt>
+<img/artneuron.png, id=558, 390.45876pt x 171.64125pt>
 File: img/artneuron.png Graphic file (type png)
 <use img/artneuron.png>
 Package pdftex.def Info: img/artneuron.png  used on input line 240.
@@ -1474,33 +1535,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 249--254
  []
 
 [10 <./img/artneuron.png>]
-<img/ann.png, id=528, 482.80376pt x 739.76375pt>
+<img/ann.png, id=569, 482.80376pt x 739.76375pt>
 File: img/ann.png Graphic file (type png)
 <use img/ann.png>
 Package pdftex.def Info: img/ann.png  used on input line 265.
 (pdftex.def)             Requested size: 227.62206pt x 348.76135pt.
-<img/sigmoid.png, id=531, 642.4pt x 481.8pt>
+<img/sigmoid.png, id=572, 642.4pt x 481.8pt>
 File: img/sigmoid.png Graphic file (type png)
 <use img/sigmoid.png>
 Package pdftex.def Info: img/sigmoid.png  used on input line 280.
 (pdftex.def)             Requested size: 227.62206pt x 170.71304pt.
  [11 <./img/ann.png>]
-<img/tanh.png, id=540, 642.4pt x 481.8pt>
+<img/tanh.png, id=581, 642.4pt x 481.8pt>
 File: img/tanh.png Graphic file (type png)
 <use img/tanh.png>
 Package pdftex.def Info: img/tanh.png  used on input line 289.
 (pdftex.def)             Requested size: 227.62206pt x 170.71304pt.
-<img/relu.png, id=544, 642.4pt x 481.8pt>
+<img/relu.png, id=585, 642.4pt x 481.8pt>
 File: img/relu.png Graphic file (type png)
 <use img/relu.png>
 Package pdftex.def Info: img/relu.png  used on input line 302.
 (pdftex.def)             Requested size: 227.62206pt x 170.71304pt.
  [12 <./img/sigmoid.png (PNG copy)> <./img/tanh.png (PNG copy)>]
-Overfull \hbox (11.35168pt too wide) in paragraph at lines 330--334
-\T1/lmr/m/n/12 uravi´ x tak, aby sme dosiahli zlep²enie v y. Teda pokial vieme,
- ºe $\OML/lmm/m/it/12 f\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x \OMS/lmsy/m/n/12   \
-OML/lmm/m/it/12 \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 znamienko\OT1/lmr/m/n/12 )(\
-OML/lmm/m/it/12 f[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x\OT1/lmr/m/n/12 )))$
+Overfull \hbox (17.87967pt too wide) in paragraph at lines 330--334
+\T1/lmr/m/n/12 upravi´ x tak, aby sme dosiahli zlep²enie v y. Teda pokial vieme
+, ºe $\OML/lmm/m/it/12 f\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x \OMS/lmsy/m/n/12   
+\OML/lmm/m/it/12 \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 znamienko\OT1/lmr/m/n/12 )(
+\OML/lmm/m/it/12 f[]\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 x\OT1/lmr/m/n/12 )))$
  []
 
 
@@ -1509,7 +1570,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 330--334
  []
 
 [13 <./img/relu.png (PNG copy)>]
-<img/gd.png, id=562, 642.4pt x 481.8pt>
+<img/gd.png, id=603, 642.4pt x 481.8pt>
 File: img/gd.png Graphic file (type png)
 <use img/gd.png>
 Package pdftex.def Info: img/gd.png  used on input line 337.
@@ -1520,7 +1581,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 342--347
  []
 
 [14 <./img/gd.png (PNG copy)>]
-<img/gdglobalmin.png, id=570, 1388.18625pt x 781.92125pt>
+<img/gdglobalmin.png, id=611, 1388.18625pt x 781.92125pt>
 File: img/gdglobalmin.png Graphic file (type png)
 <use img/gdglobalmin.png>
 Package pdftex.def Info: img/gdglobalmin.png  used on input line 358.
@@ -1547,9 +1608,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 379--382
  []
 
 
-Overfull \hbox (9.3465pt too wide) in paragraph at lines 383--386
-\T1/lmr/m/n/12 medzi jednoduché optimaliza£né problémi. ƒo v²ak odde©uje strojo
-vé u´enie od optimalizácie
+Overfull \hbox (11.6311pt too wide) in paragraph at lines 383--386
+\T1/lmr/m/n/12 medzi jednoduché optimaliza£né problémy. ƒo v²ak odde©uje strojo
+vé u£enie od optimalizácie
  []
 
 
@@ -1575,12 +1636,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 398--406
  []
 
 [16]
-<img/capacity.png, id=592, 1091.07625pt x 261.97874pt>
+<img/capacity.png, id=633, 1091.07625pt x 261.97874pt>
 File: img/capacity.png Graphic file (type png)
 <use img/capacity.png>
 Package pdftex.def Info: img/capacity.png  used on input line 411.
 (pdftex.def)             Requested size: 455.24411pt x 109.30678pt.
-<img/errors.png, id=594, 1172.38pt x 571.13374pt>
+<img/errors.png, id=635, 1172.38pt x 571.13374pt>
 File: img/errors.png Graphic file (type png)
 <use img/errors.png>
 Package pdftex.def Info: img/errors.png  used on input line 420.
@@ -1652,7 +1713,7 @@ Overfull \hbox (6.07744pt too wide) in paragraph at lines 453--454
 ko 2-rozmerná mrieºka[[][]14[][]]. 
  []
 
-<img/convo.png, id=624, 161.60374pt x 302.12875pt>
+<img/convo.png, id=665, 161.60374pt x 302.12875pt>
 File: img/convo.png Graphic file (type png)
 <use img/convo.png>
 Package pdftex.def Info: img/convo.png  used on input line 465.
@@ -1674,20 +1735,20 @@ Overfull \hbox (8.23087pt too wide) in paragraph at lines 481--488
 ecnosti výrazným spôsobom
  []
 
-<img/sparse.png, id=636, 564.1075pt x 283.0575pt>
+<img/sparse.png, id=677, 564.1075pt x 283.0575pt>
 File: img/sparse.png Graphic file (type png)
 <use img/sparse.png>
 Package pdftex.def Info: img/sparse.png  used on input line 491.
 (pdftex.def)             Requested size: 227.62206pt x 114.21437pt.
-<img/fully.png, id=637, 564.1075pt x 283.0575pt>
+<img/fully.png, id=678, 564.1075pt x 283.0575pt>
 File: img/fully.png Graphic file (type png)
 <use img/fully.png>
 Package pdftex.def Info: img/fully.png  used on input line 498.
 (pdftex.def)             Requested size: 227.62206pt x 114.21437pt.
 [20 <./img/sparse.png>]
-Overfull \hbox (12.77899pt too wide) in paragraph at lines 503--506
-[]\T1/lmr/m/n/12 Zdie©anie parametrov znanemná, ºe rovnaké parametre sú pouºíté
- vo viacerých funkciách
+Overfull \hbox (6.251pt too wide) in paragraph at lines 503--506
+[]\T1/lmr/m/n/12 Zdie©anie parametrov znamená, ºe rovnaké parametre sú pouºité 
+vo viacerých funkciách
  []
 
 
@@ -1731,7 +1792,7 @@ Overfull \hbox (21.48389pt too wide) in paragraph at lines 513--521
 Overfull \hbox (3.14162pt too wide) in paragraph at lines 513--521
 \T1/lmr/m/n/12 by´ zopakovaný $\OML/lmm/m/it/12 n \OMS/lmsy/m/n/12   \OML/lmm/m
 /it/12 kr\OT1/lmr/m/n/12 á\OML/lmm/m/it/12 t$ \T1/lmr/m/n/12 pouºitím rôznych j
-adier, £ím vznikne $\OML/lmm/m/it/12 n$ \T1/lmr/m/n/12 výstupných máp priznakov
+adier, £ím vznikne $\OML/lmm/m/it/12 n$ \T1/lmr/m/n/12 výstupných máp príznakov
 ,
  []
 
@@ -1747,13 +1808,13 @@ Overfull \hbox (37.87299pt too wide) in paragraph at lines 522--523
 12 )$
  []
 
-<img/cnn1.png, id=656, 763.85374pt x 603.25375pt>
+<img/cnn1.png, id=697, 763.85374pt x 603.25375pt>
 File: img/cnn1.png Graphic file (type png)
 <use img/cnn1.png>
 Package pdftex.def Info: img/cnn1.png  used on input line 527.
 (pdftex.def)             Requested size: 455.24411pt x 359.52495pt.
 [22 <./img/cnn1.png>]
-<img/cnn2.png, id=663, 924.45375pt x 603.25375pt>
+<img/cnn2.png, id=704, 924.45375pt x 603.25375pt>
 File: img/cnn2.png Graphic file (type png)
 <use img/cnn2.png>
 Package pdftex.def Info: img/cnn2.png  used on input line 545.
@@ -1778,12 +1839,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 561--563
 
  []
 
-<img/pooling.png, id=676, 683.55376pt x 241.90375pt>
+<img/pooling.png, id=717, 683.55376pt x 241.90375pt>
 File: img/pooling.png Graphic file (type png)
 <use img/pooling.png>
 Package pdftex.def Info: img/pooling.png  used on input line 566.
 (pdftex.def)             Requested size: 227.62206pt x 80.55194pt.
-<img/poolingex.png, id=678, 762.85pt x 442.65375pt>
+<img/poolingex.png, id=719, 762.85pt x 442.65375pt>
 File: img/poolingex.png Graphic file (type png)
 <use img/poolingex.png>
 Package pdftex.def Info: img/poolingex.png  used on input line 583.
@@ -1814,9 +1875,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 608--612
  []
 
 
-Overfull \hbox (28.72598pt too wide) in paragraph at lines 613--616
+Overfull \hbox (31.01057pt too wide) in paragraph at lines 613--616
 \T1/lmr/m/n/12 stredná vrstva neurónovej siete natrénovanej na známych inentitá
-ch, na v²eobecné rozpoznívanie
+ch, na v²eobecné rozpoznávanie
  []
 
 
@@ -1826,9 +1887,9 @@ stvou je dostato£ne generalizovaná
  []
 
 
-Overfull \hbox (21.4162pt too wide) in paragraph at lines 613--616
-\T1/lmr/m/n/12 vo£i novým tváram; pouºitím strednej vrstvy na vzníkajú ve©ké (1
-000 - rozmerné) reprezentácie
+Overfull \hbox (18.80513pt too wide) in paragraph at lines 613--616
+\T1/lmr/m/n/12 vo£i novým tváram; pouºitím strednej vrstvy na vznikajú ve©ké(10
+00 - rozmerné) reprezentácie
  []
 
 
@@ -1847,7 +1908,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 617--620
 
  []
 
-<img/facenet.png, id=708, 736.7525pt x 140.525pt>
+<img/facenet.png, id=749, 736.7525pt x 140.525pt>
 File: img/facenet.png Graphic file (type png)
 <use img/facenet.png>
 Package pdftex.def Info: img/facenet.png  used on input line 625.
@@ -1868,12 +1929,12 @@ vetlenia £i iných podmienok,
  []
 
 
-Overfull \hbox (4.05309pt too wide) in paragraph at lines 631--634
-\T1/lmr/m/n/12 medzi rovnakými tvárami bola nízka, zatia© £o vzialenos´ medzi o
-brázkami tvárí rozdielnych
+Overfull \hbox (10.58107pt too wide) in paragraph at lines 631--634
+\T1/lmr/m/n/12 medzi rovnakými tvárami bola nízka, zatia© £o vzdialenos´ medzi 
+obrázkami tvárí rozdielnych
  []
 
-<img/triplet.png, id=711, 1141.26375pt x 251.94125pt>
+<img/triplet.png, id=752, 1141.26375pt x 251.94125pt>
 File: img/triplet.png Graphic file (type png)
 <use img/triplet.png>
 Package pdftex.def Info: img/triplet.png  used on input line 637.
@@ -1892,12 +1953,23 @@ odmnoºine
  []
 
 
+Overfull \hbox (6.67795pt too wide) in paragraph at lines 672--673
+[]\T1/lmr/m/n/12 Generova´ trojice online, výberom pozitívnej a negatívnej vzor
+ky z mini-batchu(dávky
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 675--676
 
  []
 
 [28 <./img/triplet.png>]
-<img/facenetflops.png, id=736, 657.45625pt x 493.845pt>
+Overfull \hbox (4.99185pt too wide) in paragraph at lines 677--681
+[]\T1/lmr/m/n/12 Model bol trénovaný pomocou SGD algoritmu, ktorý sme popísali 
+v[][]2.5[][]. Autori testovali
+ []
+
+<img/facenetflops.png, id=777, 657.45625pt x 493.845pt>
 File: img/facenetflops.png Graphic file (type png)
 <use img/facenetflops.png>
 Package pdftex.def Info: img/facenetflops.png  used on input line 684.
@@ -1906,6 +1978,12 @@ Package pdftex.def Info: img/facenetflops.png  used on input line 684.
 Overfull \hbox (20.80743pt too wide) in paragraph at lines 692--695
 []\T1/lmr/m/n/12 Tensorflow je open source softvérová kniºnica slúºiaca k náro£
 ným numerickým výpo£tom,
+ []
+
+
+Overfull \hbox (2.37843pt too wide) in paragraph at lines 692--695
+\T1/lmr/m/n/12 od opera£ného systému(Linux, Windows, Mac, Android ..), od hardv
+éru(umoº¬uje výpo£ty
  []
 
 
@@ -1925,8 +2003,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 696--700
  []
 
 
-Overfull \hbox (6.61661pt too wide) in paragraph at lines 701--705
-\T1/lmr/m/n/12 násobenie, ²peciálneho typu uzluv - $\OML/lmm/m/it/12 tf:Placeho
+Overfull \hbox (5.6372pt too wide) in paragraph at lines 701--705
+\T1/lmr/m/n/12 násobenie, ²peciálneho typu uzlov - $\OML/lmm/m/it/12 tf:Placeho
 lder$ \T1/lmr/m/n/12 - ktoré reprezentujú uzly ktoré prijímajú
  []
 
@@ -1941,12 +2019,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 701--705
 
  []
 
-
-Overfull \hbox (8.72696pt too wide) in paragraph at lines 706--707
-[]\T1/lmr/m/n/12 Na príklade [][]1[][] vidíme vytvorenie neurónovej siete slúºi
-acej na klasifikáciu ru£ne písaných
- []
-
 (/home/jan/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) [30]
@@ -1958,7 +2030,7 @@ Overfull \hbox (18.58084pt too wide) in paragraph at lines 738--742
 ácia [[][]22[][]] vyuºíva tréningové
  []
 
-<img/lfwf.png, id=781, 627.34375pt x 288.07625pt>
+<img/lfwf.png, id=822, 627.34375pt x 288.07625pt>
 File: img/lfwf.png Graphic file (type png)
 <use img/lfwf.png>
 Package pdftex.def Info: img/lfwf.png  used on input line 750.
@@ -1976,13 +2048,13 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/home/jan/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-<img/dlib_raw.png, id=801, 1102.1175pt x 319.1925pt>
+<img/dlib_raw.png, id=842, 1102.1175pt x 319.1925pt>
 File: img/dlib_raw.png Graphic file (type png)
 <use img/dlib_raw.png>
 Package pdftex.def Info: img/dlib_raw.png  used on input line 793.
 (pdftex.def)             Requested size: 455.24411pt x 131.84872pt.
  [32]
-<img/dlib_aligned.png, id=810, 872.25874pt x 309.155pt>
+<img/dlib_aligned.png, id=851, 872.25874pt x 309.155pt>
 File: img/dlib_aligned.png Graphic file (type png)
 <use img/dlib_aligned.png>
 Package pdftex.def Info: img/dlib_aligned.png  used on input line 800.
@@ -2010,6 +2082,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 811--814
  []
 
 
+Overfull \hbox (1.7331pt too wide) in paragraph at lines 815--817
+[]\T1/lmr/m/n/12 V druhej fáze zavádzajú ¤al²iu konvolu£nú neurónovú sie´, nazv
+anú Refine Network(R-
+ []
+
+
+Overfull \hbox (13.58163pt too wide) in paragraph at lines 815--817
+\T1/lmr/m/n/12 Net), ktorá slúºi k odfiltrovaniu ve©kého mnoºstva negatívnych k
+andidátov, vykoná kalibráciu
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 815--817
 
  []
@@ -2019,7 +2103,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 818--819
 
  []
 
-<img/mtcnn.png, id=822, 844.15375pt x 958.58125pt>
+<img/mtcnn.png, id=863, 844.15375pt x 958.58125pt>
 File: img/mtcnn.png Graphic file (type png)
 <use img/mtcnn.png>
 Package pdftex.def Info: img/mtcnn.png  used on input line 824.
@@ -2030,80 +2114,279 @@ Underfull \hbox (badness 10000) in paragraph at lines 834--837
  []
 
 [34 <./img/mtcnn.png>]
-
-LaTeX Warning: Reference `dlib_68_landmarks' on page 35 undefined on input line
- 839.
-
-<img/dlib_5_landmarks.png, id=832, 572.1375pt x 492.84125pt>
+<img/dlib_5_landmarks.png, id=874, 572.1375pt x 492.84125pt>
 File: img/dlib_5_landmarks.png Graphic file (type png)
 <use img/dlib_5_landmarks.png>
 Package pdftex.def Info: img/dlib_5_landmarks.png  used on input line 844.
 (pdftex.def)             Requested size: 182.09486pt x 156.85512pt.
-<img/dlib_68_landmarks.png, id=833, 570.13pt x 492.84125pt>
+<img/dlib_68_landmarks.png, id=875, 570.13pt x 492.84125pt>
 File: img/dlib_68_landmarks.png Graphic file (type png)
 <use img/dlib_68_landmarks.png>
-Package pdftex.def Info: img/dlib_68_landmarks.png  used on input line 851.
+Package pdftex.def Info: img/dlib_68_landmarks.png  used on input line 852.
 (pdftex.def)             Requested size: 182.09486pt x 157.40408pt.
 
-Overfull \hbox (3.46829pt too wide) in paragraph at lines 856--858
+Overfull \hbox (0.85722pt too wide) in paragraph at lines 857--859
 \T1/lmr/m/n/12 algoritme v kombinácií s lineárnym klasifikátorom, obrázkovou py
-ramídou (image pyramid)
+ramídou(image pyramid)
  []
 
 [35 <./img/dlib_5_landmarks.png> <./img/dlib_68_landmarks.png>]
-<img/pyramid.png, id=841, 321.2pt x 504.88625pt>
+<img/pyramid.png, id=883, 321.2pt x 504.88625pt>
 File: img/pyramid.png Graphic file (type png)
 <use img/pyramid.png>
-Package pdftex.def Info: img/pyramid.png  used on input line 861.
+Package pdftex.def Info: img/pyramid.png  used on input line 862.
 (pdftex.def)             Requested size: 91.04742pt x 143.11597pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 867--869
+Underfull \hbox (badness 10000) in paragraph at lines 868--870
 
  []
 
 
-Overfull \hbox (5.535pt too wide) in paragraph at lines 871--876
-\T1/lmr/m/n/12 potrebné vypo£íta´ orientáciu prechodu rovnicou $\OT1/lmr/m/n/12
-  = \OML/lmm/m/it/12 arctan[]$\T1/lmr/m/n/12 . Ich kombináciou získavame
+Overfull \hbox (21.86958pt too wide) in paragraph at lines 872--877
+\T1/lmr/m/n/12 vertikálnej $\OT1/lmr/m/n/12 [\OMS/lmsy/m/n/12  \OT1/lmr/m/n/12 
+1\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12 1][]$ \
+T1/lmr/m/n/12 deriva£nej masky na obrázok. Z nich je následne miera prechodu(gr
+adient
  []
 
-<img/hog.png, id=846, 554.07pt x 171.64125pt>
+<img/hog.png, id=888, 554.07pt x 171.64125pt>
 File: img/hog.png Graphic file (type png)
 <use img/hog.png>
-Package pdftex.def Info: img/hog.png  used on input line 881.
+Package pdftex.def Info: img/hog.png  used on input line 882.
 (pdftex.def)             Requested size: 455.24411pt x 141.02695pt.
 [36 <./img/pyramid.png>]
-<img/hog_class.png, id=857, 1865.97125pt x 172.645pt>
+<img/hog_class.png, id=899, 1865.97125pt x 172.645pt>
 File: img/hog_class.png Graphic file (type png)
 <use img/hog_class.png>
-Package pdftex.def Info: img/hog_class.png  used on input line 895.
+Package pdftex.def Info: img/hog_class.png  used on input line 896.
 (pdftex.def)             Requested size: 455.24411pt x 42.12056pt.
 
-Overfull \hbox (0.59988pt too wide) in paragraph at lines 912--915
+Overfull \hbox (0.59988pt too wide) in paragraph at lines 913--920
 []\T1/lmr/m/n/12 Normalizované hodnoty vstupujú následne do natrénovaného Facen
 et modelu, ktorého
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 917--921
+Overfull \hbox (14.36908pt too wide) in paragraph at lines 913--920
+\T1/lmr/m/n/12 nastavením bolo pouºitie minimálne 40 snímkov pre osobu, £oho vý
+sledkom bolo natrénovanie
+ []
+
+[37 <./img/hog.png (PNG copy)> <./img/hog_class.png>]
+<img/chart.png, id=915, 602.25pt x 372.39125pt>
+File: img/chart.png Graphic file (type png)
+<use img/chart.png>
+Package pdftex.def Info: img/chart.png  used on input line 923.
+(pdftex.def)             Requested size: 455.24411pt x 281.50313pt.
+
+Overfull \hbox (3.0581pt too wide) in paragraph at lines 928--929
+\T1/lmr/m/n/12 pouºili SVM klasifikátor z kniºnice OpenCV, ktorá je na rozdiel 
+od pôvodnej implementácie
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 932--936
 
  []
 
-[37 <./img/hog.png (PNG copy)> <./img/hog_class.png>] [38]
-<img/trainig_workflow.png, id=894, 944.52875pt x 115.43124pt>
+[38 <./img/chart.png (PNG copy)>]
+Overfull \hbox (4.24895pt too wide) in paragraph at lines 946--948
+\T1/lmr/m/n/12 povaºujeme výsledky[][]6[][], kde vidíme, ºe priemerný £as infer
+encie je 0,605 sekundy a náro£nos´
+ []
+
+[39]
+<img/trainig_workflow.png, id=948, 944.52875pt x 115.43124pt>
 File: img/trainig_workflow.png Graphic file (type png)
 <use img/trainig_workflow.png>
-Package pdftex.def Info: img/trainig_workflow.png  used on input line 957.
+Package pdftex.def Info: img/trainig_workflow.png  used on input line 972.
 (pdftex.def)             Requested size: 455.24411pt x 55.63708pt.
- [39 <./img/trainig_workflow.png>]
-Overfull \hbox (26.14516pt too wide) in paragraph at lines 964--964
+ [40 <./img/trainig_workflow.png>]
+Overfull \hbox (26.14516pt too wide) in paragraph at lines 979--979
 |[]\T1/lmr/bx/n/22 Rospoznávanie tvárí na zariadení Android| 
  []
 
-) [40] (includes/conclusion.tex) [41
+
+Overfull \hbox (5.09393pt too wide) in paragraph at lines 980--985
+\T1/lmr/m/n/12 kamera. V nasledujúcich sekciách popí²eme opera£ný systém Androi
+d, niektoré jeho sú£asti,
+ []
+
+
+Overfull \hbox (2.45166pt too wide) in paragraph at lines 980--985
+\T1/lmr/m/n/12 ktoré vyuºívame a najmä samotnú funkcionalitu aplikácie, ktorú s
+me nazvali Face classifier. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--991
+
+ []
+
+<img/activity_lifecycle.png, id=959, 514.92375pt x 665.48625pt>
+File: img/activity_lifecycle.png Graphic file (type png)
+<use img/activity_lifecycle.png>
+Package pdftex.def Info: img/activity_lifecycle.png  used on input line 1009.
+(pdftex.def)             Requested size: 227.62206pt x 294.17555pt.
+
+Overfull \hbox (1.80653pt too wide) in paragraph at lines 1001--1012
+\T1/lmr/m/n/12 spustenú práve jednu. šivotný cyklus aktivity za£ína metódou onC
+reate, a kon£í onDestroy,
+ []
+
+[41]
+Overfull \hbox (9.28073pt too wide) in paragraph at lines 1015--1018
+[]\T1/lmr/m/n/12 Ako sme uz spomenuli, Face classifier pozostáva z jedinej akti
+vity, na ktorej zobrazujeme
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1018
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1023
+
+ []
+
+[42 <./img/activity_lifecycle.png>]
+Overfull \hbox (4.54926pt too wide) in paragraph at lines 1030--1034
+\T1/lmr/m/n/12 optimálnej²iemu výkonu. Problémom bola chýbajúca implementácia p
+re mobilné zariadenia
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1030--1034
+
+ []
+
+
+Overfull \hbox (9.25063pt too wide) in paragraph at lines 1035--1037
+[]\T1/lmr/m/n/12 Implementácia v C++ bola k©ú£ová z dôvodu ove©a rýchlej²ieho s
+pracovania v porovnaní
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1037
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1041
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1049
+
+ []
+
+[43]
+<img/android_dlib.png, id=988, 1084.05pt x 1927.2pt>
+File: img/android_dlib.png Graphic file (type png)
+<use img/android_dlib.png>
+Package pdftex.def Info: img/android_dlib.png  used on input line 1056.
+(pdftex.def)             Requested size: 227.62206pt x 404.63573pt.
+
+Overfull \hbox (1.4554pt too wide) in paragraph at lines 1050--1059
+\T1/lmr/m/n/12 RGB snímku, slúºiacemu k deterministickej²iemu porovnaniu výsled
+kov detektora. Ukáºku
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1064
+
+ []
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 1071.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1071.
+
+
+Overfull \hbox (31.6768pt too wide) in paragraph at lines 1068--1073
+[]\T1/lmr/m/n/12 Extrahovanie príznakov prebieha obdobým spôsobom ako v prípade
+ trénovania klasifikátora.
+ []
+
+
+Overfull \hbox (3.78621pt too wide) in paragraph at lines 1068--1073
+\T1/lmr/m/n/12 Proces za£ína na£ítaním, inicializáciou natrénovaného Facenet mo
+delu z uloºiska zariadenia
+ []
+
+
+Overfull \hbox (3.77028pt too wide) in paragraph at lines 1068--1073
+\T1/lmr/m/n/12 jednorozmerné pole, ktoré má následne ve©kos´ $\OML/lmm/m/it/12 
+po\OT1/lmr/m/n/12 £\OML/lmm/m/it/12 etdetekci\OT1/lmr/m/n/12 í \OMS/lmsy/m/n/12
+  \OML/lmm/m/it/12 v\OT1/lmr/m/n/12 ý²\OML/lmm/m/it/12 kaobr\OT1/lmr/m/n/12 á\
+OML/lmm/m/it/12 zka \OMS/lmsy/m/n/12  \OT1/lmr/m/n/12 ²í\OML/lmm/m/it/12 rkaob
+r\OT1/lmr/m/n/12 á\OML/lmm/m/it/12 zka \OMS/lmsy/m/n/12 
+ []
+
+[45 <./img/android_dlib.png>]
+(/home/jan/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+<img/android.png, id=1003, 944.52875pt x 472.76625pt>
+File: img/android.png Graphic file (type png)
+<use img/android.png>
+Package pdftex.def Info: img/android.png  used on input line 1091.
+(pdftex.def)             Requested size: 455.24411pt x 227.87022pt.
+ [46])
+Overfull \hbox (20.47198pt too wide) in paragraph at lines 1096--40
+[]\T1/lmr/m/n/12 Klasifikátor priradí príznakom najpodobnej²iu identitu, av²ak 
+pouºitím SVM klasifikátora
+ []
+
+[47 <./img/android.png>] (includes/conclusion.tex
+Overfull \hbox (8.29213pt too wide) in paragraph at lines 9--17
+\T1/lmr/m/n/12 V ¤al²ích sekciách kapitoly sme sa venovali procesu trénovania m
+odelu Facenetu. Preskúmali
+ []
+
+
+Overfull \hbox (0.5549pt too wide) in paragraph at lines 18--25
+\T1/lmr/m/n/12 Finálnym krokom[][]4[][] tejto práce bolo implementova´ mobilnú 
+aplikáciu na zariadení Android
+ []
+
+[48
 
 
 ]
+Overfull \hbox (1.04436pt too wide) in paragraph at lines 30--34
+\T1/lmr/m/n/12 implementujúc napríklad v ROLO[[][]49[][]],a teda metóde zaloºen
+ej kombinácií detekcie objektu
+ []
+
+) [49]
 
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
@@ -2178,7 +2461,7 @@ Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[42
+[50
 
 
 ]
@@ -2207,9 +2490,9 @@ Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Overfull \hbox (2.90297pt too wide) in paragraph at lines 46--46
+Overfull \hbox (9.03992pt too wide) in paragraph at lines 46--46
 \T1/lmtt/m/n/12 crash -[] course / regularization -[] for -[] simplicity / l2 -
-[] regularization$[][]\T1/lmr/m/n/12 ]. (Accessed
+[] regularization$[][]\T1/lmr/m/n/12 ]. (Nav²ívené
  []
 
 
@@ -2254,7 +2537,7 @@ Overfull \hbox (1.62448pt too wide) in paragraph at lines 46--46
 chine Learning on Heterogeneous
  []
 
-[43]
+[51]
 
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
@@ -2311,7 +2594,7 @@ Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[44]
+[52]
 
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
@@ -2350,14 +2633,61 @@ Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[45] (polacek.pri)
-\tf@pri=\write15
-\openout15 = `polacek.pri'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 53.
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Overfull \hbox (10.18718pt too wide) in paragraph at lines 46--46
+[]\T1/lmr/m/it/12 Understand the Activity Lifecycle |Android Developers \T1/lmr
+/m/n/12 [[][]$\T1/lmtt/m/n/12 https : / / developer . android .
+ []
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+[53]
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+[54] (polacek.pri)
+\tf@pri=\write13
+\openout13 = `polacek.pri'.
+
  [1
 
 
+
+
+] (includes/attachmentA.tex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 53.
+ [2
 
 
 ]
@@ -2366,23 +2696,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 53.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 53.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 53.
 Package rerunfilecheck Info: File `polacek.out' has not changed.
-(rerunfilecheck)             Checksum: 300B5BEE8AA898363E7A6962439B5126;6823.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 429829E0E5CD8886D01BAE890E8E0943;7717.
 Package logreq Info: Writing requests to 'polacek.run.xml'.
 \openout1 = `polacek.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29362 strings out of 494898
- 482082 string characters out of 3178931
- 994893 words of memory out of 3000000
- 32232 multiletter control sequences out of 15000+200000
- 77114 words of font info for 55 fonts, out of 3000000 for 9000
+ 29596 strings out of 494898
+ 486119 string characters out of 3178931
+ 996683 words of memory out of 3000000
+ 32423 multiletter control sequences out of 15000+200000
+ 74099 words of font info for 54 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 63i,6n,94p,1976b,3018s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,7n,94p,1976b,3018s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/home/jan/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}{/home/jan/.mi
 ktex/texmfs/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home/jan/.miktex/texmfs/
 install/fonts/enc/dvips/lm/lm-rm.enc}{/home/jan/.miktex/texmfs/install/fonts/en
@@ -2400,9 +2726,9 @@ fonts/type1/public/lm/lmsy8.pfb></home/jan/.miktex/texmfs/install/fonts/type1/p
 ublic/lm/lmtk10.pfb></home/jan/.miktex/texmfs/install/fonts/type1/public/lm/lmt
 t12.pfb></home/jan/.miktex/texmfs/install/fonts/type1/public/lm/lmtt8.pfb></hom
 e/jan/.miktex/texmfs/install/fonts/type1/public/lm/lmtti10.pfb>
-Output written on polacek.pdf (59 pages, 4291283 bytes).
+Output written on polacek.pdf (69 pages, 7832019 bytes).
 PDF statistics:
- 1075 PDF objects out of 1200 (max. 8388607)
- 253 named destinations out of 1000 (max. 500000)
- 523 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1233 PDF objects out of 1440 (max. 8388607)
+ 291 named destinations out of 1000 (max. 500000)
+ 588 words of extra memory for PDF output out of 10000 (max. 10000000)
 
